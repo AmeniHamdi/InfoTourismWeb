@@ -12,15 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class VoitureController extends AbstractController
 {
     /**
-     * @Route("/voiture", name="voiture")
-     */
-    public function index(): Response
-    {
-        return $this->render('voiture/index.html.twig', [
-            'controller_name' => 'VoitureController',
-        ]);
-    }
-    /**
      * @Route("/admin/voiture", name="voiture")
      */
     public function listeVoiture(): Response
@@ -37,7 +28,6 @@ class VoitureController extends AbstractController
         $voiture = new Voiture();
         $form = $this->createForm(VoitureType::class, $voiture);
         $form->handleRequest($request);
-        dump($form);
         if ($form->isSubmitted()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($voiture);
@@ -58,13 +48,14 @@ class VoitureController extends AbstractController
         $em->flush();
         return $this->redirectToRoute("voiture");
     }
+
     /**
      * @Route("/admin/updateVoiture/{id}",name="updateVoiture")
      */
     public function updateVoiture(Request $request, $id)
     {
-        $voiture = $this->getDoctrine()->getRepository(Assurance::class)->find($id);
-        $form = $this->createForm(AssuranceType::class, $voiture);
+        $voiture = $this->getDoctrine()->getRepository(Voiture::class)->find($id);
+        $form = $this->createForm(VoitureType::class, $voiture);
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
             $em = $this->getDoctrine()->getManager();
@@ -73,5 +64,4 @@ class VoitureController extends AbstractController
         }
         return $this->render("admin/updateVoiture.html.twig", ["form" => $form->createView()]);
     }
-
 }

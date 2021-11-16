@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Modifier une voiture {% endblock %}
+    {% block title %}update une voiture{% endblock %}
 
     {% block stylesheets %}
 
@@ -63,7 +63,7 @@
             <div class="row small-spacing">
                 <div class="col-xs-12">
                     <div class="box-content card white">
-                        <h4 class="box-title">New voiture</h4>
+                        <h4 class="box-title">Update voiture</h4>
                         <!-- /.box-title -->
                         <div class="card-content">
 
@@ -74,32 +74,34 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">{{ form_label(form.matricule) }}</label>
-                                {{ form_widget(form.matricule, {'attr': {'class': 'form-control', 'placeholder': 'Entrer la  Matricule', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                {{ form_widget(form.matricule, {'attr': {'class': 'form-control', 'placeholder': 'Enter matricule', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">{{ form_label(form.nbrJours) }}</label>
-                                {{ form_widget(form.nbrJours, {'attr': {'class': 'form-control', 'placeholder': 'Entrer le Nombre de jours ', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                {{ form_widget(form.nbrJours, {'attr': {'class': 'form-control', 'placeholder': 'Enter nbrJours', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
                             </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.prix) }}</label>
+                                {{ form_widget(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Enter prix', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.dateReservation) }}</label>
+                                <div class="input-group">
+                                    {{ form_widget(form.dateReservation, { 'id': 'datepicker-autoclose' ,'attr': {'type': 'text', 'class': 'form-control', 'placeholder': 'mm/dd/yyyy'}}) }}
+                                    <span class="input-group-addon bg-primary text-white"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+
+                            {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'Submit' }) }}
+                            {{ form_end(form) }}
+
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">{{ form_label(form.prix) }}</label>
-                            {{ form_widget(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Entrer Prix', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">{{ form_label(form.dateReservation) }}</label>
-                            {{ form_widget(form.dateReservation, {'attr': {'class': 'form-control', 'placeholder': 'Entrer Date de Réservation ', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
-                        </div>
-
-
-                        {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'Submit' }) }}
-                        {{ form_end(form) }}
-
+                        <!-- /.card-content -->
                     </div>
-                    <!-- /.card-content -->
+                    <!-- /.box-content -->
                 </div>
-                <!-- /.box-content -->
-            </div>
 
             </div>
 

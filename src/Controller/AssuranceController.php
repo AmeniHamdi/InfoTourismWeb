@@ -12,15 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class AssuranceController extends AbstractController
 {
     /**
-     * @Route("/assurance", name="assurance")
-     */
-    public function index(): Response
-    {
-        return $this->render('assurance/index.html.twig', [
-            'controller_name' => 'AssuranceController',
-        ]);
-    }
-    /**
      * @Route("/admin/assurance", name="assurance")
      */
     public function listeAssurances(): Response
@@ -37,7 +28,6 @@ class AssuranceController extends AbstractController
         $assurance = new Assurance();
         $form = $this->createForm(AssuranceType::class, $assurance);
         $form->handleRequest($request);
-        dump($form);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($assurance);
@@ -76,5 +66,4 @@ class AssuranceController extends AbstractController
         }
         return $this->render("admin/updateAssurance.html.twig", ["form" => $form->createView()]);
     }
-
 }

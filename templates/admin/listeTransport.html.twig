@@ -47,8 +47,7 @@
                 <h4 class="box-title">Liste Des transports</h4>
                 <!-- /.box-title -->
                 <div class="dropdown js__drop_down">
-                    <button type="button" class="btn btn-success btn-sm waves-effect waves-light">New</button>
-
+                    <a type="button" href="{{ path("newTransport") }}" class="btn btn-success btn-sm waves-effect waves-light">Ajouter Nouvelle Transport</a>
                     <!-- /.sub-menu -->
                 </div>
                 <!-- /.dropdown js__dropdown -->
@@ -81,7 +80,11 @@
                             <td>{{ transport.getLieu() }}</td>
                             <td>{{ transport.getHeureDisponibilite()}}</td>
                             <td>{{ transport.getCapacite()}}</td>
-                            <td></td>
+                            <td>
+                                <a type="button" href= "{{ path("deleteTransport",{'id':transport.getId()}) }}" class="btn btn-danger btn-sx"><i class="ico fa fa-trash"></i></a>
+                                <a type="button" href= "{{ path("updateTransport",{'id':transport.getId()}) }}" class="btn btn-info btn-sx"><i class="ico fa fa-edit"></i></a>
+                                <a type="button" href= "#" class="btn btn-warning btn-sx"><i class="ico fa fa-eye"></i></a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

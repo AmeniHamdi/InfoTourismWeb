@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\VoitureRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 
 /**
  * @ORM\Entity(repositoryClass=VoitureRepository::class)
@@ -44,7 +45,7 @@ class Voiture
 
     /**
      * @var datetime|null
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $dateReservation;
 
@@ -96,7 +97,7 @@ class Voiture
         if ($this->dateReservation === null) {
             return null;
         }
-        return $this->dateReservation->format('Y-m-d') ?? null;
+        return $this->dateReservation->format('Y-m-d');
     }
 
     /**
@@ -132,10 +133,11 @@ class Voiture
     }
 
     /**
-     * @param DateTime $dateReservation
+     * @param string $dateReservation
+     * @throws Exception
      */
-    public function setDateReservation(DateTime $dateReservation): void
+    public function setDateReservation(string $dateReservation): void
     {
-        $this->dateReservation = $dateReservation;
+        $this->dateReservation = new DateTime($dateReservation);
     }
 }

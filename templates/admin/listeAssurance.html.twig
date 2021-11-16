@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="{{ asset('admin/plugin/waves/waves.min.css')}}">
 
         <!-- Sweet Alert -->
-        <link rel="stylesheet" href="{{ asset('admin/plugin/sweet-alert/sweetalert.css')}}">
+        <link rel="stylesheet" href="{{ asset('admin/alert/sweetalert2.min.css')}}">
 
         <!-- Data Tables -->
         <link rel="stylesheet" href="{{ asset('admin/plugin/datatables/media/css/dataTables.bootstrap.min.css')}}">
@@ -48,7 +48,7 @@
                 <!-- /.box-title -->
                 <div class="dropdown js__drop_down">
                     <a type="button" href="{{ path("newAssurance") }}" class="btn btn-success btn-sm waves-effect waves-light">Ajouter Nouvelle Assurance</a>
-                    <!-- /.sub-menu -->
+
                 </div>
                 <!-- /.dropdown js__dropdown -->
                 <table id="example" class="table table-striped table-bordered display" style="width:100%">
@@ -83,8 +83,7 @@
                         <td>
                             <a type="button" href= "{{ path("deleteAssurance",{'id':assurance.getId()}) }}" class="btn btn-danger btn-sx"><i class="ico fa fa-trash"></i></a>
                             <a type="button" href= "{{ path("updateAssurance",{'id':assurance.getId()}) }}" class="btn btn-info btn-sx"><i class="ico fa fa-edit"></i></a>
-                            <a type="button" href= "#" class="btn btn-warning btn-sx"><i class="ico fa fa-eye"></i></a>
-
+                            <a id="ameni{{ assurance.getId() }}" class="btn btn-warning waves-effect waves-light" type="button"><i class="ico fa fa-eye"></i></a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -122,6 +121,20 @@
     <script src="{{ asset('admin/scripts/datatables.demo.min.js')}}"></script>
 
     <script src="{{ asset('admin/scripts/main.min.js')}}"></script>
+    <script src="{{ asset('admin/alert/sweetalert2.min.js')}}"></script>
 
+    <script>
+        {% for assurance in assurance %}
+        document.getElementById('ameni'+{{ assurance.getId() }}).onclick = function(){
+            Swal.fire({
+                title: "CreatedBy : {{assurance.getCreatedBy() }}" + "\n" +
+                       "AssignedTo : {{assurance.getAssignedTo() }}" + "\n" +
+                       "Date debut : {{assurance.getDateDebut() }}" + "\n" +
+                       "Date fin : {{assurance.getDateFin() }}" + "\n",
+                icon: 'success',
+            })
+        };
+        {% endfor %}
+    </script>
 
 {% endblock %}

@@ -21,25 +21,25 @@ class Transport
      * @var string
      * @ORM\Column(type="string", length=255)
      */
-    private $type;
+    private $type = null;
 
     /**
      * @var string
      * @ORM\Column(type="string", length=255)
      */
-    private $lieu;
+    private $lieu = null;
 
     /**
      * @var string
      * @ORM\Column(type="string", length=255)
      */
-    private $heureDisponibilite;
+    private $heureDisponibilite = null;
 
     /**
      * @var int
      * @ORM\Column(type="integer")
      */
-    private $capacite;
+    private $capacite = null;
 
     /**
      * @return mixed
@@ -50,33 +50,33 @@ class Transport
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLieu(): string
+    public function getLieu(): ?string
     {
         return $this->lieu;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getHeureDisponibilite(): string
+    public function getHeureDisponibilite(): ?string
     {
         return $this->heureDisponibilite;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCapacite(): int
+    public function getCapacite(): ?int
     {
         return $this->capacite;
     }

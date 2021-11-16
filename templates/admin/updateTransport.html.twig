@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Ajouter  une voiture{% endblock %}
+    {% block title %}update transport{% endblock %}
 
     {% block stylesheets %}
 
@@ -63,35 +63,26 @@
             <div class="row small-spacing">
                 <div class="col-xs-12">
                     <div class="box-content card white">
-                        <h4 class="box-title">New voiture</h4>
+                        <h4 class="box-title">update transport</h4>
                         <!-- /.box-title -->
                         <div class="card-content">
 
                             {{ form_start(form) }}
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.modele) }}</label>
-                                {{ form_widget(form.modele, {'attr': {'class': 'form-control', 'placeholder': 'Enter modele', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label for="exampleInputEmail1">{{ form_label(form.type) }}</label>
+                                {{ form_widget(form.type, {'attr': {'class': 'form-control', 'placeholder': 'Enter type', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.matricule) }}</label>
-                                {{ form_widget(form.matricule, {'attr': {'class': 'form-control', 'placeholder': 'Enter matricule', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label for="exampleInputEmail1">{{ form_label(form.lieu) }}</label>
+                                {{ form_widget(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Enter lieu', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.nbrJours) }}</label>
-                                {{ form_widget(form.nbrJours, {'attr': {'class': 'form-control', 'placeholder': 'Enter nbrJours', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label for="exampleInputEmail1">{{ form_label(form.heureDisponibilite) }}</label>
+                                {{ form_widget(form.heureDisponibilite, {'attr': {'class': 'form-control', 'placeholder': 'Enter heureDisponibilite', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
                             </div>
-
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.prix) }}</label>
-                                {{ form_widget(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Enter prix', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.dateReservation) }}</label>
-                                <div class="input-group">
-                                    {{ form_widget(form.dateReservation, { 'id': 'datepicker-autoclose' ,'attr': {'type': 'text', 'class': 'form-control', 'placeholder': 'mm/dd/yyyy'}}) }}
-                                    <span class="input-group-addon bg-primary text-white"><i class="fa fa-calendar"></i></span>
-                                </div>
+                                <label for="exampleInputEmail1">{{ form_label(form.capacite) }}</label>
+                                {{ form_widget(form.capacite, {'attr': {'class': 'form-control', 'placeholder': 'Enter capacite', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
                             </div>
 
                             {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'Submit' }) }}

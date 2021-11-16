@@ -10,15 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class NotesController extends AbstractController
 {
     /**
-     * @Route("/notes", name="notes")
-     */
-    public function index(): Response
-    {
-        return $this->render('notes/index.html.twig', [
-            'controller_name' => 'NotesController',
-        ]);
-    }
-    /**
      * @Route("/admin/notes", name="notes")
      */
     public function listeNotes(): Response
