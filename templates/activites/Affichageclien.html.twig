@@ -1,0 +1,66 @@
+{% extends 'clientbase.html.twig' %}
+
+{% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    {% block stylesheets %}
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+
+        <!-- Template Main CSS File -->
+
+        <!-- Vendor CSS Files -->
+        <link href="{{ asset('client/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+        <link href="{{ asset('client/css/style.css') }}" rel="stylesheet">
+
+    {% endblock %}
+{% endblock %}
+
+        {% block content %}
+
+
+
+            <table border="1px" >
+                <tr>
+                    <th>ID</th>
+                    <th>Destination</th>
+                    <th>Activite</th>
+                    <th>Date_depart</th>
+                    <th>Date_arrivee</th>
+
+                </tr>
+                <tr {%  for a in activite %}>
+                    <td>{{  a.id }}</td>
+                    <td>{{ a.destination }}</td>
+                    <td>{{ a.activite }}</td>
+                    <td>{{ a.DateDepart|date }}</td>
+                    <td>{{ a.DateDarrivee|date }}</td>
+
+
+                </tr {% endfor %}>
+            </table>
+
+
+        {% endblock %}
+
+{% block javascripts %}
+
+
+
+
+{% endblock %}
