@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cards - My Admin Template</title>
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="{{ asset('dark/assets/styles/style.min.css')}}">
+
+    <!-- Material Design Icon -->
+    <link rel="stylesheet" href="{{ asset('dark/assets/fonts/material-design/css/materialdesignicons.css')}}">
+
+    <!-- mCustomScrollbar -->
+    <link rel="stylesheet" href="{{ asset('dark/assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css')}}">
+
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="{{ asset('dark/assets/plugin/waves/waves.min.css')}}">
+
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="{{ asset('dark/assets/plugin/sweet-alert/sweetalert.css')}}">
+
+    <!-- Dark Themes -->
+    <link rel="stylesheet" href="{{ asset('dark/assets/styles/style-dark.min.css')}}">
+</head>
+
+<body>
+<div class="main-menu">
+    <header class="header">
+        <a href="index" class="logo"><i class="ico mdi mdi-cube-outline"></i>InfoTourism</a>
+        <button type="button" class="button-close fa fa-times js__menu_close"></button>
+        <div class="user">
+            <a href="#" class="avatar"><img src="{{ asset('dark/assets/images/achraf-tawes.jpg')}}" alt=""><span class="status online"></span></a>
+            <h5 class="name"><a href="profile">Taous Mohamed Achraf</a></h5>
+            <h5 class="position">Administrator</h5>
+            <!-- /.name -->
+            <div class="control-wrap js__drop_down">
+                <i class="fa fa-caret-down js__drop_down_button"></i>
+                <div class="control-list">
+                    <div class="control-item"><a href="profile"><i class="fa fa-user"></i> Profile</a></div>
+                    <div class="control-item"><a href="#"><i class="fa fa-gear"></i> Settings</a></div>
+                    <div class="control-item"><a href="#"><i class="fa fa-sign-out"></i> Log out</a></div>
+                </div>
+                <!-- /.control-list -->
+            </div>
+            <!-- /.control-wrap -->
+        </div>
+        <!-- /.user -->
+    </header>
+    <!-- /.header -->
+    <div class="content">
+
+        <div class="navigation">
+            <h5 class="title">Navigation</h5>
+            <!-- /.title -->
+            <ul class="menu js__accordion">
+                <li>
+                    <a class="waves-effect" href="index"><i class="menu-icon mdi mdi-view-dashboard"></i><span>Dashboard</span></a>
+                </li>
+
+                <li>
+                    <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-cube-outline"></i><span>Admin UI</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                    <ul class="sub-menu js__content">
+                        <li class="current"><a href="AfficheReclama">Reclamation</a></li>
+                        <li><a href="AjouteReclama">Ajouter Reclamation</a></li>
+                        <li><a href="profile">Profile</a></li>
+                        <li><a href="blog">Blogs</a></li>
+                    </ul>
+                    <!-- /.sub-menu js__content -->
+                </li>
+
+
+
+            </ul>
+            <!-- /.menu js__accordion -->
+
+
+            <!-- /.menu js__accordion -->
+        </div>
+        <!-- /.navigation -->
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.main-menu -->
+
+<div class="fixed-navbar">
+    <div class="pull-left">
+        <button type="button" class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
+        <h1 class="page-title">Reclamation</h1>
+        <!-- /.page-title -->
+    </div>
+    <!-- /.pull-left -->
+    <div class="pull-right">
+        <div class="ico-item">
+            <a href="#" class="ico-item mdi mdi-magnify js__toggle_open" data-target="#searchform-header"></a>
+            <form action="#" id="searchform-header" class="searchform js__toggle"><input type="search" placeholder="Search..." class="input-search"><button class="mdi mdi-magnify button-search" type="submit"></button></form>
+            <!-- /.searchform -->
+        </div>
+        <!-- /.ico-item -->
+        <a href="#" class="ico-item mdi mdi-email notice-alarm js__toggle_open" data-target="#message-popup"></a>
+        <a href="#" class="ico-item pulse"><span class="ico-item mdi mdi-bell notice-alarm js__toggle_open" data-target="#notification-popup"></span></a>
+        <a href="#" class="ico-item mdi mdi-logout js__logout"></a>
+    </div>
+    <!-- /.pull-right -->
+</div>
+<!-- /.fixed-navbar -->
+
+<div id="notification-popup" class="notice-popup js__toggle" data-space="75">
+    <h2 class="popup-title">Your Notifications</h2>
+    <!-- /.popup-title -->
+    <div class="content">
+        <ul class="notice-list">
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-1.jpg')}}" alt=""></span>
+                    <span class="name">John Doe</span>
+                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
+                    <span class="time">10 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-2.jpg')}}" alt=""></span>
+                    <span class="name">Anna William</span>
+                    <span class="desc">Like your post: “Facebook Messenger”</span>
+                    <span class="time">15 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar bg-warning"><i class="fa fa-warning"></i></span>
+                    <span class="name">Update Status</span>
+                    <span class="desc">Failed to get available update data. To ensure the please contact us.</span>
+                    <span class="time">30 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-1.jpg')}}" alt=""></span>
+                    <span class="name">Jennifer</span>
+                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
+                    <span class="time">45 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-6.jpg')}}" alt=""></span>
+                    <span class="name">Michael Zenaty</span>
+                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
+                    <span class="time">50 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-4.jpg')}}" alt=""></span>
+                    <span class="name">Simon</span>
+                    <span class="desc">Like your post: “Facebook Messenger”</span>
+                    <span class="time">1 hour</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar bg-violet"><i class="fa fa-flag"></i></span>
+                    <span class="name">Account Contact Change</span>
+                    <span class="desc">A contact detail associated with your account has been changed.</span>
+                    <span class="time">2 hours</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-7.jpg')}}" alt=""></span>
+                    <span class="name">Helen 987</span>
+                    <span class="desc">Like your post: “Facebook Messenger”</span>
+                    <span class="time">Yesterday</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-2.jpg')}}" alt=""></span>
+                    <span class="name">Denise Jenny</span>
+                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
+                    <span class="time">Oct, 28</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-8.jpg')}}" alt=""></span>
+                    <span class="name">Thomas William</span>
+                    <span class="desc">Like your post: “Facebook Messenger”</span>
+                    <span class="time">Oct, 27</span>
+                </a>
+            </li>
+        </ul>
+        <!-- /.notice-list -->
+        <a href="#" class="notice-read-more">See more messages <i class="fa fa-angle-down"></i></a>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /#notification-popup -->
+
+<div id="message-popup" class="notice-popup js__toggle" data-space="75">
+    <h2 class="popup-title">Recent Messages<a href="#" class="pull-right text-danger">New message</a></h2>
+    <!-- /.popup-title -->
+    <div class="content">
+        <ul class="notice-list">
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-1.jpg')}}" alt=""></span>
+                    <span class="name">John Doe</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">10 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-3.jpg')}}" alt=""></span>
+                    <span class="name">Harry Halen</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">15 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-4.jpg')}}" alt=""></span>
+                    <span class="name">Thomas Taylor</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">30 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-1.jpg')}}" alt=""></span>
+                    <span class="name">Jennifer</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">45 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-sm-5.jpg')}}" alt=""></span>
+                    <span class="name">Helen Candy</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">45 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-2.jpg')}}" alt=""></span>
+                    <span class="name">Anna Cavan</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">1 hour ago</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar bg-success"><i class="fa fa-user"></i></span>
+                    <span class="name">Jenny Betty</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">1 day ago</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img src="{{ asset('dark/assets/images/avatar-5.jpg')}}" alt=""></span>
+                    <span class="name">Denise Peterson</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">1 year ago</span>
+                </a>
+            </li>
+        </ul>
+        <!-- /.notice-list -->
+        <a href="#" class="notice-read-more">See more messages <i class="fa fa-angle-down"></i></a>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /#message-popup -->
+<div id="wrapper">
+    <div class="main-content">
+        <div class="row row-inline-block small-spacing">
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+
+                    <h4 class="box-title text-primary">Explorer le Palais du Baron d’Erlanger</h4>
+                    <img src="{{ asset('dark/assets/images/Palais.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>Au cœur de Sidi Bou Saïd, vous pourrez visiter le Palais Ennejma Ezzahra, appartenant autrefois au Baron d’Erlanger. Aujourd’hui transformé en musée ouvert au public, vous pourrez ainsi voir à quoi ressemblait la demeure de ce franco-britannique, mort en 1932 à Tunis. Mais aussi connaître les traditions et coutumes d’antan. Lui-même architecte de son Palais, le Baron était aussi artiste peintre. Ses nombreuses toiles sont d’ailleurs présentées au sein de la demeure. Vous pourrez également visiter son hammam privé, mais aussi le somptueux jardin qui vous présentera une sublime vue sur le Golfe de Tunis. </p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary"> Se désaltérer dans un café</h4>
+                    <img src="{{ asset('dark/assets/images/cafe.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>Lors de votre visite de Sidi Bou Saïd, prenez le temps de vous arrêter dans un des cafés de la ville. Plusieurs tiennent une belle réputation tels que le célèbre Café des Délices, le Café des Nattes ou encore le Café Hadj Amor. Vous pourriez y déguster un excellent thé à la menthe ou d’autres boissons typiques du pays comme les vins fabriqués en Afrique du Nord. Tout en savourant ces délicieuses boissons, regardez autour de vous et admirez la ville et sa beauté architecturale. Si vous optez pour le Café des Délices (voir sur une carte), c’est sur le golfe de Tunis et de Carthage que vous aurez une magnifique vue.</p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary">Se rendre sur le site archéologique de Carthage</h4>
+                    <img src="{{ asset('dark/assets/images/carthage.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>La ville de Carthage recense de nombreux sites archéologiques disséminés un peu partout dans la ville, avec des pierres tannées par le soleil. Témoins d’un lourd passé entre les Carthaginois et les Romains, ces sites historiques sont désormais des visites incontournables à faire à Carthage. Vous pourrez voir un théâtre, les vestiges d’un amphithéâtre, mais aussi vous promener dans le quartier punique. N’hésitez pas non plus à vous rendre aux anciens thermes romains, en bord de plage et par la même occasion, observer le palais présidentiel juste à côté.</p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary"> Se promener Rue Habib Thameur</h4>
+                    <img src="{{ asset('dark/assets/images/habib-thamer.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>La rue Habib Thameur est la rue principale de Sidi Bou Saïd. C’est une rue à ne pas manquer lors de votre passage dans la ville. C’est le lieu incontournable pour ceux parmi vous qui veulent repartir avec des souvenirs et objets en tous genres. Vous y trouverez quasiment tout ce que vous désirez et bien évidemment, il faudra marchander. C’est aussi une rue où vous trouverez de nombreux très bons restaurants. Prenez le temps de vous y arrêter afin de goûter aux spécialités locales. Une petite pause désaltérante sera aussi la bienvenue après avoir grimpé cette rue sous la chaleur tunisienne.</p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary">La douceur de vivre tunisienne</h4>
+                    <img src="{{ asset('dark/assets/images/douceur.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>En Tunisie, vous prendrez le temps de vivre, notamment dans le sud du pays : la chaleur du désert incite ainsi à l’économie d’activités physiques. Dans les souks, chacun compare les prix et marchande. Certains, le matin, se rendent au hammam afin d’entendre les dernières nouvelles. Mais cette quiétude vaut aussi pour la côte orientale de la Tunisie. Ce ne sont pas Monastir et Djerba qui contrediront ces propos. Vous pourrez flâner le long des ruelles ombragées ou siroter un jus de fruits bien frais à la terrasse d’un café. Bref, visiter la Tunisie… c’est se laisser vivre, ne pas s’en faire si le bus est en retard ou bien si le musée n’est pas encore ouvert. « Inch’Allah » (Si Dieu le veut) est le mot que vous entendrez le plus ici !</p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary">Le désert tunisien</h4>
+                    <img src="{{ asset('dark/assets/images/desert.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>Les portes du Sahara se trouvent en partie sur le sol tunisien. Vous aurez donc certainement envie de découvrir cet espace incroyable. Faites-vous accompagner d’un bédouin pour vous guider lors d’une aventure en toute sécurité dans le plus grand désert du monde. Vous pourrez y découvrir des villages troglodytes, mais aussi des oasis et des déserts de sel. L’occasion rêvée de faire un road-trip en 4×4 ou une expédition à dos de dromadaires !
+
+                    </p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary">Quelle est la meilleure période pour visiter la Tunisie ?</h4>
+                    <img src="{{ asset('dark/assets/images/periode.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>Il faut savoir que plus vous descendez dans le pays, plus la température grimpe. L’été, le temps peut vite tourner à la canicule ! Choisissez alors plutôt un séjour en bord de mer à cette période. Hammamet, Monastir, la discrète Mahdia ou encore l’île de Djerba vous offriront des havres de fraîcheur dans des eaux cristallines. Mais pensez que si vous voulez faire des visites, vous risquez de souffrir de la chaleur, surtout si vous voyagez avec de jeunes enfants. Évitez le désert à cette période, qui est étouffant !</p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary">Quel budget est à prévoir pour votre séjour ?</h4>
+                    <img src="{{ asset('dark/assets/images/hotel.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>Là aussi, tout dépend de la période ! L’été, le tarif des logements grimpe à son plus haut niveau. Les vacances scolaires françaises sont aussi des périodes où les tarifs des hôtels et des locations augmentent. Pour visiter la Tunisie avec un petit budget, optez pour les auberges de jeunesse (appelées ici « Maison jeunes »). Les petits hôtels locaux, éloignés des lieux touristiques sont assez abordables (20 à 30 euros la nuit). Les hôtels plus haut de gamme vont de 30 à 130 euros la nuit. Ce qui reste tout de même moins cher qu’en France !</p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary">Naviguer jusqu’aux îles Kuriat</h4>
+                    <img src="{{ asset('dark/assets/images/kuriat.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>Au large des côtes Est de Monastir, vous apercevrez les îles Kuriat (situer sur une carte). Véritable lieu de biodiversité, cet archipel est très important pour quelques espèces menacées. Par exemple, ces îles sont le principal endroit de nidification de la tortue Caouanne. Mais aussi une escale importante pour les goélands migrateurs. Vous l’aurez compris, si vous aimez la nature, naviguer jusqu’aux îles Kuriat sera incontournable pour vous lors de votre séjour à Monastir. Plusieurs départs en bateau sont organisés chaque jour depuis Monastir, l’été uniquement. Certains d’entre eux proposent mêmes un service de restauration à bord.</p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary">Welcome to Matmata</h4>
+                    <img src="{{ asset('dark/assets/images/chenini.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>Enfin, si c’est le désert qui vous attire, les villes de Tozeur, Matmata ou encore Tataouine vous plairont. Le village berbère de Chenini offre aussi quelques gîtes perdus dans les montagnes. Un véritable havre de paix aux portes du désert ! Vous pourrez facilement rejoindre les oasis, les chott (déserts de sel) ou même dormir au cœur des dunes du Sahara. Une expérience incroyable dont vous vous souviendrez longtemps !</p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary">Le couscous</h4>
+                    <img src="{{ asset('dark/assets/images/couscous.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>Le couscous est le véritable plat national de Tunisie. Il est souvent préparé avec de l’agneau et du poulet. Cependant, c’est bel et bien le poisson et notamment le mérou, qui permet à la Tunisie de se démarquer des autres pays du Maghreb. Le couscous est un plat naturellement complet, accompagné de petits légumes qui apportent couleur et gaieté à la table. Si vous faites un séjour itinérant, n’hésitez pas à en manger dans différentes villes : il change selon ce que la région propose.
+
+                    </p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="box-content">
+                    <h4 class="box-title text-primary">La Harissa</h4>
+                    <img src="{{ asset('dark/assets/images/harissa.jpg')}}" alt="">
+                    <!-- /.box-title -->
+                    <div class="dropdown js__drop_down">
+                        <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else there</a></li>
+                            <li class="split"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                        <!-- /.sub-menu -->
+                    </div>
+                    <!-- /.dropdown js__dropdown -->
+                    <p>Emblématique de ce pays, l’harissa est un ingrédient qui donne à n’importe quel plat son caractère typiquement tunisien. Il s’agit d’une purée de piments broyés avec du carvi ou du cumin. Autant vous dire qu’il faut un estomac solide pour résister à cette sauce nationale ! Pour vos débuts, demandez qu’on ne vous en serve qu’un petit peu…</p>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-xs-12 -->
+        </div>
+        <!-- /.row row-inline-block small-spacing -->
+        <footer class="footer">
+            <ul class="list-inline">
+                <li>2021 © TaousAdmin.</li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </footer>
+    </div>
+    <!-- /.main-content -->
+</div><!--/#wrapper -->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="{{ asset('dark/assets/script/html5shiv.min.js')}}"></script>
+<script src="{{ asset('dark/assets/script/respond.min.js')}}"></script>
+<![endif]-->
+<!--
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ asset('dark/assets/scripts/jquery.min.js')}}"></script>
+<script src="{{ asset('dark/assets/scripts/modernizr.min.js')}}"></script>
+<script src="{{ asset('dark/assets/plugin/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('dark/assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="{{ asset('dark/assets/plugin/nprogress/nprogress.js')}}"></script>
+<script src="{{ asset('dark/assets/plugin/sweet-alert/sweetalert.min.js')}}"></script>
+<script src="{{ asset('dark/assets/plugin/waves/waves.min.js')}}"></script>
+
+<script src="{{ asset('dark/assets/scripts/main.min.js')}}"></script>
+</body>
+</html>
