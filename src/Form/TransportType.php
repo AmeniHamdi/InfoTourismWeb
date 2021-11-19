@@ -25,6 +25,9 @@ class TransportType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Transport::class,
+            'attr' => [
+                'novalidate' => 'novalidate', // comment me to reactivate the html5 validation!  🚥
+            ]
         ]);
     }
 }

@@ -69,20 +69,31 @@
 
                             {{ form_start(form) }}
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.type) }}</label>
-                                {{ form_widget(form.type, {'attr': {'class': 'form-control', 'placeholder': 'Enter type', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.type) }}</label>
+                                {{ form_widget(form.type, {'attr': {'class': 'form-control', 'placeholder': 'Enter type','type': 'text'}}) }}
+                                <small>{{ form_help(form.type) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.type) }}</div>
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.lieu) }}</label>
-                                {{ form_widget(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Enter lieu', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.lieu) }}</label>
+                                {{ form_widget(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Enter lieu', 'type': 'text'}}) }}
+                                <small>{{ form_help(form.lieu) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.lieu) }}</div>
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.heureDisponibilite) }}</label>
-                                {{ form_widget(form.heureDisponibilite, {'attr': {'class': 'form-control', 'placeholder': 'Enter heureDisponibilite', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.heureDisponibilite) }}</label>
+                                {{ form_widget(form.heureDisponibilite, {'attr': {'class': 'form-control', 'placeholder': 'Enter heureDisponibilite', 'type': 'text'}}) }}
+                                <small>{{ form_help(form.heureDisponibilite) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.heureDisponibilite) }}</div>
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.capacite) }}</label>
-                                {{ form_widget(form.capacite, {'attr': {'class': 'form-control', 'placeholder': 'Enter capacite', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.capacite) }}</label>
+                                {{ form_widget(form.capacite, {'attr': {'class': 'form-control', 'placeholder': 'Enter capacite', 'type': 'text'}}) }}
+                                <small>{{ form_help(form.capacite) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.capacite) }}</div>
                             </div>
 
                             {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'Submit' }) }}

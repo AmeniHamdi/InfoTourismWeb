@@ -27,6 +27,9 @@ class VoitureType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Voiture::class,
+            'attr' => [
+                'novalidate' => 'novalidate', // comment me to reactivate the html5 validation!  🚥
+            ]
         ]);
     }
 }

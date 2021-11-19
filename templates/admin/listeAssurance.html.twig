@@ -59,6 +59,7 @@
                         <th>Date Fin</th>
                         <th>Created By</th>
                         <th>Assigned To</th>
+                        <th>Voiture</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -69,6 +70,7 @@
                         <th>Date Fin</th>
                         <th>Created By</th>
                         <th>Assigned To</th>
+                        <th>Voiture</th>
                         <th>Action</th>
                     </tr>
                     </tfoot>
@@ -80,6 +82,7 @@
                         <td>{{ assurance.getDateFin() }}</td>
                         <td>{{ assurance.getCreatedBy()}}</td>
                         <td>{{ assurance.getAssignedTo()}}</td>
+                        <td>{{ assurance.getIdvoiture()}}</td>
                         <td>
                             <a type="button" href= "{{ path("deleteAssurance",{'id':assurance.getId()}) }}" class="btn btn-danger btn-sx"><i class="ico fa fa-trash"></i></a>
                             <a type="button" href= "{{ path("updateAssurance",{'id':assurance.getId()}) }}" class="btn btn-info btn-sx"><i class="ico fa fa-edit"></i></a>

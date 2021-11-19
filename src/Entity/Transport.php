@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TransportRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=TransportRepository::class)
@@ -18,24 +19,28 @@ class Transport
     private $id;
 
     /**
+     * @Assert\NotBlank(message="type est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $type = null;
 
     /**
+     * @Assert\NotBlank(message="lieu est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $lieu = null;
 
     /**
+     * @Assert\NotBlank(message="heure de disponibilité est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $heureDisponibilite = null;
 
     /**
+     * @Assert\NotBlank(message="capacité est Obligatoire")
      * @var int
      * @ORM\Column(type="integer")
      */

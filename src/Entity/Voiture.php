@@ -6,6 +6,7 @@ use App\Repository\VoitureRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Exception;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=VoitureRepository::class)
@@ -20,30 +21,35 @@ class Voiture
     private $id;
 
     /**
+     * @Assert\NotBlank(message="matricule est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $matricule = null;
 
     /**
+     * @Assert\NotBlank(message="modele est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $modele = null;
 
     /**
+     * @Assert\NotBlank(message="prix est Obligatoire")
      * @var int
      * @ORM\Column(type="integer")
      */
     private $prix;
 
     /**
+     * @Assert\NotBlank(message="nombre de jour est Obligatoire")
      * @var int
      * @ORM\Column(type="integer")
      */
     private $nbrJours;
 
     /**
+     * @Assert\NotBlank(message="date de reservation est Obligatoire")
      * @var datetime|null
      * @ORM\Column(type="date")
      */
@@ -74,7 +80,7 @@ class Voiture
     }
 
     /**
-     * @return int |null
+     * @return int|null
      */
     public function getPrix(): ?int
     {
@@ -82,7 +88,7 @@ class Voiture
     }
 
     /**
-     * @return int |null
+     * @return int|null
      */
     public function getNbrJours(): ?int
     {
@@ -139,5 +145,10 @@ class Voiture
     public function setDateReservation(string $dateReservation): void
     {
         $this->dateReservation = new DateTime($dateReservation);
+    }
+
+    public function __toString()
+    {
+        return (string)$this->matricule;
     }
 }

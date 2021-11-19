@@ -22,25 +22,36 @@ class Assurance
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Voiture est Obligatoire")
+     * @ORM\ManyToOne(targetEntity="Voiture")
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    private $idvoiture;
+
+    /**
+     * @Assert\NotBlank(message="date Debut est Obligatoire")
      * @var datetime|null
      * @ORM\Column(type="date")
      */
-    private $dateDebut;
+    public $dateDebut;
 
     /**
+     * @Assert\NotBlank(message="date Fin est Obligatoire")
+     * @Assert\Expression("value > this.dateDebut", message="date de debut doit étre avant la date fin")
      * @var datetime|null
      * @ORM\Column(type="date")
      */
-    private $dateFin;
+    public $dateFin;
 
     /**
-     * @Assert\NotBlank(message="The Creator  is required")
+     * @Assert\NotBlank(message="created By est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $createdBy = null;
 
     /**
+     * @Assert\NotBlank(message="assigned To est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
@@ -124,5 +135,21 @@ class Assurance
     public function setAssignedTo(string $assignedTo): void
     {
         $this->assignedTo = $assignedTo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdvoiture()
+    {
+        return $this->idvoiture;
+    }
+
+    /**
+     * @param mixed $idvoiture
+     */
+    public function setIdvoiture($idvoiture): void
+    {
+        $this->idvoiture = $idvoiture;
     }
 }

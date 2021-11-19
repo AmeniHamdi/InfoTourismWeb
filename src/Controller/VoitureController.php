@@ -28,7 +28,7 @@ class VoitureController extends AbstractController
         $voiture = new Voiture();
         $form = $this->createForm(VoitureType::class, $voiture);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($voiture);
             $em->flush();
@@ -57,7 +57,7 @@ class VoitureController extends AbstractController
         $voiture = $this->getDoctrine()->getRepository(Voiture::class)->find($id);
         $form = $this->createForm(VoitureType::class, $voiture);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute("voiture");

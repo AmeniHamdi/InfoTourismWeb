@@ -28,7 +28,7 @@ class TransportController extends AbstractController
         $transport = new Transport();
         $form = $this->createForm(TransportType::class, $transport);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($transport);
             $em->flush();
@@ -59,7 +59,7 @@ class TransportController extends AbstractController
         $transport = $this->getDoctrine()->getRepository(Transport::class)->find($id);
         $form = $this->createForm(TransportType::class, $transport);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute("transport");

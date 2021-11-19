@@ -59,7 +59,7 @@ class AssuranceController extends AbstractController
         $assurance = $this->getDoctrine()->getRepository(Assurance::class)->find($id);
         $form = $this->createForm(AssuranceType::class, $assurance);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute("assurance");
