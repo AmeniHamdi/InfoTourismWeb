@@ -146,10 +146,10 @@ class User implements UserInterface
     }
 
     /**
-     * @param string $image
+     * @param string|null $image
      * @return User
      */
-    public function setImage(string $image): self
+    public function setImage(?string $image): User
     {
         $this->image = $image;
         return $this;
