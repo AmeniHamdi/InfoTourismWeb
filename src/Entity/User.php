@@ -19,6 +19,12 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $image = null;
+
+    /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
@@ -63,7 +69,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -128,6 +134,24 @@ class User implements UserInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     * @return User
+     */
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
         return $this;
     }
 }
