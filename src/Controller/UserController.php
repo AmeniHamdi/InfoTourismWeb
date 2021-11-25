@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\ImageType;
 use App\Form\UserType;
+use Twilio\Rest\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -39,6 +40,7 @@ class UserController extends AbstractController
         }
         $em->remove($users);
         $em->flush();
+        
         return $this->redirectToRoute("utilisateur");
     }
 
@@ -142,5 +144,13 @@ class UserController extends AbstractController
         return $this->redirectToRoute("utilisateur");
     }
 
-    // create commande to generate first super_admin user
+
+    /**
+     * @Route("/admin/profile/{id}", name="profile")
+     */
+    public function listProfile($id): Response
+    {
+        $profile = $this->getDoctrine()->getRepository(User::class)->find($id);
+        return $this->render('admin/profile.html.twig', ['profile' => $profile]);
+    }
 }

@@ -60,6 +60,7 @@
                         <th>Prix</th>
                         <th>Nombre de jours</th>
                         <th>Date de réservation </th>
+                        <th>image </th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -71,11 +72,12 @@
                         <th>Prix</th>
                         <th>Nombre de jours</th>
                         <th>Date de réservation </th>
+                        <th>image </th>
                         <th>Action</th>
                     </tr>
                     </tfoot>
                     <tbody>
-                    {% for voiture in voiture %}
+                        {% for voiture in voiture %}
                         <tr>
                             <td>{{ voiture.getId() }}</td>
                             <td>{{ voiture.getMatricule() }}</td>
@@ -83,6 +85,12 @@
                             <td>{{ voiture.getPrix()}}</td>
                             <td>{{ voiture.getNbrJours()}}</td>
                             <td>{{ voiture.getDateReservation()}}</td>
+                            <td>
+                                <div class="notice-list">
+                                    <img src="{{ asset('uploads/voiture/' ~ voiture.image) }}" alt="" width="100" height="100">
+                                </div>
+                            </td>
+
                             <td>
 
                                 <a type="button" href= "{{ path("deleteVoiture",{'id':voiture.getId()}) }}" class="btn btn-danger btn-sx"><i class="ico fa fa-trash"></i></a>

@@ -21,6 +21,12 @@ class Voiture
     private $id;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $image = null;
+
+    /**
      * @Assert\NotBlank(message="matricule est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
@@ -150,5 +156,21 @@ class Voiture
     public function __toString()
     {
         return (string)$this->matricule;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string|null $image
+     */
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
     }
 }

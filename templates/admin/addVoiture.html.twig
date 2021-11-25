@@ -51,6 +51,7 @@
         <link rel="stylesheet" href="{{ asset('admin/plugin/daterangepicker/daterangepicker.css') }}">
 
         <!-- Dark Themes -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/dropify/css/dropify.min.css')}}">
         <link rel="stylesheet" href="{{ asset('admin/styles/style-dark.min.css') }}">
 
 
@@ -104,6 +105,13 @@
                                 </div>
                                 <small>{{ form_help(form.dateReservation) }}</small>
                                 <div class="notice-danger">{{ form_errors(form.dateReservation) }}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>{{ form_label(form.image) }}</label>
+                                {{ form_widget(form.image, { 'id': 'input-file-now' ,'attr': {'type': 'file', 'class': 'dropify'}}) }}
+                                <small>{{ form_help(form.image) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.image) }}</div>
                             </div>
 
                             {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'Submit' }) }}
@@ -164,6 +172,7 @@
 
     <!-- Demo Scripts -->
     <script src="{{ asset('admin/scripts/form.demo.min.js') }}"></script>
-
+    <script src="{{ asset('admin/plugin/dropify/js/dropify.min.js')}}"></script>
+    <script src="{{ asset('admin/scripts/fileUpload.demo.min.js')}}"></script>
     <script src="{{ asset('admin/scripts/main.min.js') }}"></script>
 {% endblock %}
