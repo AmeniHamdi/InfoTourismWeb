@@ -71,7 +71,7 @@
                         <li class="current"><a href="AfficheReclama">Reclamation</a></li>
                         <li><a href="AjouteReclama">Ajouter Reclamation</a></li>
                         <li><a href="profile">Profile</a></li>
-                        <li><a href="blog">Blogs</a></li>
+                        <li><a href="AffichePost">Blogs</a></li>
                     </ul>
                     <!-- /.sub-menu js__content -->
                 </li>
@@ -322,8 +322,8 @@
                             <td>{{ r.phonenumber }}</td>
                             <td>{{ r.email }}</td>
                             <td>{{ r.description }}</td>
-                            <td><a href="{{ path('update',{'id':r.id}) }}">Update</a></td>
-                            <td><a href="{{ path('d',{'id':r.id}) }}">Delete</a></td>
+                            <td><button type="button" class="btn btn-primary btn-sm waves-effect waves-light"><a href="{{ path('update',{'id':r.id}) }}"></a>Update</button></td>
+                            <td><button type="button" class="btn btn-danger waves-effect waves-light"><a href="{{ path('d',{'id':r.id}) }}"></a>Delete</button></td>
                         </tr  {% endfor %}>
 
                         </tbody>

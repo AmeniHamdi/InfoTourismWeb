@@ -72,7 +72,7 @@
                         <li class="current"><a href="AfficheReclama">Reclamation</a></li>
                         <li><a href="AjouteReclama">Ajouter Reclamation</a></li>
                         <li><a href="profile">Profile</a></li>
-                        <li><a href="blog">Blogs</a></li>
+                        <li><a href="AffichePost">Blogs</a></li>
 
                     </ul>
                     <!-- /.sub-menu js__content -->
@@ -352,7 +352,11 @@
                     <!-- /.col-md-3 -->
                     <div class="col-xs-12 margin-top-30">
 
-                        {{form(form)}}
+                        {{ form_start(form,{'attr': {'novalidate':'novalidate'}} ) }}
+
+
+
+                        {{ form_end(form) }}
 
 
                     </div>

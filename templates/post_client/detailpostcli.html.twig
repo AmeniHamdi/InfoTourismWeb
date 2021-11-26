@@ -76,12 +76,12 @@
                                         </div>
                                     </li>
                                     <li class="dropdown_li">
-                                        <a href="AffichePostCl">
+                                        <a href="{{ asset('html/blog-list.html')}}">
                                             <span>Blog</span>
                                         </a>
                                         <div class="dropdown-menu">
                                             <ul>
-                                                <li><a href="AffichePostCl">Blog</a></li>
+                                                <li><a href="{{ asset('html/blog-list.html')}}">Blog</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -125,151 +125,153 @@
         </div>
     </div>
 
-    <div class="page_content single-page tour-single dark">
-        <div class="content-body">
+    <div class="page_content destinations-page">
+        <div class="wrap">
+            <div class="wrap_float">
+                <div class="section-subtitle">EXPLORE TOURS BY DESTINATIONS</div>
+                <div class="section-title">Destinations</div>
+                <div class="main">
+                    <div class="popular_destination__slider">
 
-            <div class="wrap">
+                        <div class="col-lg-8">
+                            <!-- Post content-->
+                            <article>
+                                <!-- Post header-->
+                                <header class="mb-4">
+                                    <!-- Post title-->
+                                    <h1 class="fw-bolder mb-1">{{ title|upper }}</h1>
+                                    <p>
+                                        <a href="{{ path('AffichePostCl') }}"><button  type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="ajoutepost">Back</button></a>
+                                    </p>
 
-                <div class="reviews_comments">
-                    {{ form_start(formC,{'attr': {'novalidate':'novalidate'}} ) }}
-                    <div  class="add_comment">
+                                </header>
+                                <!-- Preview image figure-->
+                                <figure class="mb-4"><img class="img-fluid rounded" src="{{ asset('dark/assets/images/' ~ photo) }}" alt="{{ title }}" /></figure>
+                                <!-- Post content-->
+                                <section class="mb-5">
+                                    <p>{{ description }}</p>
+                                </section>
+                            </article>
+                            <!-- Comments section-->
+                            <section class="mb-5">
+                                <div class="card bg-light">
+                                    <div class="card-body">
 
-                        <div class="_title">Write Reclamation</div>
+                                        <!-- Comment form-->
+                                        <form form class="mb-4" action="{{ path('AjoutePostC') }}" method="post" id="comment">
+                                            <textarea type="text" id="postcomment_comment" name="postcomment[comment]" class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+                                            <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Ajouter</button>
+                                        </form>
 
 
-                        <div class="field" >
+                                        <!-- Parent comment-->
+                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                        <div class="ms-3">
+                                            <div class="fw-bold">Commenter Name</div>
+                                            If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
 
-                            <label for="comment-input-1" class="label">{{ form_label(formC.type) }}</label>
 
-                            <div class="input_wrap">
-                                {{ form_widget(formC.type, {'attr': {'class': 'input', 'id': 'comment-input-1', 'type': 'text'}}) }}
-                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
+                        <!-- Sid
 
-                        <div class="field">
-                            <label for="comment-input-2" class="label">First Name</label>
-                            <div class="input_wrap">
-                                {{ form_widget(formC.firstname, {'attr': {'class': 'input', 'id': 'comment-input-1', 'type': 'text'}}) }}
-                            </div>
-                        </div>
-                        <div class="field" >
-                            <label for="comment-input-1" class="label">Last Name</label>
-
-                            <div class="input_wrap">
-                                {{ form_widget(formC.lastname, {'attr': {'class': 'input', 'id': 'comment-input-1', 'type': 'text'}}) }}
-                            </div>
-                        </div>
-                        <div class="field" >
-                            <label for="comment-input-1" class="label">Email</label>
-
-                            <div class="input_wrap">
-                                {{ form_widget(formC.email, {'attr': {'class': 'input', 'id': 'comment-input-1', 'type': 'text'}}) }}
-                            </div>
-                        </div>
-                        <div class="field" >
-                            <label for="comment-input-1" class="label">Phone number</label>
-
-                            <div class="input_wrap">
-                                {{ form_widget(formC.phonenumber, {'attr': {'class': 'input', 'id': 'comment-input-1', 'type': 'text'}}) }}
-                            </div>
-                        </div>
-
-
-                        <div class="field">
-                            <label for="comment-input-4" class="label">Description</label>
-                            <div class="input_wrap">
-                                {{ form_widget(formC.description, {'attr': {'class': 'input', 'id': 'comment-input-1', 'type': 'textarea','width':'70%'}}) }}
-                            </div>
-                        </div>
-
-                    </div >
-                    {{ form_end(formC) }}
+                    </div>
+                    <div class="pagination">
+                        <ul>
+                            <li class="prev"><a href="#"></a></li>
+                            <li class="current"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li class="next"><a href="#"></a></li>
+                        </ul>
+                    </div>
                 </div>
-                <li>
-                    <a href="AfficheReclamaC">
-                        <button type="button"  class="btn btn-primary btn-sm waves-effect waves-light" >See Reclamation</button>
-                    </a>
-                </li>
             </div>
 
         </div>
+
+
     </div>
 </div>
-        <div class="mobile-fixed-bottom getModal" data-href="#book-now">
-            Book now
-        </div>
-    </div>
-    <div class="footer">
-        <div class="footer_top">
-            <div class="wrap">
-                <div class="wrap_float">
-                    <div class="footer_head_mobile">
-                        <div class="logo">InfoTourisme</div>
-                        <div class="text">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-                        </div>
+<div class="mobile-fixed-bottom getModal" data-href="#book-now">
+    Book now
+</div>
+</div>
+<div class="footer">
+    <div class="footer_top">
+        <div class="wrap">
+            <div class="wrap_float">
+                <div class="footer_head_mobile">
+                    <div class="logo">InfoTourisme</div>
+                    <div class="text">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
                     </div>
-                    <div class="footer_top_menu">
-                        <ul>
-                            <li><a href="indexclient" class="active">Home</a></li>
-                            <li><a href="{{ asset('html/about.html')}}">About</a></li>
-                            <li><a href="{{ asset('html/tour-list.html')}}">Tour List</a></li>
-                            <li><a href="{{ asset('html/destinations.html')}}">Destinations</a></li>
-                            <li><a href="{{ asset('html/single.html')}}">Date & Pricing</a></li>
-                            <li><a href="{{ asset('html/blog-list.html')}}">Blog</a></li>
-                        </ul>
-                    </div>
-                    <div class="socials">
-                        <a href="#" class="a facebook"></a>
-                        <a href="#" class="a instagram"></a>
-                        <a href="#" class="a pinterest"></a>
-                        <a href="#" class="a twitter"></a>
-                    </div>
+                </div>
+                <div class="footer_top_menu">
+                    <ul>
+                        <li><a href="indexclient" class="active">Home</a></li>
+                        <li><a href="{{ asset('html/about.html')}}">About</a></li>
+                        <li><a href="{{ asset('html/tour-list.html')}}">Tour List</a></li>
+                        <li><a href="{{ asset('html/destinations.html')}}">Destinations</a></li>
+                        <li><a href="{{ asset('html/single.html')}}">Date & Pricing</a></li>
+                        <li><a href="{{ asset('html/blog-list.html')}}">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="socials">
+                    <a href="#" class="a facebook"></a>
+                    <a href="#" class="a instagram"></a>
+                    <a href="#" class="a pinterest"></a>
+                    <a href="#" class="a twitter"></a>
                 </div>
             </div>
         </div>
-        <div class="footer_center">
-            <div class="wrap">
-                <div class="wrap_float">
-                    <div class="footer_center_left">
-                        <a href="indexclient" class="logo">InfoTourism</a>
-                        <div class="text">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-                        </div>
+    </div>
+    <div class="footer_center">
+        <div class="wrap">
+            <div class="wrap_float">
+                <div class="footer_center_left">
+                    <a href="indexclient" class="logo">InfoTourism</a>
+                    <div class="text">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
                     </div>
-                    <div class="footer_center_menu">
-                        <ul>
-                            <li><a href="#">Newsletter</a></li>
-                            <li><a href="#">Family Friendly Tours</a></li>
-                            <li><a href="#">Outdoor Activites</a></li>
-                            <li><a href="#">Relaxation Tours</a></li>
-                            <li><a href="#">City Tours</a></li>
-                            <li><a href="#">Holiday & Seasonal Tours</a></li>
-                            <li><a href="#">Cultural & Thematic Tours</a></li>
-                            <li><a href="#">Wild & Adventure Tours</a></li>
-                        </ul>
+                </div>
+                <div class="footer_center_menu">
+                    <ul>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Family Friendly Tours</a></li>
+                        <li><a href="#">Outdoor Activites</a></li>
+                        <li><a href="#">Relaxation Tours</a></li>
+                        <li><a href="#">City Tours</a></li>
+                        <li><a href="#">Holiday & Seasonal Tours</a></li>
+                        <li><a href="#">Cultural & Thematic Tours</a></li>
+                        <li><a href="#">Wild & Adventure Tours</a></li>
+                    </ul>
+                </div>
+                <div class="footer_center_right">
+                    <div class="_title">CONTACTS</div>
+                    <div class="text">
+                        <p>Address: <b>12 Main Street Pt. London</b> </p>
+                        <p>Phone: <a href="#">+1 1235 6789 10</a></p>
+                        <p><a href="#">info@hellodigi.ru</a></p>
                     </div>
-                    <div class="footer_center_right">
-                        <div class="_title">CONTACTS</div>
-                        <div class="text">
-                            <p>Address: <b>12 Main Street Pt. London</b> </p>
-                            <p>Phone: <a href="#">+1 1235 6789 10</a></p>
-                            <p><a href="#">info@hellodigi.ru</a></p>
-                        </div>
-                    </div>
-                    <div class="mobile_socials">
-                        <a href="#" class="a facebook"></a>
-                        <a href="#" class="a instagram"></a>
-                        <a href="#" class="a pinterest"></a>
-                        <a href="#" class="a twitter"></a>
-                    </div>
+                </div>
+                <div class="mobile_socials">
+                    <a href="#" class="a facebook"></a>
+                    <a href="#" class="a instagram"></a>
+                    <a href="#" class="a pinterest"></a>
+                    <a href="#" class="a twitter"></a>
                 </div>
             </div>
         </div>
-        <div class="footer_bottom">
-            Copyright 2020 <a href="#">hellodigi.ru</a> | All Right Reserved
-        </div>
     </div>
+    <div class="footer_bottom">
+        Copyright 2020 <a href="#">hellodigi.ru</a> | All Right Reserved
+    </div>
+</div>
 </div>
 
 <div class="search_form" id="search_form">
