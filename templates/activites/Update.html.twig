@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Ajouter  une activite{% endblock %}
+    {% block title %}Update  une activite{% endblock %}
 
     {% block stylesheets %}
 
@@ -64,22 +64,51 @@
 
 
             <div class="row small-spacing">
-                <div class="col-xs-12">
-                    <div class="box-content card white">
+                <div class="col-xs-10">
+                    <div class="box-content card black">
                         <h4 class="box-title">New Activite</h4>
                         <!-- /.box-title -->
                         <div class="card-content">
 
+                            {{ form_start(form) }}
+                            <h1> Update une Activite</h1>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.activite) }}</label>
+                                {{ form_widget(form.activite, {'attr': {'class': 'form-control', 'placeholder': 'Enter activite', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
 
-                            {{ form(f) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.destination) }}</label>
+                                {{ form_widget(form.destination, {'attr': {'class': 'form-control', 'placeholder': 'Enter destination', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
 
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.DateDepart) }}</label>
+                                {{ form_widget(form.DateDepart, {'attr': {'class': 'form-control', 'placeholder': 'Enter DateDepart', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.DateDarrivee) }}</label>
+                                {{ form_widget(form.DateDarrivee, {'attr': {'class': 'form-control', 'placeholder': 'Enter DateDarrivee', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.type) }}</label>
+                                {{ form_widget(form.type, {'attr': {'class': 'form-control', 'placeholder': 'Enter type', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                            </div>
+                            <br>
                         </div>
-                        <!-- /.card-content -->
+
+                        {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'Update' }) }}
+
+                        {{ form_end(form) }}
                     </div>
-                    <!-- /.box-content -->
+                    <!-- /.card-content -->
                 </div>
+                <!-- /.box-content -->
+            </div>
 
             </div>
+
+
 
         {% endblock %}
 

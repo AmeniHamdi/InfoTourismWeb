@@ -31,32 +31,44 @@
     {% endblock %}
 {% endblock %}
 
-        {% block content %}
+
+            {% block rechercher %}
+                {% include 'activites/recherche.html.twig' with {form : form} only %}
+
+            {% endblock %}
+{% block contents %}
+
+    <div class="popular_destination__slider" id="popular_destination__slider">
+        {% for a in activite %}
+            <div class="slide_item">
+                <a href="single.html" class="slide_item_img">
+                    <div class="sq_parent">
+                        <div class="sq_wrap">
+                            <div class="sq_content" style="background-image: url({{ asset('client/img/' ~ a.destination ~ '.jpg')}})"></div>
+                        </div>
+                    </div>
+                </a>
+                <a href="single.html" class="slide_item_content">
+                    <div class="flag">
+                        <img src="{{ asset('client/img/tunisa.png')}}" alt="">
+                    </div>
+                    <h3 class="slide_title">
+                        {{ a.destination }}
+                    </h3>
+                    <p class="slide_text">
+                         {{ a.activite }}     </p>
+                </a>
+
+            </div>
+
+
+        {% endfor %}
+
+    </div>
 
 
 
-            <table border="1px" >
-                <tr>
-                    <th>ID</th>
-                    <th>Destination</th>
-                    <th>Activite</th>
-                    <th>Date_depart</th>
-                    <th>Date_arrivee</th>
-
-                </tr>
-                <tr {%  for a in activite %}>
-                    <td>{{  a.id }}</td>
-                    <td>{{ a.destination }}</td>
-                    <td>{{ a.activite }}</td>
-                    <td>{{ a.DateDepart|date }}</td>
-                    <td>{{ a.DateDarrivee|date }}</td>
-
-
-                </tr {% endfor %}>
-            </table>
-
-
-        {% endblock %}
+{% endblock %}
 
 {% block javascripts %}
 

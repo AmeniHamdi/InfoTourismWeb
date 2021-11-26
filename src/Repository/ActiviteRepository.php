@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Activite;
+use App\Entity\Rechercher;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -46,5 +47,21 @@ class ActiviteRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+   */
+    /**
+     * @return Activite[]
+     */
+    public function findRechercher(Rechercher $rechercher) : array
+    {
+        $query = $this->createQueryBuilder('d')
+            ->select('d');
+
+        if($rechercher->D){
+            $query =
+                $query
+                    ->where('d.destination LIKE :D')
+                    ->SetParameter('D','%' .$rechercher->D .'%');
+        }
+        return $query->getQuery()->getResult();
+    }
 }

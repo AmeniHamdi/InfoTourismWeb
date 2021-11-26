@@ -2,13 +2,13 @@
 
 {% block head %}
 
-    <meta http-equiv="Content-Activite" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Liste Notes{% endblock %}
+    {% block title %}Ajouter une Activite{% endblock %}
 
     {% block stylesheets %}
         <!-- Main Styles -->
@@ -41,7 +41,7 @@
 
 {% block content %}
     <div class="row small-spacing">
-        <div class="col-xs-12">
+        <div class="col-xs-10">
             <div class="box-content">
                 <h4 class="box-title">Liste Des Actvites </h4>
                 <!-- /.box-title -->
@@ -58,8 +58,7 @@
                         <th>Activite</th>
                         <th>Date_depart</th>
                         <th>Date_arrivee</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+
 
                     </tr>
                     <tr {%  for a in activite %}>
@@ -68,8 +67,8 @@
                         <td>{{ a.activite }}</td>
                         <td>{{ a.DateDepart|date }}</td>
                         <td>{{ a.DateDarrivee|date }}</td>
-                        <td><a href="{{ path('Update',{'id':a.id}) }}">update</a></td>
-                        <td><a href="{{ path('t',{'id':a.id}) }}">delete</a></td>
+                        <td><a href="{{ path('Update',{'id':a.id}) }}"class="btn btn-warning">Update</a>
+                            <a href="{{ path('delete',{'id':a.id}) }}" class="btn btn-danger ">Delete</a></td>
 
                     </tr {% endfor %}>
                 </table>

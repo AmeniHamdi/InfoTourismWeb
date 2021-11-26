@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Activite;
+use App\Entity\Rechtype;
 use App\Entity\Type;
-use App\Form\ActiviteType;
+
+use App\Form\RechtypeType;
 use App\Form\TypeType;
-use App\Repository\ActiviteRepository;
+
 use App\Repository\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -42,15 +44,20 @@ class TypeController extends AbstractController
      * @return Response
      * @Route("/AfficheTypeclient",name="AfficheTypeclinet")
      */
-    public function Afficheclient(TypeRepository  $repository)
+    public function Afficheclient(TypeRepository  $repository,Request $request)
     {
         //$repo=$this->getDoctrine()->getRepository(type::class);
-        $type = $repository->findAll();
-        return $this->render('type/affichagetypeclient.html.twig', ['type' => $type]);
+        $recherche = new Rechtype() ;
+        $form = $this->createForm(RechtypeType::class, $recherche);
+        $form->handleRequest($request);
+        $type = $repository->findRechtype($recherche);
+        return $this->render('type/affichagetypeclient.html.twig', ['type' => $type,
+            'form'=> $form->createView(),
+            ]);
     }
 
     /**
-     * @Route("delete/{id}",name="t")
+     * @Route("delete/{id}",name="d")
      */
     function Delete($id, TypeRepository $repository)
     {
@@ -86,16 +93,13 @@ class TypeController extends AbstractController
     {
         $type = $repository->find($id);
         $form = $this->createForm(TypeType::class, $type);
-        $form->add('Update', SubmitType::class);
+       // $form->add('Update', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute("AfficheType");
         }
-        return $this->render('type/update.html.twig',
-            [
-                'f' => $form->createView()
-            ]);
+        return $this->render('type/update.html.twig', ["form" => $form->createView()]) ;
     }
 }

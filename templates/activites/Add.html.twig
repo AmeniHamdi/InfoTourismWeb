@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    <meta http-equiv="Content-Activite" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="">
@@ -58,12 +58,54 @@
 {% endblock %}
 
         {% block content %}
+<div class="row small-spacing">
+    <div class="col-xs-10">
+        <div class="box-content card black">
+            <h4 class="box-title">New Activite</h4>
+            <!-- /.box-title -->
+            <div class="card-content">
 
+            {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+            <h1> Ajouter une Activite</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.activite) }}</label>
+                {{ form_widget(form.activite, {'attr': {'class': 'form-control', 'placeholder': 'Enter activite', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                {{ form_errors(form.activite,{'attr':{'novalidate':'novalidate'}}) }}
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.destination) }}</label>
+                {{ form_widget(form.destination, {'attr': {'class': 'form-control', 'placeholder': 'Enter destination', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                {{ form_errors(form.destination,{'attr':{'novalidate':'novalidate'}}) }}
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.DateDepart) }}</label>
+                {{ form_widget(form.DateDepart, {'attr': {'class': 'form-control', 'placeholder': 'Enter DateDepart', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.DateDarrivee) }}</label>
+                {{ form_widget(form.DateDarrivee, {'attr': {'class': 'form-control', 'placeholder': 'Enter DateDarrivee', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+            </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">{{ form_label(form.type) }}</label>
+                    {{ form_widget(form.type, {'attr': {'class': 'form-control', 'placeholder': 'Enter type', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                </div>
+            <br>
+            </div>
 
+            {{ form_row(form.submit, {'attr': {'class': 'btn btn-success btn-sm waves-effect waves-light'}, 'label': 'Ajouter' }) }}
 
-            {{ form_start(form) }}
-            <button>Ajout</button>
             {{ form_end(form) }}
+        </div>
+        <!-- /.card-content -->
+    </div>
+    <!-- /.box-content -->
+</div>
+
+            </div>
+
+
+
+
 
         {% endblock %}
 

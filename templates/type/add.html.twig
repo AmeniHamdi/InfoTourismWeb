@@ -1,6 +1,3 @@
-
-
-
 {% extends 'base.html.twig' %}
 
 {% block head %}
@@ -10,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Ajouter  une assurance{% endblock %}
+    {% block title %}Ajouter  un Type{% endblock %}
 
     {% block stylesheets %}
 
@@ -64,16 +61,38 @@
 
 
             <div class="row small-spacing">
-                <div class="col-xs-12">
-                    <div class="box-content card white">
+                <div class="col-xs-10">
+                    <div class="box-content card black">
                         <h4 class="box-title">New Type</h4>
                         <!-- /.box-title -->
                         <div class="card-content">
 
 
-                            {{ form_start(form) }}
-                            <button>Ajout</button>
-                            {{ form_end(form) }}
+                            {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                            <h1> Ajouter un Type</h1>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.nom) }}</label>
+                                {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Enter nom', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                {{ form_errors(form.nom,{'attr':{'novalidate':'novalidate'}}) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.lieu) }}</label>
+                                {{ form_widget(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Enter lieu', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                {{ form_errors(form.lieu,{'attr':{'novalidate':'novalidate'}}) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.description) }}</label>
+                                {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Enter description', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                {{ form_errors(form.description,{'attr':{'novalidate':'novalidate'}}) }}
+                            </div>
+
+
+                            <br>
+                        </div>
+
+                        {{ form_row(form.submit, {'attr': {'class': 'btn btn-success btn-sm waves-effect  '}, 'label': 'Ajouter' }) }}
+
+                        {{ form_end(form) }}
 
                         </div>
                         <!-- /.card-content -->

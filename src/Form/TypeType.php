@@ -2,8 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Activite;
 use App\Entity\Type;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,6 +18,7 @@ class TypeType extends AbstractType
             ->add('nom')
             ->add('lieu')
             ->add('description')
+            ->add("submit",SubmitType::class)
         ;
     }
 

@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Activite;
+use App\Entity\Rechercher;
 use App\Form\ActiviteType;
+use App\Form\RechercherType;
 use App\Repository\ActiviteRepository;
 use App\Repository\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,11 +32,16 @@ class ActiviteController extends AbstractController
      * @return Response
      * @Route("/AfficheActivite",name="AfficheActivite")
      */
-    public function Affiche(ActiviteRepository $repository)
+    public function Affiche(ActiviteRepository $repository,Request $request)
     {
         //$repo=$this->getDoctrine()->getRepository(activite::class);
-        $activite = $repository->findAll();
-        return $this->render('activites/Affichageclien.html.twig', ['activite' => $activite]);
+        $rechercher = new Rechercher();
+        $form = $this->createForm(RechercherType::class, $rechercher);
+        $form->handleRequest($request);
+        $activite = $repository->findRechercher($rechercher);
+        return $this->render('activites/Affichageclien.html.twig', ['activite' => $activite,
+            'form'=> $form->createView(),
+            ]);
     }
 
     /**
@@ -49,7 +56,7 @@ class ActiviteController extends AbstractController
         return $this->render('activites/Affichageadmin.html.twig', ['activite' => $activite]);
     }
     /**
-     * @Route("delete/{id}",name="t")
+     * @Route("supp/{id}",name="delete")
      */
     function delete($id, ActiviteRepository $repository)
     {
@@ -57,7 +64,7 @@ class ActiviteController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->remove($activite);
         $em->flush();
-        return $this->redirectToRoute('AfficheActivite');
+        return $this->redirectToRoute('AfficheActiviteadmin');
     }
 
     /**
@@ -85,16 +92,16 @@ class ActiviteController extends AbstractController
     {
         $activite = $repository->find($id);
         $form = $this->createForm(ActiviteType::class, $activite);
-        $form->add('Update', SubmitType::class);
+        //$form->add('Update', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute("AfficheActivite");
+            return $this->redirectToRoute("AfficheActiviteadmin");
         }
         return $this->render('activites/Update.html.twig',
         [
-            'f' => $form->createView()
+            "form" => $form->createView()
         ]);
     }
 

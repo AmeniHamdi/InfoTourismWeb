@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Ajouter  une assurance{% endblock %}
+    {% block title %}Ajouter  un type {% endblock %}
 
     {% block stylesheets %}
 
@@ -65,21 +65,46 @@
         {% block content %}
 
 
+
             <div class="row small-spacing">
-                <div class="col-xs-12">
-                    <div class="box-content card white">
-                        <h4 class="box-title">New assurance</h4>
+                <div class="col-xs-10">
+                    <div class="box-content card black">
+                        <h4 class="box-title">New Type</h4>
                         <!-- /.box-title -->
                         <div class="card-content">
-                            <h1>update Type</h1>
 
-                            {{ form(f) }}
 
+                            {{ form_start(form) }}
+                            <h1> Update un Type</h1>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.nom) }}</label>
+                                {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Enter nom', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.lieu) }}</label>
+                                {{ form_widget(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Enter lieu', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.description) }}</label>
+                                {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Enter description', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+
+                            </div>
+
+
+                            <br>
                         </div>
-                        <!-- /.card-content -->
+
+                        {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect  '}, 'label': 'Update' }) }}
+
+                        {{ form_end(form) }}
+
                     </div>
-                    <!-- /.box-content -->
+                    <!-- /.card-content -->
                 </div>
+                <!-- /.box-content -->
+            </div>
 
             </div>
 

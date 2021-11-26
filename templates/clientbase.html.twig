@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Lavella – Tour & Travel Agency Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('client/css/styles.css')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('client/img/favicons/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('client/img/favicons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('client/img/favicons/favicon-16x16.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('client/img/favicons/android-chrome-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('client/img/favicons/android-chrome-512x512.png')}}">
+    <link rel="icon" type="image/png" href="{{ asset('client/img/favicons/favicon-32x32.png')}}" sizes="32x32">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('client/img/favicons/favicon.ico')}}">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="#000" name="msapplication-TileColor">
+    <meta content="#000" name="theme-color">
+
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <div class="wrap">
+            <div class="wrap_float">
+                <div class="header__top">
+                    <div class="tel">
+                        <a href="tel:0000000000">+216 98 999 999</a>
+                    </div>
+                    <div class="email">
+                        <a href="mailto:info@hellodigi.ru">InfoTourisme@Esprit.tn</a>
+                    </div>
+                    <div class="socials">
+                        <a href="#" class="a facebook"></a>
+                        <a href="#" class="a instagram"></a>
+                        <a href="#" class="a pinterest"></a>
+                        <a href="#" class="a twitter"></a>
+                    </div>
+                </div>
+                <div class="header__bottom">
+                    <a href="/" class="logo">Info Tourisme</a>
+                    <div class="menu" id="js-menu">
+                        <div class="close"></div>
+                        <div class="scroll">
+                            <a class="current">Home</a>
+                            <div class="scroll_wrap">
+                                <ul>
+                                    <li><a href="/" class="active">Home</a></li>
+                                    <li class="dropdown_li">
+                                        <a href="#">
+                                            <span>Pages</span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li class="dropdown_li">
+                                                    <a href="#">
+                                                        <span>Search</span>
+                                                    </a>
+                                                    <div class="submenu">
+                                                        <ul>
+                                                            <li><a href="search-results.html">Search results</a></li>
+                                                            <li><a href="search-results-not-found.html">No results</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="contacts.html">Contact</a></li>
+                                                <li><a href="gallery.html">Gallery</a></li>
+                                                <li><a href="coming-soon.html">Coming soon</a></li>
+                                                <li><a href="404.html">404 Page</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown_li">
+                                        <a href="tour-list.html">
+                                            <span>Tour List</span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="tour-list.html">Tour List</a></li>
+                                                <li><a href="tour-list-2.html">Tour List 2</a></li>
+                                                <li><a href="tour-list-3.html">Tour List 3</a></li>
+                                                <li><a href="tour-list-4.html">Tour List 4</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="destinations.html">Destinations</a></li>
+                                    <li class="dropdown_li">
+                                        <a href="single.html">
+                                            <span>Tour Page</span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="single.html">Tour Page</a></li>
+                                                <li><a href="single-dark.html">Tour Page Dark</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown_li">
+                                        <a href="blog-list.html">
+                                            <span>Blog</span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="blog-list.html">Blog</a></li>
+                                                <li><a href="blog-list-2.html">Blog 2</a></li>
+                                                <li><a href="blog-single.html">Blog Single</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bottom">
+                                <div class="tel">
+                                    <a href="tel:+11235678910">+1 1235 6789 10</a>
+                                </div>
+                                <div class="email">
+                                    <a href="mailto:info@hellodigi.ru">info@hellodigi.ru</a>
+                                </div>
+                                <div class="socials">
+                                    <div class="links">
+                                        <a href="#" class="fb"></a>
+                                        <a href="#" class="instagram"></a>
+                                        <a href="#" class="pinterest"></a>
+                                        <a href="#" class="twitter"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_link" id="search_link"></div>
+                    <div class="mobile_btn" id="mobile_btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="homepage_slider">
+        <div class="slider-container">
+            <div class="slider-control left inactive"></div>
+            <div class="slider-control right"></div>
+            <ul class="slider-pagi"></ul>
+            <div class="slider">
+                <div class="slide slide-0 active">
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/Tunisia.jpg')}});"></div>
+                    <div class="slide__content">
+                        <div class="slide__text">
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slide slide-1 ">
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/bizerte.jpg')}});"></div>
+                    <div class="slide__content">
+                        <div class="slide__text">
+                            <h2 class="slide__text-heading"Tabrka</h2>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide slide-3">
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/tozeur.jpg')}});"></div>
+                    <div class="slide__content">
+                        <div class="slide__text">
+                            <h2 class="slide__text-heading">The Great Outdoors</h2>
+                            <p class="slide__text-desc">Etiam porta sem malesuada magna mollis</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="most_popular">
+                <span>
+                    The most popular destination this year - Tunisia
+                </span>
+        </div>
+        <div class="categories" id="header_categories">
+            <div class="wrap">
+                <div class="wrap_float">
+                    <div class="items">
+
+
+                    </div>
+                    <div class="other_items" id="header_other_items">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% block rechercher %}
+    {% endblock %}
+
+    <div class="popular_destination__section mainpage-slider">
+        <div class="wrap">
+
+            <div class="wrap_float">
+
+                <div class="top_part">
+                    <div class="top_part_left">
+                        <div class="section_subtitle">
+                            TRUE NOW
+                        </div>
+                        <h2 class="section_title">
+                            Popular Destinations
+                        </h2>
+                    </div>
+                    <div class="top_part_right">
+                        <a href="/AfficheTypeclient" class="btn">
+                            <span>View all Activites</span>
+                        </a>
+                        <div class="controls" id="popular_destination__arrows">
+                            <div class="arrow prev"></div>
+                            <div class="arrow next"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section_content">
+                    {% block contents %}
+                    {% endblock %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog blog-section last-section" style="background-image: url({{ asset('client/img/home4.jpg')}});">
+        <div class="wrap">
+
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_top">
+            <div class="wrap">
+                <div class="wrap_float">
+                    <div class="footer_head_mobile">
+                        <div class="logo">Info Tourisme</div>
+
+                    </div>
+                    <div class="footer_top_menu">
+                        <ul>
+                            <li><a href="/" class="active">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="tour-list.html">Tour List</a></li>
+                            <li><a href="destinations.html">Destinations</a></li>
+                            <li><a href="single.html">Date & Pricing</a></li>
+                            <li><a href="blog-list.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="socials">
+                        <a href="#" class="a facebook"></a>
+                        <a href="#" class="a instagram"></a>
+                        <a href="#" class="a pinterest"></a>
+                        <a href="#" class="a twitter"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_center">
+            <div class="wrap">
+                <div class="wrap_float">
+                    <div class="footer_center_left">
+                        <a href="/" class="logo">Info Tourisme</a>
+
+                    </div>
+
+                    <div class="footer_center_right">
+                        <div class="_title">CONTACTS</div>
+                        <div class="text">
+                            <p>Address: <b>ghazala tunis</b> </p>
+                            <p>Phone: <a href="#">+216 98 999 999</a></p>
+                            <p><a href="#">InfoTourisme@Esprit.tn</a></p>
+                        </div>
+                    </div>
+                    <div class="mobile_socials">
+                        <a href="#" class="a facebook"></a>
+                        <a href="#" class="a instagram"></a>
+                        <a href="#" class="a pinterest"></a>
+                        <a href="#" class="a twitter"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            Copyright 2020 <a href="#">hellodigi.ru</a> | All Right Reserved
+        </div>
+    </div>
+</div>
+
+<div class="search_form" id="search_form">
+    <div class="wrap">
+        <div class="wrap_float">
+            <input type="text" class="input" placeholder="Search...">
+            <button type="submit" class="submit"></button>
+            <div class="close"></div>
+        </div>
+    </div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<div style="display: none;">
+    <div class="modal modal_book_now" id="book-now">
+        <div class="modal_wrap">
+            <div class="modal-head">
+                <img src="{{ asset('client/img/vput2.jpg')}}" class="image-cover" alt="">
+            </div>
+            <div class="modal-body">
+                <div class="tags">
+                    <div class="tag discount">20% off</div>
+                    <div class="tag new">New</div>
+                </div>
+                <div class="modal-title">
+                    America, San Francisco | $3,500
+                </div>
+                <div class="fields">
+                    <div class="field half">
+                        <label class="label" for="name-2">Full Name*</label>
+                        <div class="input_wrap">
+                            <input type="text" class="input" id="name-2">
+                        </div>
+                    </div>
+                    <div class="field half">
+                        <label class="label" for="email-2">Email Address*</label>
+                        <div class="input_wrap">
+                            <input type="email" class="input" id="email-2">
+                        </div>
+                    </div>
+                    <div class="field half">
+                        <label class="label" for="date-2a">Travel Date*</label>
+                        <div class="input_wrap calendar-field">
+                            <input type="text" class="input js_calendar" id="date-2a">
+                        </div>
+                    </div>
+                    <div class="field half">
+                        <p class="label">Person*</p>
+                        <div class="input_wrap">
+                            <input type="text" class="input" id="date-2">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="enquiry-2">Your Enquiry*</label>
+                        <div class="textarea_wrap">
+                            <textarea class="textarea" id="enquiry-2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn submit">Sumbit</button>
+            </div>
+        </div>
+        <div class="modal_close"></div>
+    </div>
+
+</div>
+
+<script defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_HERE&callback=initMap"></script>
+<script defer src="{{ asset('client/js/jquery.min.js')}}"></script>
+<script defer src="{{ asset('client/js/jquery-ui.min.js')}}"></script>
+<script defer src="{{ asset('client/js/slick.min.js')}}"></script>
+<script defer src="{{ asset('client/js/jquery.arcticmodal.min.js')}}"></script>
+<script defer src="{{ asset('client/js/lightgallery.js')}}"></script>
+<script defer src="{{ asset('client/js/spincrement.min.js')}}"></script>
+<script defer src="{{ asset('client/js/scripts.min.js')}}"></script>
+</body>
+
+</html>

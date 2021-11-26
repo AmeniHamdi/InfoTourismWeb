@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Liste Notes{% endblock %}
+    {% block title %}Ajouter Type{% endblock %}
 
     {% block stylesheets %}
         <!-- Main Styles -->
@@ -42,7 +42,7 @@
 {% block content %}
     <div class="row small-spacing">
         <div class="col-xs-12">
-            <div class="box-content">
+            <div class="box-content ">
                 <h4 class="box-title">Liste Des Types </h4>
                 <!-- /.box-title -->
                 <div class="dropdown js__drop_down">
@@ -52,23 +52,25 @@
                 <!-- /.dropdown js__dropdown -->
 
                 <table id="example" class="table table-striped table-bordered display" style="width:100%">
+
                     <tr>
                         <th>ID</th>
                         <th>Nom</th>
                         <th>Lieu</th>
                         <th>description</th>
 
-                        <th>Update</th>
-                        <th>Delete</th>
+
                     </tr>
+
                     <tr {%  for t in type %}>
                         <td>{{  t.id }}</td>
                         <td>{{ t.nom }}</td>
                         <td>{{ t.lieu }}</td>
                         <td>{{ t.description }}</td>
 
-                        <td><a href="{{ path('update',{'id':t.id}) }}">Update</a></td>
-                        <td><a href="{{ path('t',{'id':t.id}) }}">Delete</a></td>
+                        <td><a href="{{ path('update',{'id':t.id}) }}"class="btn btn-warning">Update</a>
+                            <a href="{{ path('d',{'id':t.id}) }}"class="btn btn-danger">Delete</a></td>
+
 
                     </tr {% endfor %}>
                 </table>
