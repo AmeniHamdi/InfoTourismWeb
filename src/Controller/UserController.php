@@ -32,15 +32,15 @@ class UserController extends AbstractController
      */
     public function deleteUsers($id): RedirectResponse
     {
-        $users = $this->getDoctrine()->getRepository(User::class)->find($id);
-        $em = $this->getDoctrine()->getManager();
-        if ($users->getImage() !== null) {
-            $filesystem = new Filesystem();
-            $filesystem->remove($this->getParameter('images_directory') . '/' . $users->getImage());
-        }
-        $em->remove($users);
-        $em->flush();
-        
+       $users = $this->getDoctrine()->getRepository(User::class)->find($id);
+       $em = $this->getDoctrine()->getManager();
+       if ($users->getImage() !== null) {
+           $filesystem = new Filesystem();
+           $filesystem->remove($this->getParameter('images_directory') . '/' . $users->getImage());
+       }
+       $em->remove($users);
+       $em->flush();
+       
         return $this->redirectToRoute("utilisateur");
     }
 
