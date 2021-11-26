@@ -1,0 +1,104 @@
+{% extends 'front.html.twig' %}
+
+{% block title %} List Reservations{% endblock %}
+
+
+{% block body %}
+
+    <div class="top_destination mainpage-slider">
+        <div class="section_heading">
+            <div class="wrap">
+                <div class="wrap_float">
+                    <table class="table" style="border: 2px solid black;border-collapse: collapse;">
+                        <thead>
+                        <tr>
+                            <th>Datedeb</th>
+                            <th>Datefin</th>
+                            <th>Nbrplace</th>
+                            <th>Prix</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for reservationhotel in reservationhotels %}
+                            <tr>
+                                <td>{{ reservationhotel.datedeb ? reservationhotel.datedeb|date('Y-m-d') : '' }}</td>
+                                <td>{{ reservationhotel.datefin ? reservationhotel.datefin|date('Y-m-d') : '' }}</td>
+                                <td>{{ reservationhotel.nbrplace }}</td>
+                                <td>{{ reservationhotel.prix }}</td>
+                                <td>
+                                    <a href="{{ path('reservationhotel_delete', {'idh': reservationhotel.idRes}) }}" class="btn btn-success">Delete</a>
+                                    <a href="{{ path('reservationhotel_edit', {'idRes': reservationhotel.idRes}) }}" class="btn btn-danger">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-content -->
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

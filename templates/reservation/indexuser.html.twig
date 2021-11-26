@@ -1,0 +1,58 @@
+{% extends 'front.html.twig' %}
+
+{% block title %} List Reservations{% endblock %}
+
+
+{% block body %}
+
+    <div class="top_destination mainpage-slider">
+        <div class="section_heading">
+            <div class="wrap">
+                <div class="wrap_float">
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Heureres</th>
+                            <th>Datedeb</th>
+                            <th>Datefin</th>
+                            <th>Dateres</th>
+                            <th>Voiture</th>
+                            <th>Etat</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for reservation in reservations %}
+                            <tr>
+                                <td>{{ reservation.heureres }}</td>
+                                <td>{{ reservation.datedeb ? reservation.datedeb|date('Y-m-d') : '' }}</td>
+                                <td>{{ reservation.datefin ? reservation.datefin|date('Y-m-d') : '' }}</td>
+                                <td>{{ reservation.dateres ? reservation.dateres|date('Y-m-d') : '' }}</td>
+                                <td>{{ reservation.idVoiture.nom }}</td>
+                                <td>{{ reservation.etat }}</td>
+                                {% if reservation.etat == "Accepté" or reservation.etat == "Refusé" %}
+                                    <td><a href="{{ path('reservation_pdf', {'idres': reservation.idres}) }}" class="btn btn-success" style="height: 35px !important; line-height:30px !important">PDF</a></td>
+                                    {% else %}
+                                    <td>
+                                     <a href="{{ path('reservation_delete', {'idres': reservation.idres}) }}" class="btn btn-success" style="height: 35px !important; line-height:30px !important">Delete</a>
+                                    <a href="{{ path('reservation_edit', {'idres': reservation.idres}) }}" class="btn btn-danger" style="height: 35px !important; line-height:30px !important"> Update</a>
+                                </td>
+                                    {% endif %}
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-content -->
+
+
+
+{% endblock %}
