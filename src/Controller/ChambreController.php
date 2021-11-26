@@ -29,9 +29,9 @@ class ChambreController extends AbstractController
     {
         $Chambre = new Chambre();
         $form = $this->createForm(ChambreType::class, $Chambre);
-        $form->add('Ajouter',SubmitType::class);
+       // $form->add('Ajouter',SubmitType::class);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $Chambre->setIdH(0);
             $em->persist($Chambre);
@@ -85,7 +85,7 @@ class ChambreController extends AbstractController
     function Update(ChambreRepository $repository,$id,Request $request){
         $Chambre=$repository->find($id);
         $form=$this->createForm(ChambreType::class,$Chambre);
-        $form->add('Update',SubmitType::class);
+        //$form->add('Update',SubmitType::class);
         $form->handleRequest($request);
         if($form->isSubmitted()&& $form->isValid()){
             $em=$this->getDoctrine()->getManager();
@@ -94,7 +94,7 @@ class ChambreController extends AbstractController
             return $this->redirectToRoute('AfficheChambre');
         }
         return $this->render('chambre/Update.html.twig',[
-            'f'=>$form->createView()
+            "form"=>$form->createView()
         ]);
 
     }

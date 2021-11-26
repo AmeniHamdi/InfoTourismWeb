@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Update  un Chambre{% endblock %}
+    {% block title %}Modifier une  Chambre{% endblock %}
 
     {% block stylesheets %}
 
@@ -58,9 +58,46 @@
 {% endblock %}
 
         {% block content %}
+            <div class="row small-spacing">
+                <div class="col-xs-12">
+                    <div class="box-content card white">
+                        <h4 class="box-title">Nouveau Chambre</h4>
+                        <!-- /.box-title -->
+                        <div class="card-content">
+                            {{ form_start(form) }}
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.nlits) }}</label>
+                                {{ form_widget(form.nlits, {'attr': {'class': 'form-control', 'placeholder': 'Entrer nlits', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.prix) }}</label>
+                                {{ form_widget(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Entrer prix', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                            </div>
 
-            {{ form(f) }}
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.numero) }}</label>
+                                {{ form_widget(form.numero, {'attr': {'class': 'form-control', 'placeholder': 'Entrer numero', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                            </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.etage) }} </label>
+                                {{ form_widget(form.etage, {'attr': {'class': 'form-control', 'placeholder': 'Entrer etage', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.hotel) }} </label>
+                                {{ form_widget(form.hotel, {'attr': {'class': 'form-control', 'placeholder': 'Entrer hotel', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                            </div>
+
+                            {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'modifier' }) }}
+                            {{ form_end(form) }}
+
+                        </div>
+                        <!-- /.card-content -->
+                    </div>
+                    <!-- /.box-content -->
+                </div>
+
+            </div>
         {% endblock %}
 
 {% block javascripts %}

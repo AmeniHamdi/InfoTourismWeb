@@ -59,7 +59,48 @@
 
         {% block content %}
 
-            {{ form(form) }}
+            <div class="row small-spacing">
+                <div class="col-xs-12">
+                    <div class="box-content card white">
+                        <h4 class="box-title">Nouveau Hotel</h4>
+                        <!-- /.box-title -->
+                        <div class="card-content">
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.nom) }}</label>
+                                {{ form_widget(form.nom,{'attr': {'class': 'form-control', 'placeholder': 'Entrer nom', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.nombrechambre) }}</label>
+                                {{ form_widget(form.nombrechambre, {'attr': {'class': 'form-control', 'placeholder': 'Entrer nombrechambre', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.categorie) }}</label>
+                                {{ form_widget(form.categorie, {'attr': {'class': 'form-control', 'placeholder': 'Entrer categorie', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.lieu) }} </label>
+                                {{ form_widget(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Entrer lieu', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+
+                            </div>
+
+
+                            {{ form_row(form.submit, {'attr': {'class': 'btn btn-success btn-sm waves-effect waves-light'}, 'label': 'ajouter✅' }) }}
+
+                            {{ form_end(form) }}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         {% endblock %}
 

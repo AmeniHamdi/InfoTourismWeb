@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    <meta http-equiv="Content-Activite" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Ajouter  un Chambre{% endblock %}
+    {% block title %}Ajouter  une Chambre{% endblock %}
 
     {% block stylesheets %}
 
@@ -59,7 +59,53 @@
 
         {% block content %}
 
-            {{ form(form) }}
+
+<div class="row small-spacing">
+    <div class="col-xs-12">
+        <div class="box-content card white">
+            <h4 class="box-title">Nouveau Chambre</h4>
+            <!-- /.box-title -->
+            <div class="card-content">
+                {{ form_start(form,{'attr':{'novalidate' : 'novalidate' }}) }}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">{{ form_label(form.nlits) }}</label>
+                    {{ form_widget(form.nlits,{'attr': {'class': 'form-control', 'placeholder': 'Entrer nlits', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                    {{ form_errors(form.nlits,{'attr':{'novalidate' : 'novalidate' }}) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">{{ form_label(form.prix) }}</label>
+                    {{ form_widget(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Entrer prix', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                    {{ form_errors(form.prix,{'attr':{'novalidate' : 'novalidate' }}) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">{{ form_label(form.numero) }}</label>
+                    {{ form_widget(form.numero, {'attr': {'class': 'form-control', 'placeholder': 'Entrer numero', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                    {{ form_errors(form.numero,{'attr':{'novalidate' : 'novalidate' }}) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">{{ form_label(form.etage) }} </label>
+                    {{ form_widget(form.etage, {'attr': {'class': 'form-control', 'placeholder': 'Entrer etage', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                    {{ form_errors(form.etage,{'attr':{'novalidate' : 'novalidate' }}) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">{{ form_label(form.hotel) }} </label>
+                    {{ form_widget(form.hotel, {'attr': {'class': 'form-control', 'placeholder': 'Entrer hotel', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                    {{ form_errors(form.hotel,{'attr':{'novalidate' : 'novalidate' }}) }}
+                </div>
+
+                {{ form_row(form.submit, {'attr': {'class': 'btn btn-success btn-sm waves-effect waves-light'}, 'label': 'ajouter ✅' }) }}
+
+                {{ form_end(form) }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
         {% endblock %}
 

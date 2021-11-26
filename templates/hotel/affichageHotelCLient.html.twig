@@ -30,31 +30,47 @@
 
     {% endblock %}
 {% endblock %}
+            {% block search %}
+                        {% include 'hotel/_filtre.html.twig' with {form : form} only %}
+            {% endblock %}
+{% block content2 %}
 
-        {% block content %}
+    <div class="popular_destination__slider" id="popular_destination__slider">
+       {% for h in hotel %}
+            <div class="slide_item">
+                <a href="single.html" class="slide_item_img">
+                    <div class="sq_parent">
+                        <div class="sq_wrap">
+                            <div class="sq_content" style="background-image: url({{ asset('client/img/' ~ h.nom ~ '.jpg')}})"></div>
+                        </div>
+                    </div>
+                </a>
+                <a href="single.html" class="slide_item_content">
+                    <div class="flag">
+                        <img src="{{ asset('client/img/tunis.png')}}" alt="">
+                    </div>
+                    <h3 class="slide_title">
+                        {{ h.nom }}
+                    </h3>
+                    <p class="slide_text">
+                        Nombre de Chambre {{ h.nombrechambre }}     </p>
+                </a>
+                <div class="slide_footer">
+                    <div class="hours">Categorie : {{ h.categorie }}</div>
+                    <div class="tours_link">
+                        <a href="tour-list.html">Lieu : {{ h.lieu }}</a>
+                    </div>
+                </div>
+            </div>
 
 
-            <table border="1">
-                <tr>
+ {% endfor %}
 
-                    <th>Nom</th>
-                    <th>Nombrechambre</th>
-                    <th>Categorie</th>
-                    <th>Lieu</th>
-
-                </tr>
-                <tr {% for h in hotel %}>
-
-                    <td>{{ h.nom }}</td>
-                    <td>{{ h.nombrechambre }}</td>
-                    <td>{{ h.categorie }}</td>
-                    <td>{{ h.lieu }}</td>
-
-                </tr {% endfor %}>
-            </table>
+    </div>
 
 
-        {% endblock %}
+
+ {% endblock %}
 
 {% block javascripts %}
 

@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
 use App\Entity\Hotel;
 use App\Form\HotelType;
+use App\Form\SearchFormType;
 use App\Repository\HotelRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -39,10 +41,18 @@ class HotelController extends AbstractController
      * @return Response
      * @Route("/AfficheHotelClient",name="AfficheHotelClient")
      */
-    public function AfficheHotelClient(HotelRepository $repository){
+    public function AfficheHotelClient(HotelRepository $repository,Request $request){
         //$repo=$this->getDoctrine()->getRepository(Hotel::class);
-        $hotel=$repository->findAll();
-        return $this->render('hotel/affichageHotelCLient.html.twig',['hotel'=>$hotel]);
+
+        $data = new SearchData();
+        $form = $this->createForm(SearchFormType::class, $data);
+        $form->handleRequest($request);
+        $hotel= $repository->findSearch($data);
+
+
+        return $this->render('hotel/affichageHotelCLient.html.twig',['hotel'=>$hotel,
+        'form' => $form->createView(),
+    ]);
 
     }
 /**
@@ -65,7 +75,7 @@ function Delete($id,HotelRepository $repository){
 function ADD(Request $request ){
     $hotel=new Hotel();
     $form=$this->createForm(HotelType::class,$hotel);
-    $form->add('Ajouter',SubmitType::class);
+    //$form->add('Ajouter',SubmitType::class);
     $form->handleRequest($request);
 
     if($form->isSubmitted() && $form->isValid()){

@@ -23,6 +23,7 @@ class ChambreType extends AbstractType
                 'class' => Hotel::class,
                 'choice_label' => 'nom',
             ])
+            ->add("submit",SubmitType::class)
 
         ;
     }

@@ -31,35 +31,49 @@
     {% endblock %}
 {% endblock %}
 
-        {% block content %}
+
+{% block content2 %}
+
+    <div class="popular_destination__slider" id="popular_destination__slider">
+
+        {% for  c in chambre %}
+            <div class="slide_item">
+                <a href="single.html" class="slide_item_img">
+                    <div class="sq_parent">
+                        <div class="sq_wrap">
+                            <div class="sq_content" style="background-image: url({{ asset('client/img/' ~ c.prix ~ '.jpg')}})"></div>
+                        </div>
+                    </div>
+                </a>
+                <a href="single.html" class="slide_item_content">
+                    <div class="flag">
+                        <img src="{{ asset('client/img/tunis.png')}}" alt="">
+                    </div>
+                    <h3 class="slide_title">
+
+                        {{ c.hotel.nom}}
+                    </h3>
+                    <p class="slide_text">
+                        Prix {{ c.prix }} DT    </p>
+                    <p class="slide_text">
+                        Etage {{ c.etage }}     </p>
+                </a>
+                <div class="slide_footer">
+                    <div class="hours">Numero : {{ c.numero }}</div>
+                    <div class="tours_link">
+                        <a href="tour-list.html">Nombre de Lit : {{ c.nlits }}</a>
+                    </div>
+                </div>
+            </div>
+
+
+        {% endfor %}
+
+    </div>
 
 
 
-            <table border="1">
-                <tr>
-
-                    <th>Prix</th>
-                    <th>Numero</th>
-                    <th>Etage</th>
-                    <th>Hotel</th>
-                    <th>Nombre de lit</th>
-
-                </tr>
-                <tr {% for c in chambre %}>
-
-
-                    <td>{{ c.prix }}</td>
-                    <td>{{ c.numero }}</td>
-                    <td>{{ c.etage }}</td>
-                    <td>{{ c.hotel.nom }}</td>
-                    <td>{{ c.nlits }}</td>
-
-                </tr {% endfor %}>
-            </table>
-
-
-        {% endblock %}
-
+{% endblock %}
 {% block javascripts %}
 
 

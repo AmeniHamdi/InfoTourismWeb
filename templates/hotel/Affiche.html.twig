@@ -58,8 +58,17 @@
 {% endblock %}
 
         {% block content %}
+<div class="row small-spacing">
+    <div class="col-xs-12">
+        <div class="box-content">
+            <h4 class="box-title">Liste Des Hotels </h4>
+            <!-- /.box-title -->
+            <div class="dropdown js__drop_down">
+                <button type="button" class="btn btn-success btn-sm waves-effect waves-light" ><a href="/addhotel/"> Ajouter hotel ✅	 </a></button>
+                <!-- /.sub-menu -->
+            </div>
 
-            <table border="1">
+            <table id="example" class="table table-striped table-bordered display" style="width:100%">
                 <tr>
                     <th>Id</th>
                     <th>Nom</th>
@@ -75,8 +84,8 @@
                     <td>{{ h.nombrechambre }}</td>
                     <td>{{ h.categorie }}</td>
                     <td>{{ h.lieu }}</td>
-                    <td><a href="{{ path('update',{'id':h.id}) }}">Update</a></td>
-                    <td><a href="{{ path('d',{'id':h.id}) }}">Delete</a></td>
+                    <td><a href="{{ path('update',{'id':h.id}) }}" class="btn btn-info">Update ✐</a></td>
+                    <td><a href="{{ path('d',{'id':h.id}) }}"class="btn btn-info">Delete ❌</a></td>
                 </tr {% endfor %}>
             </table>
 

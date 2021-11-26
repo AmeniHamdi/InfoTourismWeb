@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Hotel;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,7 +16,8 @@ class HotelType extends AbstractType
             ->add('nom')
             ->add('nombrechambre')
             ->add('categorie')
-            ->add('lieu')
+            ->add('lieu' )
+            ->add("submit",SubmitType::class)
         ;
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Hotel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -47,4 +48,30 @@ class HotelRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+
+        /**
+     *@return Hotel[]
+     */
+    public function findSearch(SearchData $search) : array
+    {
+        $query = $this->createQueryBuilder('d')
+        ->select('d');
+
+
+        if($search->q){
+            $query =
+                $query
+                    ->where('d.nom LIKE :q')
+                    ->setParameter('q','%' .$search->q .'%');
+        }
+
+      
+
+
+        return $query->getQuery()->getResult();
+    }
+
 }
