@@ -86,8 +86,7 @@ class VoitureController extends AbstractController
     /**
      * @Route("/admin/updateVoiture/{id}",name="updateVoiture")
      */
-    public
-    function updateVoiture(Request $request, $id)
+    public function updateVoiture(Request $request, $id)
     {
         $voiture = $this->getDoctrine()->getRepository(Voiture::class)->find($id);
         $form = $this->createForm(VoitureType::class, $voiture);

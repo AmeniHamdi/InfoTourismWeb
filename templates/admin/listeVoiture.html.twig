@@ -146,7 +146,7 @@
                     "Nbr Jours : {{voiture.getNbrJours() }}" + "\n" +
                     "Date Résèrvation : {{voiture.getDateReservation() }}" + "\n",
                 icon: 'success',
-                imageUrl: 'https://unsplash.it/400/200',
+                imageUrl: '{{ asset('uploads/voiture/' ~ voiture.image) }}',
                 imageWidth: 400,
                 imageHeight: 200,
                 imageAlt: 'Custom image',

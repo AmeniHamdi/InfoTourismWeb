@@ -6472,7 +6472,7 @@ body {
   margin-top: -10px;
 }
 .field .label {
-  color: rgba(62, 69, 89, 0.35);
+  color: #3e4559;
   display: block;
   float: left;
   width: 100%;
@@ -7104,9 +7104,6 @@ body {
   .single-page .content-body .text {
     font-size: 16px;
   }
-  .single-page .content-body .table_wrap .table tbody tr td {
-    font-size: 16px;
-  }
   .single-page .reviews_comments_top ._title {
     margin-bottom: 13px;
   }
@@ -7266,36 +7263,6 @@ body {
   .single-page .content-body .text {
     font-size: 16px;
   }
-  .single-page .content-body .table_wrap .table tbody tr td:first-child {
-    width: 100%;
-    max-width: 100%;
-  }
-  .single-page .content-body .table_wrap .table {
-    display: block;
-    float: left;
-    width: 100%;
-  }
-  .single-page .content-body .table_wrap .table tbody {
-    display: block;
-    float: left;
-    width: 100%;
-  }
-  .single-page .content-body .table_wrap .table tbody tr {
-    display: block;
-    float: left;
-    width: 100%;
-    border-bottom: 1px solid #e6e6e6;
-    margin-bottom: 12px;
-    padding-bottom: 11px;
-  }
-  .single-page .content-body .table_wrap .table tbody tr td {
-    display: block;
-    float: left;
-    width: 100%;
-    font-size: 16px;
-    padding: 5px 0;
-    border-bottom: 0;
-  }
   .single-page .content-body .expect {
     padding-top: 35px;
   }
@@ -7329,15 +7296,6 @@ body {
   }
   .single-page .content-body {
     padding-top: 50px;
-  }
-  .single-page .content-body .table_wrap .table tbody tr td ul li {
-    margin-bottom: 5px;
-  }
-  .single-page .content-body .table_wrap .table tbody tr td ul.false li:before {
-    top: 4px;
-  }
-  .single-page .content-body .table_wrap .table tbody tr td ul.true li:before {
-    top: 4px;
   }
   .single-page .content-body .faq .faq_accordeon .faq_item .faq_content {
     font-size: 15px;
@@ -7379,12 +7337,6 @@ body {
   }
   .single-page .related_tours .slider_item .slider_item__content {
     padding: 20px;
-  }
-  .single-page .content-body .table_wrap .table tbody tr:first-child td {
-    border-top: 0;
-  }
-  .single-page .content-body .table_wrap {
-    margin-top: 35px;
   }
   .single-page .content-body .faq .faq_accordeon .faq_item .faq_tab {
     padding-right: 10px;

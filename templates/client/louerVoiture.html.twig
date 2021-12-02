@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Info Tourisme voitur</title>
+    <title>Info Tourisme louer voiture</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('client/css/styles.css')}}">
@@ -57,7 +57,8 @@
                                 </div>
                                 <div class="socials">
                                     <div class="links">
-                                        <a href="#" class="fb"></a>
+                                        <a href="{{ path('panier',{'id':app.user.id}) }}" class="a fa-shopping-cart">Panier</a>
+                                        <a href="" class="fb"></a>
                                         <a href="#" class="instagram"></a>
                                         <a href="#" class="pinterest"></a>
                                         <a href="#" class="twitter"></a>
@@ -75,17 +76,27 @@
 
         <div class="content-body">
 
-            {% for voiture in voiture %}
-            <div class="card" style="width: 18rem; margin: 10px;">
-                <img class="card-img-top" src="{{ asset('uploads/voiture/' ~ voiture.image) }}" alt="Card image cap"  width="120" height="150">
-                <div class="card-body">
-                    <h4 class="card-title">{{ voiture.getModele() }}</h4>
-                    <h4 class="card-title">Prix/jour : {{ voiture.prix }} TND</h4>
-                    <a href="{{ path('location',{'idVoiture':voiture.id,'idUser':app.user.id}) }}" class="btn btn-primary" style="margin-left: 45px;">Louer</a>
-                </div>
-            </div>
-            {% endfor %}
 
+                <div class="card" style="width: 36rem; margin: 25px; padding-bottom: 20px;">
+                    <img class="card-img-top" src="{{ asset('uploads/voiture/' ~ voiture.image) }}" alt="Card image cap"  width="120">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ voiture.getModele() }}</h4>
+                        <h4 class="card-title">Prix/jour : {{ voiture.prix }} TND</h4>
+                    </div>
+                    {{ form_start(form) }}
+
+                    <div class="field">
+                        <label class="label">Nombre de jours</label>
+                        <div class="input_wrap">
+                            {{ form_widget(form.nbrJours, {'attr': {'class': 'input'}}) }}
+                            <small>{{ form_help(form.nbrJours) }}</small>
+                            <div class="notice-danger">{{ form_errors(form.nbrJours) }}</div>
+                        </div>
+                    </div>
+                    {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light','style':'margin-left: 20px;'}, 'label': 'Ajouter au panier' }) }}
+                    {{ form_end(form) }}
+
+                </div>
 
         </div>
         <div class="mobile-fixed-bottom getModal" data-href="#book-now">
@@ -113,6 +124,7 @@
                         </ul>
                     </div>
                     <div class="socials">
+                        <a href="{{ path('panier',{'id':app.user.id}) }}" class="a fa-shopping-cart">Panier</a>
                         <a href="#" class="a facebook"></a>
                         <a href="#" class="a instagram"></a>
                         <a href="#" class="a pinterest"></a>
