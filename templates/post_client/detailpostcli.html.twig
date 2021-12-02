@@ -139,7 +139,7 @@
                                 <!-- Post header-->
                                 <header class="mb-4">
                                     <!-- Post title-->
-                                    <h1 class="fw-bolder mb-1">{{ title|upper }}</h1>
+                                    <h1 class="section-title">{{ title|upper }}</h1>
                                     <p>
                                         <a href="{{ path('AffichePostCl') }}"><button  type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="ajoutepost">Back</button></a>
                                     </p>
@@ -148,7 +148,7 @@
                                 <!-- Preview image figure-->
                                 <figure class="mb-4"><img class="img-fluid rounded" src="{{ asset('dark/assets/images/' ~ photo) }}" alt="{{ title }}" /></figure>
                                 <!-- Post content-->
-                                <section class="mb-5">
+                                <section class="section-subtitle">
                                     <p>{{ description }}</p>
                                 </section>
                             </article>
@@ -158,37 +158,34 @@
                                     <div class="card-body">
 
                                         <!-- Comment form-->
-                                        <form form class="mb-4" action="{{ path('AjoutePostC') }}" method="post" id="comment">
-                                            <textarea type="text" id="postcomment_comment" name="postcomment[comment]" class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
-                                            <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Ajouter</button>
+
+                                        <form form class="mb-4" action="{{ path('addComment') }}" method="post" id="comment">
+                                            <textarea type="text" id="comment" name="comment" class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+                                            <button  type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
                                         </form>
 
 
-                                        <!-- Parent comment-->
-                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                        <div class="ms-3">
-                                            <div class="fw-bold">Commenter Name</div>
-                                            If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
 
+
+                                        <!-- Parent comment-->
+                                        <div class="flex-shrink-0">
+                                            <img class="rounded-circle" src="{{ asset('dark/assets/images/achraf-tawes') }}" alt="..." />
+                                        </div>
+                                        <div class="ms-3">
+
+                                            <div class="section-subtitle">Ashraf tawes</div>
+                                            <h3 class="section-subtitle">Hello </h3>
 
                                         </div>
+
                                     </div>
                                 </div>
                             </section>
                         </div>
-                        <!-- Sid
+
 
                     </div>
-                    <div class="pagination">
-                        <ul>
-                            <li class="prev"><a href="#"></a></li>
-                            <li class="current"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li class="next"><a href="#"></a></li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
 

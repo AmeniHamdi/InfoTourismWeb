@@ -10,6 +10,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Services\MailerService;
+
+
 
 class ReclamawebController extends AbstractController
 {
@@ -75,10 +78,11 @@ class ReclamawebController extends AbstractController
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/AjouteReclama",name="AjouteReclama")
+     *
      */
-    function Add(Request $request){
+    function Add(Request $request ){
         $reclamaweb=new Reclamaweb();
-        $form=$this->createForm(ReclamawebclientType::class,$reclamaweb);
+        $form=$this->createForm(ReclamawebType::class,$reclamaweb);
         $form->add('Ajouter',SubmitType::class,[
             'attr'=>[
                 'class'=>'btn btn-primary waves-effect waves-light']]);
@@ -88,7 +92,6 @@ class ReclamawebController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($reclamaweb);
             $em->flush();
-
 
 
             return $this->redirectToRoute('AfficheReclama');
@@ -122,4 +125,6 @@ class ReclamawebController extends AbstractController
                 'f'=>$form->createView()
             ]);
 
-}}
+}
+
+}

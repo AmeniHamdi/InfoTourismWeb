@@ -13,7 +13,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('html/img/favicons/android-chrome-512x512.png')}}">
     <link rel="icon" type="image/png" href="{{ asset('html/img/favicons/favicon-32x32.png')}}" sizes="32x32">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('html/img/favicons/favicon.ico')}}">
+<style>
 
+
+</style>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="#000" name="msapplication-TileColor">
     <meta content="#000" name="theme-color">
@@ -134,7 +137,7 @@
                         <div class="popular_destination__slider">
                             {% for post in post %}
                             <div class="slide_item">
-                                <a href="DetailPostCl" class="slide_item_img">
+                                <a href="{{path('DetailPostCl',{'id': post.id})}}" class="slide_item_img">
                                     <div class="sq_parent">
                                         <div class="sq_wrap">
                                             <div class="sq_content" style="background-image: url({{ asset('dark/assets/images/' ~ post.photo ) }})"></div>
@@ -153,11 +156,37 @@
                                     </p>
                                 </a>
                                 <div class="slide_footer">
-                                    <div class="hours">15 tours</div>
+                                    <div class="hours">
+                                        <small class="hours">{{ post.postdate|date() }}</small>
+                                    </div>
                                     <div class="tours_link">
-                                        <a href="tour-list.html">View all tours</a>
+                                        <a href="tour-list.html">
+                                            {{ post.views }} views
+                                        </a>
+                                    </div>
+                                    <div class="meta">
+                                        <div class="views">
+                                            <i class="fa fa-eye"></i>
+                                        </div>
+                                        <div>
+                                            <a>
+                                                <form form class="mb-4" action="{{ path('addComment') }}" method="post" id="comment">
+                                                    <textarea type="text" id="comment" name="comment" class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+                                                    <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Ajouter</button>
+                                                </form>
+                                            </a>
+                                            <a>
+                                                <form form class="mb-4" action="{{ path('addvue') }}" method="post" id="vue">
+                                                   <a> Click me !</a> <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Click me</button>
+                                                </form>
+                                            </a>
+
+
+                                        </div>
+
                                     </div>
                                 </div>
+
 
                             </div>
                             {% endfor %}

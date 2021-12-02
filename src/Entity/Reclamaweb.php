@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReclamawebRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=ReclamawebRepository::class)
  */
@@ -24,26 +24,32 @@ class Reclamaweb
 
     /**
      * @ORM\Column(type="string", length=30)
+     *@Assert\NotBlank(message="First Name is required")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="Last Name is required")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=60)
+     * @Assert\NotBlank(message="Email is required")
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid")
      */
     private $email;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Phone Number is required")
      */
     private $phonenumber;
 
     /**
      * @ORM\Column(type="string", length=1000)
+     * @Assert\NotBlank(message="Description is required")
      */
     private $description;
 
@@ -123,4 +129,5 @@ class Reclamaweb
 
         return $this;
     }
+
 }

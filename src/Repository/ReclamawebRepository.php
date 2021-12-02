@@ -5,6 +5,11 @@ namespace App\Repository;
 use App\Entity\Reclamaweb;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+use Twig\Environment;
+
+
 
 /**
  * @method Reclamaweb|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +22,7 @@ class ReclamawebRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Reclamaweb::class);
+
     }
 
     // /**
@@ -47,4 +53,9 @@ class ReclamawebRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+
+
 }

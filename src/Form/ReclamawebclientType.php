@@ -16,17 +16,16 @@ class ReclamawebclientType extends AbstractType
     {
         $builder
             ->add('type', ChoiceType::class,[
-                    'label'=>'Type                                                     ',
-                    'choices'  =>array(
+                    'choices' =>array(
                         'Message' => 'Message',
                         'Complaint' => 'Complaint',
-                        'Commercial' => 'Commercial'),
-
+                        'Commercial' => 'Commercial'
+                        ),
                     'attr'=>[
-                        'font-weight'=> '500',
-                        'margin-bottom'=>'10px',
-                        'class'=>'form-control']]
-            )
+                        'margin-bottom'=> '18px',
+                        'margin-top'=>'13px',
+                        'class'=>'add_comment'
+                        ]])
 
 
             ->add('firstname', TextType::class,[
@@ -34,27 +33,28 @@ class ReclamawebclientType extends AbstractType
                 'attr'=>[
 
                     'placeholder'=>'Merci de définir le nom',
-                    'class'=>'form-control']])
+                    'class'=>'add_comment']])
             ->add('lastname', TextType::class,[
                 'label'=>'lastname',
                 'attr'=>[
                     'placeholder'=>'Merci de définir le Prenom',
-                    'class'=>'form-control']])
+                    'class'=>'add_comment']])
             ->add('email', TextType::class,[
                 'label'=>'email',
                 'attr'=>[
                     'placeholder'=>'Merci de définir lemail',
-                    'class'=>'form-control']])
+                    'class'=>'field']])
             ->add('phonenumber', TextType::class,[
                 'label'=>'phonenumber',
                 'attr'=>[
                     'placeholder'=>'Merci de définir le numero de portable',
-                    'class'=>'form-control']])
+                    'class'=>'field']])
             ->add('description', TextareaType::class,[
+
                 'label'=>'description',
-                'attr'=>[
-                    'placeholder'=>'Ecrit .. !',
-                    'class'=>'form-control']])
+                'attr'=>['class'=>'field',
+                    'placeholder'=>'Ecrit .. !'
+                    ]])
 
         ;
     }

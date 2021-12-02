@@ -295,6 +295,7 @@
                             <header class="mb-4">
                                 <!-- Post title-->
                                 <h1 class="fw-bolder mb-1">{{ title|upper }}</h1>
+                                <p>{{ date|date }} </p>
                                 <p>
                                     <a href="{{ path('AffichePost') }}"><button  type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="ajoutepost">Back</button></a>
                                 </p>
@@ -304,32 +305,42 @@
                             <figure class="mb-4"><img class="img-fluid rounded" src="{{ asset('dark/assets/images/' ~ photo) }}" alt="{{ title }}" /></figure>
                             <!-- Post content-->
                             <section class="mb-5">
-                              <p>{{ description }}</p>
+                              <p >{{ description }}</p>
                             </section>
                         </article>
                         <!-- Comments section-->
+                        <div class="col-xs-12">
+                            <div class="box-content">
+                                <h4 class="box-title">Commentaire</h4>
                         <section class="mb-5">
                             <div class="card bg-light">
                                 <div class="card-body">
 
                                     <!-- Comment form-->
-                                   <form form class="mb-4" action="{{ path('AjoutePostC') }}" method="post" id="comment">
-                                        <textarea type="text" id="postcomment_comment" name="postcomment[comment]" class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+                                   <form form class="mb-4" action="{{ path('addComment') }}" method="post" id="comment">
+                                        <textarea type="text" id="comment" name="comment" class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
                                         <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Ajouter</button>
                                     </form>
 
 
                                     <!-- Parent comment-->
-                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+                                    <img class="rounded-circle" src="{{ asset('dark/assets/images/achraf-tawes.jpg') }}" alt="..." />
 
+                                    <blockquote>
+                                    <div class="flex-shrink-0">
 
+                                        <div class="fw-bold">Achraf tawes</div>
                                     </div>
+
+                                    <div class="ms-3">
+                                        Hello
+                                    </div>
+                                    </blockquote>
                                 </div>
                             </div>
                         </section>
+                            </div>
+                        </div>
                     </div>
                     <!-- Side widgets-->
 

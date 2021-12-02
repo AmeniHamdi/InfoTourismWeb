@@ -18,13 +18,11 @@ class ReclamawebType extends AbstractType
         $builder
             ->add('type', ChoiceType::class,[
                 'label'=>'Type',
-                'choices'  =>array(
+                'choices'  =>[
                         'Message' => 'Message',
                         'Complaint' => 'Complaint',
-                        'Commercial' => 'Commercial'),
+                        'Commercial' => 'Commercial'],
                 'attr'=>[
-                    'font-weight'=> '500',
-                    'margin-bottom'=>'10px',
                     'class'=>'form-control']])
 
 
