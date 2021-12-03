@@ -56,12 +56,125 @@
                     <p class="slide_text">
                         Prix {{ c.prix }} DT    </p>
                     <p class="slide_text">
-                        Etage {{ c.etage }}     </p>
+                        Etage {{ c.etage }}
+                    </p>
+                    <p class="slide_text">
+                        Nombre de Lit : {{ c.nlits }}
+                    </p>
+                    <p class="slide_text">
+                        <img src="{{ asset('client/qr/qrcode'~ c.hotel.id ~'-'~c.numero~'.png') }}">
+                    </p>
                 </a>
-                <div class="slide_footer">
-                    <div class="hours">Numero : {{ c.numero }}</div>
+                <div class="slide_footer" {% if c.rate == 0 %} style="
+    background-color: white;
+"
+                {% else %}
+                    style="
+    background-color: lightgrey;
+"
+                {% endif %}
+
+                >
+
+                    <div class="hours">Rate :
+                        <div class="slider_item__content">
+                            <div class="rating">
+                                <div class="stars">
+                                    {% if  c.rate == 5  %}
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+
+                                    {% elseif c.rate == 4 %}
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star "></div>
+                                    {% elseif c.rate == 3 %}
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star "></div>
+                                        <div class="star "></div>
+                                    {% elseif c.rate == 2 %}
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star "></div>
+                                        <div class="star "></div>
+                                        <div class="star "></div>
+                                    {% elseif c.rate == 1%}
+                                        <div class="star active"></div>
+                                        <div class="star "></div>
+                                        <div class="star "></div>
+                                        <div class="star "></div>
+                                        <div class="star "></div>
+
+                                    {% else %}
+
+                                        <table style="border-collapse: collapse;border-spacing: 0;width: 275px; margin: 0 auto; font-size: 50px; direction: rtl;" dir="rtl">
+                                            <tbody><tr>
+                                                <td style="padding: 0;vertical-align: top;" width="55" class="star-wrapper" lang="x-star-wrapper">
+                                                    <div style="display: block; text-align: center; float: left;width: 55px;overflow: hidden;line-height: 60px;">
+                                                        <a href="{{ path('rate',{'id':c.id,'rate':5}) }}" class="star"  style="color: #FFCC00; text-decoration: none; display: inline-block;height: 50px;width: 55px;overflow: hidden;line-height: 60px;" >
+                                                            <div lang="x-empty-star" style="margin: 0;display: inline-block;">☆</div>
+                                                            <div lang="x-full-star" style="margin: 0;display: inline-block; width:0; overflow:hidden;float:left; display:none; height: 0; max-height: 0;">★</div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td style="padding: 0;vertical-align: top" width="55" class="star-wrapper" lang="x-star-wrapper">
+                                                    <div style="display: block; text-align: center; float: left;width: 55px;overflow: hidden;line-height: 60px;">
+                                                        <a href="{{ path('rate',{'id':c.id,'rate':4}) }}" class="star"  style="color: #FFCC00; text-decoration: none; display: inline-block;height: 50px;width: 55px;overflow: hidden;line-height: 60px;" >
+                                                            <div lang="x-empty-star" style="margin: 0;display: inline-block;">☆</div>
+                                                            <div lang="x-full-star" style="margin: 0;display: inline-block; width:0; overflow:hidden;float:left; display:none; height: 0; max-height: 0;">★</div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td style="padding: 0;vertical-align: top" width="55" class="star-wrapper" lang="x-star-wrapper">
+                                                    <div style="display: block; text-align: center; float: left;width: 55px;overflow: hidden;line-height: 60px;">
+                                                        <a href="{{ path('rate',{'id':c.id,'rate':3}) }}" class="star"  style="color: #FFCC00; text-decoration: none; display: inline-block;height: 50px;width: 55px;overflow: hidden;line-height: 60px;" >
+                                                            <div lang="x-empty-star" style="margin: 0;display: inline-block;">☆</div>
+                                                            <div lang="x-full-star" style="margin: 0;display: inline-block; width:0; overflow:hidden;float:left; display:none; height: 0; max-height: 0;">★</div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td style="padding: 0;vertical-align: top" width="55" class="star-wrapper" lang="x-star-wrapper">
+                                                    <div style="display: block; text-align: center; float: left;width: 55px;overflow: hidden;line-height: 60px;">
+                                                        <a href="{{ path('rate',{'id':c.id,'rate':2}) }}"  style="color: #FFCC00; text-decoration: none; display: inline-block;height: 50px;width: 55px;overflow: hidden;line-height: 60px;" >
+                                                            <div lang="x-empty-star" style="margin: 0;display: inline-block;">☆</div>
+                                                            <div lang="x-full-star" style="margin: 0;display: inline-block; width:0; overflow:hidden;float:left; display:none; height: 0; max-height: 0;">★</div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td style="padding: 0;vertical-align: top" width="55" class="star-wrapper" lang="x-star-wrapper">
+                                                    <div style="display: block; text-align: center; float: left;width: 55px;overflow: hidden;line-height: 60px;">
+                                                        <a href="{{ path('rate',{'id':c.id,'rate':1}) }}" class="star"  style="color: #FFCC00; text-decoration: none; display: inline-block;height: 50px;width: 55px;overflow: hidden;line-height: 60px;" >
+                                                            <div lang="x-empty-star" style="margin: 0;display: inline-block;">☆</div>
+                                                            <div lang="x-full-star" style="margin: 0;display: inline-block; width:0; overflow:hidden;float:left; display:none; height: 0; max-height: 0;">★</div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody></table>
+
+
+
+
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
                     <div class="tours_link">
-                        <a href="tour-list.html">Nombre de Lit : {{ c.nlits }}</a>
+                        <a href="tour-list.html">Numero : {{ c.numero }}</a>
+
                     </div>
                 </div>
             </div>

@@ -10,6 +10,14 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Builder\Builder;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelHigh;
+use Endroid\QrCode\Label\Alignment\LabelAlignmentCenter;
+use Endroid\QrCode\Label\Font\NotoSans;
+use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
+use Endroid\QrCode\Writer\PngWriter;
 
 class ChambreController extends AbstractController
 {
@@ -27,6 +35,8 @@ class ChambreController extends AbstractController
      */
     public function addChambre(Request $request)
     {
+
+
         $Chambre = new Chambre();
         $form = $this->createForm(ChambreType::class, $Chambre);
        // $form->add('Ajouter',SubmitType::class);
@@ -34,7 +44,28 @@ class ChambreController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $Chambre->setIdH(0);
+            $Chambre->setRate(0);
             $em->persist($Chambre);
+            $data = 'Nombre de lit : '.$Chambre->getNlits().' Prix : '.$Chambre->getPrix().' Etage : '.$Chambre->getEtage().' Numero : '.$Chambre->getNumero().' Hotel Name : '.$Chambre->getHotel()->getNom();
+            $result = Builder::create()
+                ->writer(new PngWriter())
+                ->writerOptions([])
+                ->data($data)
+                ->encoding(new Encoding('UTF-8'))
+                ->errorCorrectionLevel(new ErrorCorrectionLevelHigh())
+                ->size(300)
+                ->margin(10)
+                ->roundBlockSizeMode(new RoundBlockSizeModeMargin())
+                ->labelText('Scan me')
+                ->labelFont(new NotoSans(20))
+                ->labelAlignment(new LabelAlignmentCenter())
+                ->build();
+
+// Save it to a file
+            $result->saveToFile('C:/xampp/htdocs/Hotel/infoTourisme-main/public/client/qr'.'/qrcode'.$Chambre->getHotel()->getId().'-'.$Chambre->getNumero().'.png');
+
+
+
             $em->flush();
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('AfficheChambre');
@@ -77,6 +108,18 @@ class ChambreController extends AbstractController
         $em->flush();
 
         return $this->redirectToRoute('AfficheChambre');
+
+    }
+    /**
+     * @Route("/rate/{id}/{rate}",name="rate")
+     */
+    function Rate($id,$rate,ChambreRepository  $repository){
+        $Chambre=$repository->find($id);
+        $em=$this->getDoctrine()->getManager();
+        $Chambre->setRate($rate);
+        $em->flush();
+        return $this->redirectToRoute('AfficheChambreclient');
+
 
     }
     /**

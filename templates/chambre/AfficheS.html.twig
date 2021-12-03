@@ -58,46 +58,46 @@
 {% endblock %}
 
         {% block content %}
-<div class="row small-spacing">
-    <div class="col-xs-12">
-        <div class="box-content">
-            <h4 class="box-title">Liste Des Chambres </h4>
-            <!-- /.box-title -->
-            <div class="dropdown js__drop_down">
-                <button type="button" class="btn btn-success btn-sm waves-effect waves-light" ><a href="/addChambre/"> Ajouter Chambre </a></button>
-                <!-- /.sub-menu -->
+            <div class="row small-spacing">
+                <div class="col-xs-12">
+                    <div class="box-content">
+                        <h4 class="box-title">Liste Des Chambres </h4>
+                        <!-- /.box-title -->
+                        <div class="dropdown js__drop_down">
+                            <button type="button" class="btn btn-success btn-sm waves-effect waves-light" ><a href="/addChambre/"> Ajouter Chambre </a></button>
+                            <!-- /.sub-menu -->
+                        </div>
+                        <!-- /.dropdown js__dropdown -->
+
+                        <table id="example" class="table table-striped table-bordered display" style="width:100%" border="1" >
+                            <tr>
+                                <th>Id</th>
+
+                                <th>Prix</th>
+                                <th>Numero</th>
+                                <th>Etage</th>
+                                <th>Hotel</th>
+                                <th>Nombre de lit</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                            <tr {% for c in chambre %}>
+                                <td>{{ c.id }}</td>
+
+                                <td>{{ c.prix }}</td>
+                                <td>{{ c.numero }}</td>
+                                <td>{{ c.etage }}</td>
+                                <td>{{ c.hotel.nom }}</td>
+                                <td>{{ c.nlits }}</td>
+
+                                <td><a href="{{ path('updateChambre',{'id':c.id}) }}" class="btn btn-warning">Update </a></td>
+                                <td><a href="{{ path('delete',{'id':c.id}) }}" class="btn btn-danger">Delete </a></td>
+                            </tr {% endfor %}>
+                        </table>
+                    </div>
+
+                </div>
             </div>
-            <!-- /.dropdown js__dropdown -->
-
-            <table id="example" class="table table-striped table-bordered display" style="width:100%" border="1" >
-                <tr>
-                    <th>Id</th>
-
-                    <th>Prix</th>
-                    <th>Numero</th>
-                    <th>Etage</th>
-                    <th>Hotel</th>
-                    <th>Nombre de lit</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </tr>
-                <tr {% for c in chambre %}>
-                    <td>{{ c.id }}</td>
-
-                    <td>{{ c.prix }}</td>
-                    <td>{{ c.numero }}</td>
-                    <td>{{ c.etage }}</td>
-                    <td>{{ c.hotel.nom }}</td>
-                    <td>{{ c.nlits }}</td>
-
-                    <td><a href="{{ path('updateChambre',{'id':c.id}) }}" class="btn btn-info">Update ✐</a></td>
-                    <td><a href="{{ path('delete',{'id':c.id}) }}" class="btn btn-info">Delete ❌</a></td>
-                </tr {% endfor %}>
-            </table>
-        </div>
-
-    </div>
-</div>
 
 
 
@@ -151,6 +151,8 @@
 
     <script src="{{ asset('admin/scripts/main.min.js') }}"></script>
 {% endblock %}
+
+
 
 
 

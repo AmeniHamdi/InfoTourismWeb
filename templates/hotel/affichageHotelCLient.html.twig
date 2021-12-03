@@ -27,6 +27,7 @@
 
 
         <link href="{{ asset('client/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/css/rating.css') }}" rel="stylesheet">
 
     {% endblock %}
 {% endblock %}
@@ -38,25 +39,80 @@
     <div class="popular_destination__slider" id="popular_destination__slider">
        {% for h in hotel %}
             <div class="slide_item">
-                <a href="single.html" class="slide_item_img">
+                <div  class="slide_item_img">
                     <div class="sq_parent">
                         <div class="sq_wrap">
                             <div class="sq_content" style="background-image: url({{ asset('client/img/' ~ h.nom ~ '.jpg')}})"></div>
                         </div>
                     </div>
-                </a>
-                <a href="single.html" class="slide_item_content">
+                </div>
+                <div class="slide_item_content" >
                     <div class="flag">
                         <img src="{{ asset('client/img/tunis.png')}}" alt="">
                     </div>
                     <h3 class="slide_title">
-                        {{ h.nom }}
+                     <a href="{{path('hotel_detail',{'id':h.id})}}">   {{ h.nom }} </a>
                     </h3>
                     <p class="slide_text">
-                        Nombre de Chambre {{ h.nombrechambre }}     </p>
-                </a>
-                <div class="slide_footer">
-                    <div class="hours">Categorie : {{ h.categorie }}</div>
+                        Nombre de Chambre {{ h.nombrechambre }}
+
+
+                    </p>
+
+
+
+
+
+
+
+                </div>
+                <div class="slide_footer" style="
+    background-color: lightgrey;
+">
+                    <div class="hours">Categorie :
+                        <div class="slider_item__content">
+                            <div class="rating">
+                                <div class="stars">
+                                    {% if  h.categorie == "5 étoiles"  %}
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+
+           {% elseif h.categorie == "4 étoiles" %}
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star "></div>
+           {% elseif h.categorie == "3 étoiles" %}
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star "></div>
+               <div class="star "></div>
+           {% elseif h.categorie == "2 étoiles" %}
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star "></div>
+               <div class="star "></div>
+               <div class="star "></div>
+           {% else %}
+               <div class="star active"></div>
+               <div class="star "></div>
+               <div class="star "></div>
+               <div class="star "></div>
+               <div class="star "></div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        </div>
                     <div class="tours_link">
                         <a href="tour-list.html">Lieu : {{ h.lieu }}</a>
                     </div>

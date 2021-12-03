@@ -59,7 +59,7 @@
 
         {% block content %}
 
-            {{ form(f) }}
+             {{ include('hotel/_form.html.twig') }}
 
         {% endblock %}
 
@@ -72,7 +72,7 @@
     <script src="{{ asset('admin/plugin/nprogress/nprogress.js') }}"></script>
     <script src="{{ asset('admin/plugin/sweet-alert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('admin/plugin/waves/waves.min.js') }}"></script>
-
+   <script src="{{ asset('js/images.js') }}"></script>
     <!-- Flex Datalist -->
     <script src="{{ asset('admin/plugin/flexdatalist/jquery.flexdatalist.min.js') }}"></script>
 

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    <meta http-equiv="Content-Activite" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="">
@@ -57,52 +57,19 @@
     {% endblock %}
 {% endblock %}
 
+
         {% block content %}
 
-            <div class="row small-spacing">
-                <div class="col-xs-12">
-                    <div class="box-content card white">
-                        <h4 class="box-title">Nouveau Hotel</h4>
-                        <!-- /.box-title -->
-                        <div class="card-content">
 
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.nom) }}</label>
-                                {{ form_widget(form.nom,{'attr': {'class': 'form-control', 'placeholder': 'Entrer nom', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
-
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.nombrechambre) }}</label>
-                                {{ form_widget(form.nombrechambre, {'attr': {'class': 'form-control', 'placeholder': 'Entrer nombrechambre', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
-
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.categorie) }}</label>
-                                {{ form_widget(form.categorie, {'attr': {'class': 'form-control', 'placeholder': 'Entrer categorie', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
-
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.lieu) }} </label>
-                                {{ form_widget(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Entrer lieu', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
-
-                            </div>
+             {{ include('hotel/_form.html.twig') }}
 
 
-                            {{ form_row(form.submit, {'attr': {'class': 'btn btn-success btn-sm waves-effect waves-light'}, 'label': 'ajouter✅' }) }}
-
-                            {{ form_end(form) }}
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
 
         {% endblock %}
+
+
+
+
 
 {% block javascripts %}
     <!-- Placed at the end of the document so the pages load faster -->

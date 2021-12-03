@@ -23,7 +23,10 @@ class Chambre
      * @Assert\NotBlank(message="ajouter le nombre de lit")
      */
     private $nlits;
-
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $rate;
 
     /**
      * @ORM\Column(type="integer")
@@ -104,6 +107,18 @@ class Chambre
     public function getEtage(): ?int
     {
         return $this->etage;
+    }
+
+
+    public function getRate(): ?int
+    {
+        return $this->rate;
+    }
+
+
+    public function setRate($rate): void
+    {
+        $this->rate = $rate;
     }
 
     public function setEtage(int $etage): self

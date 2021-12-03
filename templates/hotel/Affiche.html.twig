@@ -61,10 +61,11 @@
 <div class="row small-spacing">
     <div class="col-xs-12">
         <div class="box-content">
-            <h4 class="box-title">Liste Des Hotels </h4>
+            <h4 class="box-title">Liste Des Chambres </h4>
+            <a href="{{path('TrierHotel')}}">Trier par Categorie</a>
             <!-- /.box-title -->
             <div class="dropdown js__drop_down">
-                <button type="button" class="btn btn-success btn-sm waves-effect waves-light" ><a href="/addhotel/"> Ajouter hotel ✅	 </a></button>
+                <button type="button" class="btn btn-success btn-sm waves-effect waves-light" ><a href="/addhotel/"> Ajouter hotel </a></button>
                 <!-- /.sub-menu -->
             </div>
 
@@ -84,8 +85,8 @@
                     <td>{{ h.nombrechambre }}</td>
                     <td>{{ h.categorie }}</td>
                     <td>{{ h.lieu }}</td>
-                    <td><a href="{{ path('update',{'id':h.id}) }}" class="btn btn-info">Update ✐</a></td>
-                    <td><a href="{{ path('d',{'id':h.id}) }}"class="btn btn-info">Delete ❌</a></td>
+                    <td><a href="{{ path('update',{'id':h.id}) }}"class="btn btn-warning">Update</a></td>
+                    <td><a href="{{ path('d',{'id':h.id}) }}"class="btn btn-danger">Delete</a></td>
                 </tr {% endfor %}>
             </table>
 
@@ -139,6 +140,3 @@
 
     <script src="{{ asset('admin/scripts/main.min.js') }}"></script>
 {% endblock %}
-
-
-
