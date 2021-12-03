@@ -5,12 +5,12 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Voiture
+ * User
  *
- * @ORM\Table(name="voiture")
+ * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class Voiture
+class User
 {
     /**
      * @var int
@@ -28,6 +28,13 @@ class Voiture
      */
     private $nom;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -41,6 +48,18 @@ class Voiture
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

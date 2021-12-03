@@ -9,6 +9,7 @@ use App\Entity\Voiture;
 use App\Form\ReservationType;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,11 +24,18 @@ class ReservationController extends AbstractController
     /**
      * @Route("/", name="reservation_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(Request $request , PaginatorInterface $paginator): Response
     {
-        $reservations = $this->getDoctrine()
+
+        $donnees = $this->getDoctrine()
             ->getRepository(Reservation::class)
-            ->findBy(array("etat"=>"En Cours"));
+            ->findBy(array("etat"=>"En Cours"));;
+
+        $reservations =$paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            6 // Nombre de résultats par page
+        );
 
         return $this->render('reservation/index.html.twig', [
             'reservations' => $reservations,
@@ -94,7 +102,7 @@ class ReservationController extends AbstractController
     }
 
 
-////////pdf
+
     /**
      * @Route("pdfreservation/{idres}", name="reservation_pdf", methods={"GET"})
      */
@@ -130,7 +138,7 @@ class ReservationController extends AbstractController
             "Attachment" => false
         ]);
 
-    }
+        }
 
     /**
      * @Route("/{idres}/edit", name="reservation_edit", methods={"GET","POST"})

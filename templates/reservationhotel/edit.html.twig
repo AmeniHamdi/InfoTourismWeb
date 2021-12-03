@@ -12,15 +12,15 @@
                 {{ form_start(form, {'attr': {'id': 'form'}}) }}
                 <div class="search_tour_form">
                     <h2 class="section_subtitle">
-                        SEARCH TOUR
+                        BIENVENUE &#128522;
                     </h2>
                     <p class="section_title">
-                        Ready to rest? We are ready to help with the search
+                        MODIFIER VOTRE RESERVATION :
                     </p>
                     <div class="fields__block">
                         <div class="fields">
                             <div class="field">
-                                <div class="label">Date Debut</div>
+                                <div class="label">DATE DEBUT : </div>
                                 <div class="field_wrap ">
 
                                     {{ form_widget(form.datedeb, { 'attr': {'class': 'field_wrap'} }) }}
@@ -28,7 +28,7 @@
                                 {{ form_errors (form.datedeb) }}
                             </div>
                             <div class="field">
-                                <div class="label">Date Debut</div>
+                                <div class="label">DATE FIN : </div>
                                 <div class="field_wrap ">
                                     {{ form_widget(form.datefin, { 'attr': {'class': 'field_wrap'} }) }}
 
@@ -36,15 +36,17 @@
                             </div>
 
                             <div class="field">
-                                <div class="label">Nombre de Place</div>
+                                <div class="label">NOMBRE DE PLACE : </div>
                                 <div class="field_wrap ">
                                     {{ form_widget(form.nbrplace, { 'attr': {'class': 'field_wrap'} }) }}
+                                    {{ form_errors(form.nbrplace) }}
                                 </div>
                             </div>
                             <div class="field">
-                                <div class="label">Prix</div>
+                                <div class="label">PRIX : </div>
                                 <div class="field_wrap ">
                                     {{ form_widget(form.prix, { 'attr': {'class': 'field_wrap'} }) }}
+                                    {{ form_errors(form.prix) }}
                                 </div>
                             </div>
 
@@ -53,7 +55,7 @@
 
                     </div>
                     <div class="field">
-                        <input type="submit" value="Enregistrer" class="btn btn-success"/>
+                      <pre></pre>  <input type="submit" value="MODIFIER &#128521"" class="btn btn-success"/>
                     </div>
                 </div>
                 {{ form_end(form) }}
@@ -70,15 +72,14 @@
         form.addEventListener('submit',(e)=> {
             let message = [];
 
-            var date = new Date(document.getElementById('reservation_datedeb').value);
 
 
-            const year= document.getElementById('reservation_datedeb_year').value;
-            const month= document.getElementById('reservation_datedeb_month').value;
-            const day= document.getElementById('reservation_datedeb_day').value;
-            const yearf= document.getElementById('reservation_datefin_year').value;
-            const monthf= document.getElementById('reservation_datefin_month').value;
-            const dayf= document.getElementById('reservation_datefin_day').value;
+            const year= document.getElementById('reservationhotel_datedeb_year').value;
+            const month= document.getElementById('reservationhotel_datedeb_month').value;
+            const day= document.getElementById('reservationhotel_datedeb_day').value;
+            const yearf= document.getElementById('reservationhotel_datefin_year').value;
+            const monthf= document.getElementById('reservationhotel_datefin_month').value;
+            const dayf= document.getElementById('reservationhotel_datefin_day').value;
 
             var dated = new Date(year,month,day)
             var datef = new Date(yearf,monthf,dayf)
@@ -87,10 +88,10 @@
 
 
             console.log('whyy'+dated)
+            console.log('whyy'+datef)
 
-            console.log(date , ' ', now)
             if((dated < now)|| (dated > datef)){
-                swal("Oops...","Valider votre date ","error" );
+                swal("ATTENTION !!!","Vérifier votre date ","error" );
                 message.push('Vérifier Votre date')
             }
             console.log(message)

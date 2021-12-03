@@ -4,21 +4,35 @@
 
 {% block body %}
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#rech tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
         <div class="box-content">
             <!-- /.box-title -->
             <!-- /.dropdown js__dropdown -->
+            <input class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="RECHERCHE !!! &#129488;" aria-label="search" aria-describedby="search">
+
             <table class="table table-condensed">
                 <thead>
                 <tr>
-                    <th>Heureres</th>
-                    <th>Datedeb</th>
-                    <th>Datefin</th>
-                    <th>Dateres</th>
-                    <th>Etat</th>
-                    <th>actions</th>
+                    <th>HEURE DE RESERVATION</th>
+                    <th>DATE DEBUT DE RESERVATION</th>
+                    <th>DATE FIN DE RESERVATION</th>
+                    <th>DATE DE RESERVATION</th>
+                    <th>ETAT</th>
+                    <th>ACTIONS</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="rech">
 
                 {% for reservation in reservations %}
                     <tr>
@@ -28,8 +42,8 @@
                         <td>{{ reservation.dateres ? reservation.dateres|date('Y-m-d') : '' }}</td>
                         <td>{{ reservation.etat}}</td>
                         <td>
-                            <a href="{{ path('reservation_accept', {'idres': reservation.idres}) }}" class="btn btn-success">Accepter</a>
-                            <a href="{{ path('reservation_refuse', {'idres': reservation.idres}) }}" class="btn btn-danger"> Refuser</a>
+                            <pre><a href="{{ path('reservation_accept', {'idres': reservation.idres}) }}" class="btn btn-success">ACCEPTER &#128526;</a></pre>
+                            <pre><a href="{{ path('reservation_refuse', {'idres': reservation.idres}) }}" class="btn btn-danger"> REFUSER &#128533;</a></pre>
                         </td>
                     </tr>
                 {% else %}
@@ -37,6 +51,8 @@
                         <td colspan="7">no records found</td>
                     </tr>
                 {% endfor %}
+                {{ knp_pagination_render(reservations) }}
+
                 </tbody>
             </table>
         </div>

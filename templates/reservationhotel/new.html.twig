@@ -12,15 +12,15 @@
                 {{ form_start(form, {'attr': {'id': 'form'}}) }}
                 <div class="search_tour_form">
                     <h2 class="section_subtitle">
-                        SEARCH TOUR
+                        BIENVENUE &#128522;
                     </h2>
                     <p class="section_title">
-                        Ready to rest? We are ready to help with the search
+                        RESERVATION HOTEL :
                     </p>
                     <div class="fields__block">
                         <div class="fields">
                             <div class="field">
-                                <div class="label">Date Debut : </div>
+                                <div class="label">DATE DEBUT : </div>
                                 <div class="field_wrap ">
 
                                     {{ form_widget(form.datedeb, { 'attr': {'class': 'field_wrap'} }) }}
@@ -28,7 +28,7 @@
                                 {{ form_errors (form.datedeb) }}
                             </div>
                             <div class="field">
-                                <div class="label">Date Fin : </div>
+                                <div class="label">DATE FIN  : </div>
                                 <div class="field_wrap ">
                                     {{ form_widget(form.datefin, { 'attr': {'class': 'field_wrap'} }) }}
 
@@ -36,15 +36,17 @@
                             </div>
 
                             <div class="field">
-                                <div class="label">Nombre de Place : </div>
+                                <div class="label">NOMBRE DE PLACES  : </div>
                                 <div class="field_wrap ">
                                     {{ form_widget(form.nbrplace, { 'attr': {'class': 'field_wrap'} }) }}
+                                    {{ form_errors(form.nbrplace) }}
                                 </div>
                             </div>
                             <div class="field">
-                                <div class="label">Prix : </div>
+                                <div class="label">PRIX (DT) : </div>
                                 <div class="field_wrap ">
                                     {{ form_widget(form.prix, { 'attr': {'class': 'field_wrap'} }) }}
+                                    {{ form_errors(form.prix) }}
                                 </div>
                             </div>
 
@@ -53,7 +55,7 @@
 
                     </div>
                     <div class="field">
-                        <input type="submit" value="Enregistrer" class="btn btn-success"/>
+                        <pre>   <input type="submit" value="RESERVER &#128521;" class="btn btn-success"/></pre>
                     </div>
                 </div>
                 {{ form_end(form) }}
@@ -70,7 +72,6 @@
         form.addEventListener('submit',(e)=> {
             let message = [];
 
-            var date = new Date(document.getElementById('reservation_datedeb').value);
 
 
             const year= document.getElementById('reservationhotel_datedeb_year').value;
@@ -87,8 +88,8 @@
 
 
             console.log('whyy'+dated)
+            console.log('whyy'+datef)
 
-            console.log(date , ' ', now)
             if((dated < now)|| (dated > datef)){
                 swal("ATTENTION !!!","Vérifier votre date ","error" );
                 message.push('Vérifier Votre date')

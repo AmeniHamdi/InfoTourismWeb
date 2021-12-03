@@ -16,7 +16,7 @@ class ReservationhotelType extends AbstractType
         $builder
             ->add('datedeb')
             ->add('datefin')
-            ->add('nbrplace', ChoiceType::class, array('choices' => [1, 2, 3, 4, 5]))
+            ->add('nbrplace')
             ->add('prix', TextType::class)
         ;
     }

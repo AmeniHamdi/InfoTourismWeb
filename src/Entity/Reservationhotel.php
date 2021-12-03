@@ -44,7 +44,7 @@ class Reservationhotel
      *  @Assert\Range(
      *      min = 1,
      *      max = 4,
-     *      notInRangeMessage = "NOMBRE DE PLACE MINIMUM 1 ET MAXIMUM 4 ",
+     *      notInRangeMessage = "NOMBRE DE PLACE MINIMUM 1 ET EN MAXIMUM 4 ",
      * )
      *
      * @ORM\Column(name="nbrPlace", type="integer", nullable=false)
@@ -56,8 +56,9 @@ class Reservationhotel
      *
      *@Assert\Range(
      *      min = 100,
-     *      max = 100000000,
-     *      notInRangeMessage = "Prix minimum 100dt et le prix maximum 100000000 ",
+     *      max = 100000,
+     *      notInRangeMessage = "PRIX MINIMUM :100
+     PRIX MAXIMUM : 100000dt !!! ",
      * )
      *
      * @ORM\Column(name="Prix", type="integer", nullable=false)

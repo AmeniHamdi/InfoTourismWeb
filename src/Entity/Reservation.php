@@ -28,7 +28,7 @@ class Reservation
      * @Assert\Range(
      *      min = 7,
      *      max = 18,
-     *      notInRangeMessage = "Heure de travail entre 7h and  18h ",
+     *      notInRangeMessage = "HEURE DE TRAVAIL DE 8h A 18h !!! ",
          * )
          *
      * @ORM\Column(name="heureres", type="float", precision=10, scale=0, nullable=false)
