@@ -6,6 +6,7 @@ use App\Entity\Rechtype;
 use App\Entity\Type;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\Types\This;
 
 /**
  * @method Type|null find($id, $lockMode = null, $lockVersion = null)
@@ -51,17 +52,22 @@ class TypeRepository extends ServiceEntityRepository
     /**
      * @return Type[]
      */
-    public function findRechtype(Rechtype $recherche) : array
+    public function findRechtype(Rechtype $recherche): array
     {
         $query = $this->createQueryBuilder('l')
             ->select('l');
 
-        if($recherche->n){
+        if ($recherche->n) {
             $query =
                 $query
                     ->where('l.nom LIKE :n')
-                    ->SetParameter('n','%' .$recherche->n .'%');
+                    ->SetParameter('n', '%' . $recherche->n . '%');
         }
+
+
+
         return $query->getQuery()->getResult();
+
+
     }
 }

@@ -76,6 +76,7 @@ class TypeController extends AbstractController
         $type = new Type();
         $form = $this->createForm(TypeType::class, $type);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($type);
@@ -101,5 +102,15 @@ class TypeController extends AbstractController
             return $this->redirectToRoute("AfficheType");
         }
         return $this->render('type/update.html.twig', ["form" => $form->createView()]) ;
+    }
+    /**
+     * @param TypeRepository $repository
+     * @return Response
+     * @Route("/trietype",name="TrierType")
+     */
+    public function trie(TypeRepository $repository){
+        $type=$repository->findBy(array(),array('prix'=>'asc'));
+        return $this->render('type/Affichetrie.html.twig',['type'=>$type]);
+
     }
 }

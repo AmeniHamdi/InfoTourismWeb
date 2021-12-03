@@ -4,9 +4,13 @@ namespace App\Form;
 
 use App\Entity\Activite;
 use App\Entity\Type;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +21,11 @@ class TypeType extends AbstractType
         $builder
             ->add('nom')
             ->add('lieu')
-            ->add('description')
+            ->add('prix',TextType::class,[
+                'attr'=>['class'=>'form-control','placeholder'=>'prix',]
+            ])
+            ->add('description', CKEditorType::class)
+
             ->add("submit",SubmitType::class)
         ;
     }

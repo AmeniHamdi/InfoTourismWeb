@@ -81,10 +81,17 @@
                                 {{ form_errors(form.lieu,{'attr':{'novalidate':'novalidate'}}) }}
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputEmail1">{{ form_label(form.prix) }}</label>
+                                {{ form_widget(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Enter lieu', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                {{ form_errors(form.prix,{'attr':{'novalidate':'novalidate'}}) }}
+                            </div>
+
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">{{ form_label(form.description) }}</label>
                                 {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Enter description', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
                                 {{ form_errors(form.description,{'attr':{'novalidate':'novalidate'}}) }}
                             </div>
+
 
 
                             <br>

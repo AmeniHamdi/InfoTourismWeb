@@ -35,13 +35,16 @@
             {% block rechercher %}
                 {% include 'type/Recherche.html.twig' with {form : form} only %}
 
+
             {% endblock %}
+
 {% block contents %}
 
     <div class="popular_destination__slider" id="popular_destination__slider">
         {% for t in type %}
             <div class="slide_item">
                 <a href="single.html" class="slide_item_img">
+
                     <div class="sq_parent">
                         <div class="sq_wrap">
                             <div class="sq_content" style="background-image: url({{ asset('client/img/' ~ t.nom ~ '.jpg')}})"></div>
@@ -56,10 +59,15 @@
                         {{ t.nom }}
                     </h3>
                     <p class="slide_text">
+                        {{ t.prix }}     </p>
+
+
+                    <p class="slide_text">
                         {{ t.lieu }}     </p>
 
                     <p class="slide_text">
-                        {{ t.description }}     </p>
+                        {{ t.description|raw }}     </p>
+
                 </a>
 
             </div>
@@ -68,6 +76,7 @@
         {% endfor %}
 
     </div>
+
 
 
 

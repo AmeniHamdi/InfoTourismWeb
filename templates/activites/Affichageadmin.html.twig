@@ -37,9 +37,13 @@
     {% endblock %}
 
 {% endblock %}
+        {% block rechercher %}
+             {% include 'calendar/index.html.twig' with {form : form} only %}
 
+        {% endblock %}
 
 {% block content %}
+
     <div class="row small-spacing">
         <div class="col-xs-10">
             <div class="box-content">
@@ -55,6 +59,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Destination</th>
+
                         <th>Activite</th>
                         <th>Date_depart</th>
                         <th>Date_arrivee</th>
@@ -64,6 +69,7 @@
                     <tr {%  for a in activite %}>
                         <td>{{  a.id }}</td>
                         <td>{{ a.destination }}</td>
+
                         <td>{{ a.activite }}</td>
                         <td>{{ a.DateDepart|date }}</td>
                         <td>{{ a.DateDarrivee|date }}</td>
@@ -80,6 +86,8 @@
 
     </div>
 {% endblock %}
+
+
 
 
 

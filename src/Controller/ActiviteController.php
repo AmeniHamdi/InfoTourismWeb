@@ -7,6 +7,7 @@ use App\Entity\Rechercher;
 use App\Form\ActiviteType;
 use App\Form\RechercherType;
 use App\Repository\ActiviteRepository;
+
 use App\Repository\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -51,6 +52,7 @@ class ActiviteController extends AbstractController
      */
     public function AfficheAdmin(ActiviteRepository $repository)
     {
+
         //$repo=$this->getDoctrine()->getRepository(activite::class);
         $activite = $repository->findAll();
         return $this->render('activites/Affichageadmin.html.twig', ['activite' => $activite]);
@@ -72,6 +74,7 @@ class ActiviteController extends AbstractController
      */
     function Add(Request $request)
     {
+
         $activite = new Activite();
         $form = $this->createForm(ActiviteType::class, $activite);
         $form->handleRequest($request);
@@ -103,6 +106,7 @@ class ActiviteController extends AbstractController
         [
             "form" => $form->createView()
         ]);
+
     }
 
 }

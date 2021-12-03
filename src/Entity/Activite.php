@@ -23,6 +23,28 @@ class Activite
      * @Assert\NotBlank(message="champs vide")
      */
     private $destination;
+    /**
+     * @ORM\Column(type="string", length=1000)
+     * @Assert\NotBlank(message="champs vide")
+     */
+    private $image;
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
 
     /**
      * @ORM\Column(type="string", length=255)

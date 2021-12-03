@@ -31,12 +31,41 @@ class Type
      * @Assert\NotBlank(message="champs vide")
      */
     private $lieu;
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="champs vide")
+     */
+    private $prix;
+
+    /**
+     * @return mixed
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * @param mixed $prix
+     */
+    public function setPrix($prix): void
+    {
+        $this->prix = $prix;
+    }
+
+    /**
+     * @return mixed
+     */
+
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="champs vide")
      */
     private $description;
+
+
+
 
     /**
      * @ORM\OneToMany(targetEntity=Activite::class, mappedBy="type",cascade={"all"},orphanRemoval=true)
@@ -76,6 +105,8 @@ class Type
 
         return $this;
     }
+
+
 
     public function getDescription(): ?string
     {
