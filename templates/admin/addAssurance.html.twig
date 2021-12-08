@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Ajouter  une assurance{% endblock %}
+    {% block title %}Ajouter une assurance{% endblock %}
 
     {% block stylesheets %}
 
@@ -69,22 +69,44 @@
 
                             {{ form_start(form) }}
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.createdBy) }}</label>
-                                {{ form_widget(form.createdBy, {'attr': {'class': 'form-control', 'placeholder': 'Enter createBy', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.createdBy) }}</label>
+                                {{ form_widget(form.createdBy, {'attr': {'class': 'form-control', 'placeholder': 'Enter createBy', 'type': 'text'}}) }}
+                                <small>{{ form_help(form.createdBy) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.createdBy) }}</div>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.assignedTo) }}</label>
-                                {{ form_widget(form.assignedTo, {'attr': {'class': 'form-control', 'placeholder': 'Enter assignedTo', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.assignedTo) }}</label>
+                                {{ form_widget(form.assignedTo, {'attr': {'class': 'form-control', 'placeholder': 'Enter assignedTo', 'type': 'text'}}) }}
+                                <small>{{ form_help(form.assignedTo) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.assignedTo) }}</div>
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.dateDebut) }}</label>
-                                {{ form_widget(form.dateDebut, {'attr': {'class': 'form-control', 'placeholder': 'Enter dateDebut', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.dateDebut) }}</label>
+                                <div class="input-group">
+                                    {{ form_widget(form.dateDebut, { 'id': 'datepicker' ,'attr': {'type': 'text', 'class': 'form-control', 'placeholder': 'mm/dd/yyyy'}}) }}
+                                    <span class="input-group-addon bg-primary text-white"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <small>{{ form_help(form.dateDebut) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.dateDebut) }}</div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>{{ form_label(form.dateFin) }} </label>
+                                <div class="input-group">
+                                    {{ form_widget(form.dateFin, { 'id': 'datepicker-autoclose' ,'attr': {'type': 'text', 'class': 'form-control', 'placeholder': 'mm/dd/yyyy'}}) }}
+                                    <span class="input-group-addon bg-primary text-white"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <small>{{ form_help(form.dateFin) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.dateFin) }}</div>
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.dateFin) }} </label>
-                                {{ form_widget(form.dateFin, {'attr': {'class': 'form-control', 'placeholder': 'Enter dateFin', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>Voiture</label>
+                                {{ form_widget(form.idvoiture, {'attr': {'class': 'form-control'}}) }}
+                                <small>{{ form_help(form.idvoiture) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.idvoiture) }}</div>
                             </div>
 
                             {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'Submit' }) }}

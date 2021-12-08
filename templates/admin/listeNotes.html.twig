@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{ asset('admin/plugin/waves/waves.min.css')}}">
 
     <!-- Sweet Alert -->
-    <link rel="stylesheet" href="{{ asset('admin/plugin/sweet-alert/sweetalert.css')}}">
+    <link rel="stylesheet" href="{{ asset('admin/alert/sweetalert2.min.css')}}">
 
     <!-- Data Tables -->
     <link rel="stylesheet" href="{{ asset('admin/plugin/datatables/media/css/dataTables.bootstrap.min.css')}}">
@@ -70,7 +70,7 @@
                         <tr>
                             <td>{{ notes.getId() }}</td>
                             <td>{{ notes.getTypeNote() }}</td>
-                            <td></td>
+                            <td><a id="ameni{{ notes.getId() }}" class="btn btn-warning waves-effect waves-light" type="button"><i class="ico fa fa-eye"></i></a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -106,6 +106,17 @@
     <script src="{{ asset('admin/scripts/datatables.demo.min.js')}}"></script>
 
     <script src="{{ asset('admin/scripts/main.min.js')}}"></script>
+    <script src="{{ asset('admin/alert/sweetalert2.min.js')}}"></script>
 
+    <script>
+        {% for notes in notes %}
+        document.getElementById('ameni'+{{ notes.getId() }}).onclick = function(){
+            Swal.fire({
+                title: "Type Note :{{notes.typeNote }}",
+                icon: 'success',
+            })
+        };
+        {% endfor %}
+    </script>
 
 {% endblock %}

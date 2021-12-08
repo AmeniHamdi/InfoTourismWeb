@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Info Tourisme louer voiture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('client/css/styles.css')}}">
+    <!-- CSS only -->
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="#000" name="msapplication-TileColor">
+    <meta content="#000" name="theme-color">
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <div class="wrap">
+            <div class="wrap_float">
+                <div class="header__top">
+                    <div class="tel">
+                        <a href="tel:0000000000">+1 1235 6789 10</a>
+                    </div>
+                    <div class="email">
+                        <a href="mailto:info@hellodigi.ru">info@hellodigi.ru</a>
+                    </div>
+                    <div class="socials">
+                        <a href="{{ path('panier',{'id':app.user.id}) }}" class="a fa-shopping-cart">Panier</a>
+                        <a href="#" class="a facebook"></a>
+                        <a href="#" class="a instagram"></a>
+                        <a href="#" class="a pinterest"></a>
+                        <a href="#" class="a twitter"></a>
+                    </div>
+                </div>
+                <div class="header__bottom">
+                    <a href="/" class="logo">info tourisme</a>
+                    <div class="menu" id="js-menu">
+                        <div class="scroll">
+                            <div class="scroll_wrap">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="tour-list.html">Tour List</a></li>
+                                    <li><a href="destinations.html">Destinations</a></li>
+                                    <li><a href="single.html">Date & Pricing</a></li>
+                                    <li><a href="blog-list.html">Blog</a></li>
+                                </ul>
+                            </div>
+                            <div class="bottom">
+                                <div class="tel">
+                                    <a href="tel:+11235678910">+1 1235 6789 10</a>
+                                </div>
+                                <div class="email">
+                                    <a href="mailto:info@hellodigi.ru">info@hellodigi.ru</a>
+                                </div>
+                                <div class="socials">
+                                    <div class="links">
+                                        <a href="{{ path('panier',{'id':app.user.id}) }}" class="a fa-shopping-cart">Panier</a>
+                                        <a href="" class="fb"></a>
+                                        <a href="#" class="instagram"></a>
+                                        <a href="#" class="pinterest"></a>
+                                        <a href="#" class="twitter"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page_content single-page" style="padding-top: 150px;">
+
+        <div class="content-body">
+
+
+                <div class="card" style="width: 36rem; margin: 25px; padding-bottom: 20px;">
+                    <img class="card-img-top" src="{{ asset('uploads/voiture/' ~ voiture.image) }}" alt="Card image cap"  width="120">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ voiture.getModele() }}</h4>
+                        <h4 class="card-title">Prix/jour : {{ voiture.prix }} TND</h4>
+                    </div>
+                    {{ form_start(form) }}
+
+                    <div class="field">
+                        <label class="label">Nombre de jours</label>
+                        <div class="input_wrap">
+                            {{ form_widget(form.nbrJours, {'attr': {'class': 'input'}}) }}
+                            <small>{{ form_help(form.nbrJours) }}</small>
+                            <div class="notice-danger">{{ form_errors(form.nbrJours) }}</div>
+                        </div>
+                    </div>
+                    {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light','style':'margin-left: 20px;'}, 'label': 'Ajouter au panier' }) }}
+                    {{ form_end(form) }}
+
+                </div>
+
+        </div>
+        <div class="mobile-fixed-bottom getModal" data-href="#book-now">
+            Book now
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_top">
+            <div class="wrap">
+                <div class="wrap_float">
+                    <div class="footer_head_mobile">
+                        <div class="logo">lavella</div>
+                        <div class="text">
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                        </div>
+                    </div>
+                    <div class="footer_top_menu">
+                        <ul>
+                            <li><a href="/" class="active">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="tour-list.html">Tour List</a></li>
+                            <li><a href="destinations.html">Destinations</a></li>
+                            <li><a href="single.html">Date & Pricing</a></li>
+                            <li><a href="blog-list.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="socials">
+                        <a href="{{ path('panier',{'id':app.user.id}) }}" class="a fa-shopping-cart">Panier</a>
+                        <a href="#" class="a facebook"></a>
+                        <a href="#" class="a instagram"></a>
+                        <a href="#" class="a pinterest"></a>
+                        <a href="#" class="a twitter"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_center">
+            <div class="wrap">
+                <div class="wrap_float">
+                    <div class="footer_center_left">
+                        <a href="/" class="logo">Info Tourisme</a>
+                        <div class="text">
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                        </div>
+                    </div>
+                    <div class="footer_center_menu">
+                        <ul>
+                            <li><a href="#">Newsletter</a></li>
+                            <li><a href="#">Family Friendly Tours</a></li>
+                            <li><a href="#">Outdoor Activites</a></li>
+                            <li><a href="#">Relaxation Tours</a></li>
+                            <li><a href="#">City Tours</a></li>
+                            <li><a href="#">Holiday & Seasonal Tours</a></li>
+                            <li><a href="#">Cultural & Thematic Tours</a></li>
+                            <li><a href="#">Wild & Adventure Tours</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_center_right">
+                        <div class="_title">CONTACTS</div>
+                        <div class="text">
+                            <p>Address: <b>12 Main Street Pt. London</b> </p>
+                            <p>Phone: <a href="#">+1 1235 6789 10</a></p>
+                            <p><a href="#">info@hellodigi.ru</a></p>
+                        </div>
+                    </div>
+                    <div class="mobile_socials">
+                        <a href="#" class="a facebook"></a>
+                        <a href="#" class="a instagram"></a>
+                        <a href="#" class="a pinterest"></a>
+                        <a href="#" class="a twitter"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            Copyright 2020 <a href="#">hellodigi.ru</a> | All Right Reserved
+        </div>
+    </div>
+</div>
+
+<div class="search_form" id="search_form">
+    <div class="wrap">
+        <div class="wrap_float">
+            <input type="text" class="input" placeholder="Search...">
+            <button type="submit" class="submit"></button>
+            <div class="close"></div>
+        </div>
+    </div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<div style="display: none;">
+    <div class="modal modal_book_now" id="book-now">
+        <div class="modal_wrap">
+            <div class="modal-head">
+                <img src="{{ asset('client/img/vput2.jpg')}}" class="image-cover" alt="">
+            </div>
+            <div class="modal-body">
+                <div class="tags">
+                    <div class="tag discount">20% off</div>
+                    <div class="tag new">New</div>
+                </div>
+                <div class="modal-title">
+                    America, San Francisco | $3,500
+                </div>
+                <div class="fields">
+                    <div class="field half">
+                        <label class="label" for="name-2">Full Name*</label>
+                        <div class="input_wrap">
+                            <input type="text" class="input" id="name-2">
+                        </div>
+                    </div>
+                    <div class="field half">
+                        <label class="label" for="email-2">Email Address*</label>
+                        <div class="input_wrap">
+                            <input type="email" class="input" id="email-2">
+                        </div>
+                    </div>
+                    <div class="field half">
+                        <label class="label" for="date-2a">Travel Date*</label>
+                        <div class="input_wrap calendar-field">
+                            <input type="text" class="input js_calendar" id="date-2a">
+                        </div>
+                    </div>
+                    <div class="field half">
+                        <p class="label">Person*</p>
+                        <div class="input_wrap">
+                            <input type="text" class="input" id="date-2">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="enquiry-2">Your Enquiry*</label>
+                        <div class="textarea_wrap">
+                            <textarea class="textarea" id="enquiry-2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn submit">Sumbit</button>
+            </div>
+        </div>
+        <div class="modal_close"></div>
+    </div>
+</div>
+
+<script defer src="{{ asset('client/js/jquery.min.js')}}"></script>
+<script defer src="{{ asset('client/js/jquery-ui.min.js')}}"></script>
+<script defer src="{{ asset('client/js/slick.min.js')}}"></script>
+<script defer src="{{ asset('client/js/jquery.arcticmodal.min.js')}}"></script>
+<script defer src="{{ asset('client/js/lightgallery.js')}}"></script>
+<script defer src="{{ asset('client/js/spincrement.min.js')}}"></script>
+<script defer src="{{ asset('client/js/scripts.min.js')}}"></script>
+<!-- JavaScript Bundle with Popper -->
+</body>
+
+</html>
