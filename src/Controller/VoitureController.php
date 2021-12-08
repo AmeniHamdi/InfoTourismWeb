@@ -31,6 +31,7 @@ class VoitureController extends AbstractController
         $voiture = new Voiture();
         $form = $this->createForm(VoitureType::class, $voiture);
         $form->handleRequest($request);
+        $voiture->setDisponible(true);
         if ($form->isSubmitted() && $form->isValid()) {
 
             /** @var UploadedFile $imageFile */

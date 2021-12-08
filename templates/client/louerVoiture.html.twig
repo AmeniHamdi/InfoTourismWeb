@@ -93,6 +93,15 @@
                             <div class="notice-danger">{{ form_errors(form.nbrJours) }}</div>
                         </div>
                     </div>
+
+                    <div class="field">
+                        <label class="label">Date de location</label>
+                        <div class="input_wrap">
+                            {{ form_widget(form.dateLocation, {'attr': {'class': 'input'}}) }}
+                            <small>{{ form_help(form.dateLocation) }}</small>
+                            <div class="notice-danger">{{ form_errors(form.dateLocation) }}</div>
+                        </div>
+                    </div>
                     {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light','style':'margin-left: 20px;'}, 'label': 'Ajouter au panier' }) }}
                     {{ form_end(form) }}
 

@@ -21,6 +21,12 @@ class Voiture
     private $id;
 
     /**
+     * @var bool|null
+     * @ORM\Column(type="boolean",nullable=true)
+     */
+    private $disponible;
+
+    /**
      * @var string|null
      * @ORM\Column(type="string",nullable=true)
      */
@@ -173,4 +179,21 @@ class Voiture
     {
         $this->image = $image;
     }
+
+    /**
+     * @return bool|null
+     */
+    public function getDisponible(): ?bool
+    {
+        return $this->disponible;
+    }
+
+    /**
+     * @param bool|null $disponible
+     */
+    public function setDisponible(?bool $disponible): void
+    {
+        $this->disponible = $disponible;
+    }
+
 }

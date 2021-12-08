@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Notes;
 use App\Entity\Voiture;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,6 +28,8 @@ class ClientController extends AbstractController
         $voiture = $this->getDoctrine()->getRepository(Voiture::class)->findAll();
         return $this->render('client/locationVoiture.html.twig', ['voiture' => $voiture]);
     }
+
+
 
 
 

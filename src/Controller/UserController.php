@@ -32,15 +32,15 @@ class UserController extends AbstractController
      */
     public function deleteUsers($id): RedirectResponse
     {
-       $users = $this->getDoctrine()->getRepository(User::class)->find($id);
-       $em = $this->getDoctrine()->getManager();
-       if ($users->getImage() !== null) {
-           $filesystem = new Filesystem();
-           $filesystem->remove($this->getParameter('images_directory') . '/' . $users->getImage());
-       }
-       $em->remove($users);
-       $em->flush();
-       
+        $users = $this->getDoctrine()->getRepository(User::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        if ($users->getImage() !== null) {
+            $filesystem = new Filesystem();
+            $filesystem->remove($this->getParameter('images_directory') . '/' . $users->getImage());
+        }
+        $em->remove($users);
+        $em->flush();
+
         return $this->redirectToRoute("utilisateur");
     }
 
@@ -99,14 +99,14 @@ class UserController extends AbstractController
     {
         $users = $this->getDoctrine()->getRepository(User::class)->find($id);
         $roles = $users->getRoles();
-        if(
+        if (
             in_array('ROLE_ADMIN', $roles, true) &&
             in_array('ROLE_USER', $roles, true) &&
             !in_array('ROLE_SUPER_ADMIN', $roles, true)
         ) {
             $roles[] = "ROLE_SUPER_ADMIN";
         }
-        if(in_array('ROLE_USER', $roles, true) && !in_array('ROLE_ADMIN', $roles, true)){
+        if (in_array('ROLE_USER', $roles, true) && !in_array('ROLE_ADMIN', $roles, true)) {
             $roles[] = "ROLE_ADMIN";
         }
         $users->setRoles($roles);
@@ -122,15 +122,15 @@ class UserController extends AbstractController
     {
         $users = $this->getDoctrine()->getRepository(User::class)->find($id);
         $roles = $users->getRoles();
-       if(
-           in_array('ROLE_ADMIN', $roles, true) &&
-           in_array('ROLE_USER', $roles, true) &&
-           !in_array('ROLE_SUPER_ADMIN', $roles, true)
-       ) {
-           $key = array_search("ROLE_ADMIN", $roles, true);
-           unset($roles[$key]);
-       }
-        if(
+        if (
+            in_array('ROLE_ADMIN', $roles, true) &&
+            in_array('ROLE_USER', $roles, true) &&
+            !in_array('ROLE_SUPER_ADMIN', $roles, true)
+        ) {
+            $key = array_search("ROLE_ADMIN", $roles, true);
+            unset($roles[$key]);
+        }
+        if (
             in_array('ROLE_ADMIN', $roles, true) &&
             in_array('ROLE_USER', $roles, true) &&
             in_array('ROLE_SUPER_ADMIN', $roles, true)
@@ -153,4 +153,7 @@ class UserController extends AbstractController
         $profile = $this->getDoctrine()->getRepository(User::class)->find($id);
         return $this->render('admin/profile.html.twig', ['profile' => $profile]);
     }
+
+
+
 }

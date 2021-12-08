@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Info Tourisme voitur</title>
+    <title>Info Tourism Voitures</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('client/css/styles.css')}}">
+    <link rel="stylesheet" href="{{ asset('client/css/styles.css') }}">
     <!-- CSS only -->
 
 
@@ -24,7 +24,7 @@
                         <a href="tel:0000000000">+1 1235 6789 10</a>
                     </div>
                     <div class="email">
-                        <a href="mailto:info@hellodigi.ru">info@hellodigi.ru</a>
+                        <a href="mailto:infoTourism@gmail.com">infoTourism@gmail.com</a>
                     </div>
                     <div class="socials">
                         <a href="{{ path('panier',{'id':app.user.id}) }}" class="a fa-shopping-cart">Panier</a>
@@ -35,14 +35,14 @@
                     </div>
                 </div>
                 <div class="header__bottom">
-                    <a href="/" class="logo">info tourisme</a>
+                    <a href="/" class="logo">Info Tourism</a>
                     <div class="menu" id="js-menu">
                         <div class="scroll">
                             <div class="scroll_wrap">
                                 <ul>
                                     <li><a href="/">Home</a></li>
                                     <li><a href="about.html">About</a></li>
-                                    <li><a href="tour-list.html">Tour List</a></li>
+                                    <li><a href="tour-list.html">Transport</a></li>
                                     <li><a href="destinations.html">Destinations</a></li>
                                     <li><a href="single.html">Date & Pricing</a></li>
                                     <li><a href="blog-list.html">Blog</a></li>
@@ -53,7 +53,7 @@
                                     <a href="tel:+11235678910">+1 1235 6789 10</a>
                                 </div>
                                 <div class="email">
-                                    <a href="mailto:info@hellodigi.ru">info@hellodigi.ru</a>
+                                    <a href="mailto:info@hellodigi.ru">infoTourism@gmail.com</a>
                                 </div>
                                 <div class="socials">
                                     <div class="links">
@@ -76,14 +76,18 @@
         <div class="content-body">
 
             {% for voiture in voiture %}
-            <div class="card" style="width: 18rem; margin: 10px;">
-                <img class="card-img-top" src="{{ asset('uploads/voiture/' ~ voiture.image) }}" alt="Card image cap"  width="120" height="150">
-                <div class="card-body">
-                    <h4 class="card-title">{{ voiture.getModele() }}</h4>
-                    <h4 class="card-title">Prix/jour : {{ voiture.prix }} TND</h4>
-                    <a href="{{ path('location',{'idVoiture':voiture.id,'idUser':app.user.id}) }}" class="btn btn-primary" style="margin-left: 45px;">Louer</a>
-                </div>
-            </div>
+                {% if voiture.disponible == true %}
+                    <div class="card" style="width: 18rem; margin: 10px;">
+                        <img class="card-img-top" src="{{ asset('uploads/voiture/' ~ voiture.image) }}"
+                             alt="Card image cap" width="120" height="150">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ voiture.getModele() }}</h4>
+                            <h4 class="card-title">Prix/jour : {{ voiture.prix }} TND</h4>
+                            <a href="{{ path('location',{'idVoiture':voiture.id,'idUser':app.user.id}) }}"
+                               class="btn btn-primary" style="margin-left: 45px;">Louer</a>
+                        </div>
+                    </div>
+                {% endif %}
             {% endfor %}
 
 
@@ -99,14 +103,15 @@
                     <div class="footer_head_mobile">
                         <div class="logo">lavella</div>
                         <div class="text">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                            there live the blind texts.
                         </div>
                     </div>
                     <div class="footer_top_menu">
                         <ul>
                             <li><a href="/" class="active">Home</a></li>
                             <li><a href="about.html">About</a></li>
-                            <li><a href="tour-list.html">Tour List</a></li>
+                            <li><a href="tour-list.html">Transport</a></li>
                             <li><a href="destinations.html">Destinations</a></li>
                             <li><a href="single.html">Date & Pricing</a></li>
                             <li><a href="blog-list.html">Blog</a></li>
@@ -125,9 +130,10 @@
             <div class="wrap">
                 <div class="wrap_float">
                     <div class="footer_center_left">
-                        <a href="/" class="logo">Info Tourisme</a>
+                        <a href="/" class="logo">Info Tourism</a>
                         <div class="text">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                            there live the blind texts.
                         </div>
                     </div>
                     <div class="footer_center_menu">
@@ -145,9 +151,9 @@
                     <div class="footer_center_right">
                         <div class="_title">CONTACTS</div>
                         <div class="text">
-                            <p>Address: <b>12 Main Street Pt. London</b> </p>
+                            <p>Address: <b>12 Main Street Pt. London</b></p>
                             <p>Phone: <a href="#">+1 1235 6789 10</a></p>
-                            <p><a href="#">info@hellodigi.ru</a></p>
+                            <p><a href="#">infoTourism@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="mobile_socials">
@@ -160,7 +166,7 @@
             </div>
         </div>
         <div class="footer_bottom">
-            Copyright 2020 <a href="#">hellodigi.ru</a> | All Right Reserved
+            Copyright 2020 <a href="#">infoTourism.com</a> | All Right Reserved
         </div>
     </div>
 </div>
@@ -180,7 +186,7 @@
     <div class="modal modal_book_now" id="book-now">
         <div class="modal_wrap">
             <div class="modal-head">
-                <img src="{{ asset('client/img/vput2.jpg')}}" class="image-cover" alt="">
+                <img src="{{ asset('client/img/vput2.jpg') }}" class="image-cover" alt="">
             </div>
             <div class="modal-body">
                 <div class="tags">
@@ -229,13 +235,13 @@
     </div>
 </div>
 
-<script defer src="{{ asset('client/js/jquery.min.js')}}"></script>
-<script defer src="{{ asset('client/js/jquery-ui.min.js')}}"></script>
-<script defer src="{{ asset('client/js/slick.min.js')}}"></script>
-<script defer src="{{ asset('client/js/jquery.arcticmodal.min.js')}}"></script>
-<script defer src="{{ asset('client/js/lightgallery.js')}}"></script>
-<script defer src="{{ asset('client/js/spincrement.min.js')}}"></script>
-<script defer src="{{ asset('client/js/scripts.min.js')}}"></script>
+<script defer src="{{ asset('client/js/jquery.min.js') }}"></script>
+<script defer src="{{ asset('client/js/jquery-ui.min.js') }}"></script>
+<script defer src="{{ asset('client/js/slick.min.js') }}"></script>
+<script defer src="{{ asset('client/js/jquery.arcticmodal.min.js') }}"></script>
+<script defer src="{{ asset('client/js/lightgallery.js') }}"></script>
+<script defer src="{{ asset('client/js/spincrement.min.js') }}"></script>
+<script defer src="{{ asset('client/js/scripts.min.js') }}"></script>
 <!-- JavaScript Bundle with Popper -->
 </body>
 

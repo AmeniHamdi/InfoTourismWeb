@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AmeniInterface;
 use App\Entity\Assurance;
 use App\Form\AssuranceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,6 +29,8 @@ class AssuranceController extends AbstractController
         $assurance = new Assurance();
         $form = $this->createForm(AssuranceType::class, $assurance);
         $form->handleRequest($request);
+        $user = $this->getUser();
+        $assurance->setCreatedBy($user->getName());
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($assurance);

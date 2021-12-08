@@ -44,7 +44,6 @@ class Assurance
     public $dateFin;
 
     /**
-     * @Assert\NotBlank(message="created By est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */

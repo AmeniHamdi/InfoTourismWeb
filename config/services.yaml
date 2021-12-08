@@ -7,7 +7,7 @@ parameters:
     images_directory: '%kernel.project_dir%/public/uploads/images'
     images_voiture_directory: '%kernel.project_dir%/public/uploads/voiture'
     twilio_sid: 'ACd0813fa9f2c5d1f885f3121718aa6740'
-    twilio_token: '34fe18d886a2c5bb224bb5648716023d'
+    twilio_token: '12556bf8a3f6ca66cab431034d8cb431'
 services:
     # default configuration for services in *this* file
     _defaults:

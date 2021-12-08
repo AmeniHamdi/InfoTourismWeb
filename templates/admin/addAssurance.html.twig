@@ -68,12 +68,7 @@
                         <div class="card-content">
 
                             {{ form_start(form) }}
-                            <div class="form-group">
-                                <label>{{ form_label(form.createdBy) }}</label>
-                                {{ form_widget(form.createdBy, {'attr': {'class': 'form-control', 'placeholder': 'Enter createBy', 'type': 'text'}}) }}
-                                <small>{{ form_help(form.createdBy) }}</small>
-                                <div class="notice-danger">{{ form_errors(form.createdBy) }}</div>
-                            </div>
+
                             <div class="form-group">
                                 <label>{{ form_label(form.assignedTo) }}</label>
                                 {{ form_widget(form.assignedTo, {'attr': {'class': 'form-control', 'placeholder': 'Enter assignedTo', 'type': 'text'}}) }}

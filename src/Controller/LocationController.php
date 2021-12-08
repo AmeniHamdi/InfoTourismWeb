@@ -29,7 +29,9 @@ class LocationController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $location->setIdUser($user);
             $location->setPrixTotal($voiture->getPrix() * $form->get('nbrJours')->getData());
+            $voiture->setDisponible(false);
             $location->setIdVoiture($voiture);
+            $em->persist($voiture);
             $em->persist($location);
             $em->flush();
             $this->getDoctrine()->getManager()->flush();

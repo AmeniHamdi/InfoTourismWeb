@@ -16,7 +16,6 @@ class AssuranceType extends AbstractType
         $builder
             ->add('dateDebut', TextType::class, ['label' => 'Date Début Contrat'])
             ->add('dateFin', TextType::class, ['label' => 'Date Fin Contrat'])
-            ->add('createdBy')
             ->add('assignedTo')
             ->add('idvoiture')
             ->add("submit",SubmitType::class)

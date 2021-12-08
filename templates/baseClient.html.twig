@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Lavella – Tour & Travel Agency Template</title>
+    <title>Info Tourism – Tour & Travel Agency </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('client/css/styles.css')}}">
@@ -29,7 +29,7 @@
                         <a href="tel:0000000000">+1 1235 6789 10</a>
                     </div>
                     <div class="email">
-                        <a href="mailto:info@hellodigi.ru">info@hellodigi.ru</a>
+                        <a href="mailto:info@hellodigi.ru">infoTourism@gmail.com</a>
                     </div>
                     <div class="socials">
                         <a href="#" class="a facebook"></a>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="header__bottom">
-                    <a href="/" class="logo">Info Tourisme</a>
+                    <a href="/" class="logo">Info Tourism</a>
                     <div class="menu" id="js-menu">
                         <div class="close"></div>
                         <div class="scroll">
@@ -72,19 +72,9 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="dropdown_li">
-                                        <a href="tour-list.html">
-                                            <span>Tour List</span>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a href="tour-list.html">Tour List</a></li>
-                                                <li><a href="tour-list-2.html">Tour List 2</a></li>
-                                                <li><a href="tour-list-3.html">Tour List 3</a></li>
-                                                <li><a href="tour-list-4.html">Tour List 4</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
+
+                                    <li><a href="{{ path('locationvoiture') }}">Voitures</a></li>
+
                                     <li><a href="destinations.html">Destinations</a></li>
                                     <li class="dropdown_li">
                                         <a href="single.html">
@@ -146,27 +136,27 @@
             <ul class="slider-pagi"></ul>
             <div class="slider">
                 <div class="slide slide-0 active">
-                    <div class="slide__bg" style="background-image: url({{ asset('client/img/slide1.jpg')}});"></div>
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/kairouan.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
-                            <h2 class="slide__text-heading">Seychelles</h2>
+                            <h2 class="slide__text-heading">Kairouan</h2>
                             <p class="slide__text-desc">
-                                Etiam porta sem malesuada magna mollis
+                                Welcome to the Town of  Aghlabides
                             </p>
                             <div class="slide__controls">
-                                <a href="single.html" class="btn">Want a personal tour</a>
-                                <a href="tour-list.html" class="btn btn__choose_tour">Choose tour</a>
+                                <a href="single.html" class="btn">Want a personal Activity </a>
+                                <a href="tour-list.html" class="btn btn__choose_tour">Choose Activity </a>
                                 <a class="arrow next"></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="slide slide-1 ">
-                    <div class="slide__bg" style="background-image: url({{ asset('client/img/slide2.jpg')}});"></div>
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/sidibou.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
-                            <h2 class="slide__text-heading">Kyoto, Japan</h2>
-                            <p class="slide__text-desc">Etiam porta sem malesuada magna mollis</p>
+                            <h2 class="slide__text-heading">Sidi Bou Said </h2>
+                            <p class="slide__text-desc">Discover More ...</p>
                             <div class="slide__controls">
                                 <a href="single.html" class="btn">Want a personal tour</a>
                                 <a href="tour-list.html" class="btn btn__choose_tour">Choose tour</a>
@@ -176,11 +166,11 @@
                     </div>
                 </div>
                 <div class="slide slide-2">
-                    <div class="slide__bg" style="background-image: url({{ asset('client/img/slide3.jpg')}});"></div>
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/ElJem.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
-                            <h2 class="slide__text-heading">New Zealand</h2>
-                            <p class="slide__text-desc">Etiam porta sem malesuada magna mollis</p>
+                            <h2 class="slide__text-heading"> El Jem </h2>
+                            <p class="slide__text-desc">The Roman city of Thysdrus </p>
                             <div class="slide__controls">
                                 <a href="single.html" class="btn">Want a personal tour</a>
                                 <a href="tour-list.html" class="btn btn__choose_tour">Choose tour</a>
@@ -190,11 +180,11 @@
                     </div>
                 </div>
                 <div class="slide slide-3">
-                    <div class="slide__bg" style="background-image: url({{ asset('client/img/slide4.jpg')}});"></div>
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/Douz.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
-                            <h2 class="slide__text-heading">The Great Outdoors</h2>
-                            <p class="slide__text-desc">Etiam porta sem malesuada magna mollis</p>
+                            <h2 class="slide__text-heading">The Douz Festival </h2>
+                            <p class="slide__text-desc"> Discover the International Sahara Festival in Douz</p>
                             <div class="slide__controls">
                                 <a href="single.html" class="btn">Want a personal tour</a>
                                 <a href="tour-list.html" class="btn btn__choose_tour">Choose tour</a>
@@ -982,7 +972,7 @@
                         <ul>
                             <li><a href="/" class="active">Home</a></li>
                             <li><a href="about.html">About</a></li>
-                            <li><a href="tour-list.html">Tour List</a></li>
+                            <li><a href="tour-list.html">Transport</a></li>
                             <li><a href="destinations.html">Destinations</a></li>
                             <li><a href="single.html">Date & Pricing</a></li>
                             <li><a href="blog-list.html">Blog</a></li>

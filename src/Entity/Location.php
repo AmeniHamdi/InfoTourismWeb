@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\LocationRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -17,6 +19,13 @@ class Location
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @Assert\NotBlank(message="date Debut est Obligatoire")
+     * @var datetime|null
+     * @ORM\Column(type="date")
+     */
+    private $dateLocation;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
@@ -110,5 +119,25 @@ class Location
     public function setPrixTotal(int $prixTotal): void
     {
         $this->prixTotal = $prixTotal;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDateLocation(): ?string
+    {
+        if ($this->dateLocation === null) {
+            return null;
+        }
+        return $this->dateLocation->format('d/m/Y');
+    }
+
+    /**
+     * @param string $dateLocation
+     * @throws Exception
+     */
+    public function setDateLocation(string $dateLocation): void
+    {
+        $this->dateLocation = new DateTime($dateLocation);
     }
 }
