@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\AssuranceRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -21,25 +22,36 @@ class Assurance
     private $id;
 
     /**
-     * @var datetime|null
-     * @ORM\Column(type="datetime")
+     * @Assert\NotBlank(message="Voiture est Obligatoire")
+     * @ORM\ManyToOne(targetEntity="Voiture")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
-    private $dateDebut;
+    private $idvoiture;
 
     /**
+     * @Assert\NotBlank(message="date Debut est Obligatoire")
      * @var datetime|null
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
-    private $dateFin;
+    public $dateDebut;
 
     /**
-    *@Assert\NotBlank(message="The Creator  is required";)
+     * @Assert\NotBlank(message="date Fin est Obligatoire")
+     * @Assert\Expression("value > this.dateDebut", message="date de debut doit étre avant la date fin")
+     * @var datetime|null
+     * @ORM\Column(type="date")
+     */
+    public $dateFin;
+
+    /**
+     * @Assert\NotBlank(message="created By est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $createdBy = null;
 
     /**
+     * @Assert\NotBlank(message="assigned To est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
@@ -61,7 +73,7 @@ class Assurance
         if ($this->dateDebut === null) {
             return null;
         }
-        return $this->dateDebut->format('Y-m-d') ?? null;
+        return $this->dateDebut->format('d/m/Y');
     }
 
     /**
@@ -72,7 +84,7 @@ class Assurance
         if ($this->dateFin === null) {
             return null;
         }
-        return $this->dateFin->format('Y-m-d') ?? null;
+        return $this->dateFin->format('d/m/Y');
     }
 
     /**
@@ -92,19 +104,21 @@ class Assurance
     }
 
     /**
-     * @param DateTime $dateDebut
+     * @param string $dateDebut
+     * @throws Exception
      */
-    public function setDateDebut(DateTime $dateDebut): void
+    public function setDateDebut(string $dateDebut): void
     {
-        $this->dateDebut = $dateDebut;
+        $this->dateDebut = new DateTime($dateDebut);
     }
 
     /**
-     * @param DateTime $dateFin
+     * @param string $dateFin
+     * @throws Exception
      */
-    public function setDateFin(DateTime $dateFin): void
+    public function setDateFin(string $dateFin): void
     {
-        $this->dateFin = $dateFin;
+        $this->dateFin = new DateTime($dateFin);
     }
 
     /**
@@ -121,5 +135,21 @@ class Assurance
     public function setAssignedTo(string $assignedTo): void
     {
         $this->assignedTo = $assignedTo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdvoiture()
+    {
+        return $this->idvoiture;
+    }
+
+    /**
+     * @param mixed $idvoiture
+     */
+    public function setIdvoiture($idvoiture): void
+    {
+        $this->idvoiture = $idvoiture;
     }
 }

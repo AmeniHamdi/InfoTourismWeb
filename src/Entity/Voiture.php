@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\VoitureRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=VoitureRepository::class)
@@ -19,32 +21,43 @@ class Voiture
     private $id;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $image = null;
+
+    /**
+     * @Assert\NotBlank(message="matricule est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $matricule = null;
 
     /**
+     * @Assert\NotBlank(message="modele est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $modele = null;
 
     /**
+     * @Assert\NotBlank(message="prix est Obligatoire")
      * @var int
      * @ORM\Column(type="integer")
      */
     private $prix;
 
     /**
+     * @Assert\NotBlank(message="nombre de jour est Obligatoire")
      * @var int
      * @ORM\Column(type="integer")
      */
     private $nbrJours;
 
     /**
+     * @Assert\NotBlank(message="date de reservation est Obligatoire")
      * @var datetime|null
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $dateReservation;
 
@@ -73,7 +86,7 @@ class Voiture
     }
 
     /**
-     * @return int |null
+     * @return int|null
      */
     public function getPrix(): ?int
     {
@@ -81,7 +94,7 @@ class Voiture
     }
 
     /**
-     * @return int |null
+     * @return int|null
      */
     public function getNbrJours(): ?int
     {
@@ -96,7 +109,7 @@ class Voiture
         if ($this->dateReservation === null) {
             return null;
         }
-        return $this->dateReservation->format('Y-m-d') ?? null;
+        return $this->dateReservation->format('Y-m-d');
     }
 
     /**
@@ -132,10 +145,32 @@ class Voiture
     }
 
     /**
-     * @param DateTime $dateReservation
+     * @param string $dateReservation
+     * @throws Exception
      */
-    public function setDateReservation(DateTime $dateReservation): void
+    public function setDateReservation(string $dateReservation): void
     {
-        $this->dateReservation = $dateReservation;
+        $this->dateReservation = new DateTime($dateReservation);
+    }
+
+    public function __toString()
+    {
+        return (string)$this->matricule;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string|null $image
+     */
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
     }
 }

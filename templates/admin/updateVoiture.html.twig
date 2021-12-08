@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    {% block title %}Modifier une voiture {% endblock %}
+    {% block title %}update une voiture{% endblock %}
 
     {% block stylesheets %}
 
@@ -52,7 +52,7 @@
 
         <!-- Dark Themes -->
         <link rel="stylesheet" href="{{ asset('admin/styles/style-dark.min.css') }}">
-
+        <link rel="stylesheet" href="{{ asset('admin/plugin/dropify/css/dropify.min.css')}}">
 
     {% endblock %}
 {% endblock %}
@@ -63,43 +63,64 @@
             <div class="row small-spacing">
                 <div class="col-xs-12">
                     <div class="box-content card white">
-                        <h4 class="box-title">New voiture</h4>
+                        <h4 class="box-title">Update voiture</h4>
                         <!-- /.box-title -->
                         <div class="card-content">
 
                             {{ form_start(form) }}
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.modele) }}</label>
-                                {{ form_widget(form.modele, {'attr': {'class': 'form-control', 'placeholder': 'Enter modele', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.modele) }}</label>
+                                {{ form_widget(form.modele, {'attr': {'class': 'form-control', 'placeholder': 'Enter modele', 'type': 'text'}}) }}
+                                <small>{{ form_help(form.modele) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.modele) }}</div>
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.matricule) }}</label>
-                                {{ form_widget(form.matricule, {'attr': {'class': 'form-control', 'placeholder': 'Entrer la  Matricule', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.matricule) }}</label>
+                                {{ form_widget(form.matricule, {'attr': {'class': 'form-control', 'placeholder': 'Enter matricule', 'type': 'text'}}) }}
+                                <small>{{ form_help(form.matricule) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.matricule) }}</div>
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1">{{ form_label(form.nbrJours) }}</label>
-                                {{ form_widget(form.nbrJours, {'attr': {'class': 'form-control', 'placeholder': 'Entrer le Nombre de jours ', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                                <label>{{ form_label(form.nbrJours) }}</label>
+                                {{ form_widget(form.nbrJours, {'attr': {'class': 'form-control', 'placeholder': 'Enter nbrJours', 'type': 'text'}}) }}
+                                <small>{{ form_help(form.nbrJours) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.nbrJours) }}</div>
                             </div>
+
+                            <div class="form-group">
+                                <label>{{ form_label(form.prix) }}</label>
+                                {{ form_widget(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Enter prix', 'type': 'text'}}) }}
+                                <small>{{ form_help(form.prix) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.prix) }}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>{{ form_label(form.dateReservation) }}</label>
+                                <div class="input-group">
+                                    {{ form_widget(form.dateReservation, { 'id': 'datepicker-autoclose' ,'attr': {'type': 'text', 'class': 'form-control', 'placeholder': 'mm/dd/yyyy'}}) }}
+                                    <span class="input-group-addon bg-primary text-white"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <small>{{ form_help(form.dateReservation) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.dateReservation) }}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>{{ form_label(form.image) }}</label>
+                                {{ form_widget(form.image, { 'id': 'input-file-now' ,'attr': {'type': 'file', 'class': 'dropify'}}) }}
+                                <small>{{ form_help(form.image) }}</small>
+                                <div class="notice-danger">{{ form_errors(form.image) }}</div>
+                            </div>
+
+                            {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'Submit' }) }}
+                            {{ form_end(form) }}
+
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">{{ form_label(form.prix) }}</label>
-                            {{ form_widget(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Entrer Prix', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">{{ form_label(form.dateReservation) }}</label>
-                            {{ form_widget(form.dateReservation, {'attr': {'class': 'form-control', 'placeholder': 'Entrer Date de Réservation ', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
-                        </div>
-
-
-                        {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-sm waves-effect waves-light'}, 'label': 'Submit' }) }}
-                        {{ form_end(form) }}
-
+                        <!-- /.card-content -->
                     </div>
-                    <!-- /.card-content -->
+                    <!-- /.box-content -->
                 </div>
-                <!-- /.box-content -->
-            </div>
 
             </div>
 
@@ -150,6 +171,7 @@
 
     <!-- Demo Scripts -->
     <script src="{{ asset('admin/scripts/form.demo.min.js') }}"></script>
-
+    <script src="{{ asset('admin/plugin/dropify/js/dropify.min.js')}}"></script>
+    <script src="{{ asset('admin/scripts/fileUpload.demo.min.js')}}"></script>
     <script src="{{ asset('admin/scripts/main.min.js') }}"></script>
 {% endblock %}
