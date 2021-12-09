@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    {% block title %}Statistique {% endblock %}
+
+    {% block stylesheets %}
+        <!-- Main Styles -->
+        <link rel="stylesheet" href="{{ asset('admin/styles/style.min.css')}}">
+
+        <!-- Material Design Icon -->
+        <link rel="stylesheet" href="{{ asset('admin/fonts/material-design/css/materialdesignicons.css')}}">
+
+        <!-- mCustomScrollbar -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css')}}">
+
+        <!-- Waves Effect -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/waves/waves.min.css')}}">
+
+        <!-- Sweet Alert -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/sweet-alert/sweetalert.css')}}">
+        <link rel="stylesheet" href="{{ asset('admin/alert/sweetalert2.min.css')}}">
+
+        <!-- Data Tables -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/datatables/media/css/dataTables.bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('admin/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css')}}">
+
+        <!-- Dark Themes -->
+        <link rel="stylesheet" href="{{ asset('admin/styles/style-dark.min.css')}}">
+
+
+
+
+    {% endblock %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="row small-spacing">
+        <div class="col-xs-12">
+            <div class="box-content">
+                <h4 class="box-title">Statistique</h4>
+                <div id="container" style="width: 1000px; height: 400px"></div>
+            </div>
+            <!-- /.box-content -->
+        </div>
+
+
+
+    </div>
+
+
+{% endblock %}
+
+
+
+
+
+{% block javascripts %}
+
+    <script src="{{ asset('admin/scripts/jquery.min.js')}}"></script>
+    <script src="{{ asset('admin/scripts/modernizr.min.js')}}"></script>
+    <script src="{{ asset('admin/plugin/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('admin/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+    <script src="{{ asset('admin/plugin/nprogress/nprogress.js')}}"></script>
+    <script src="{{ asset('admin/plugin/sweet-alert/sweetalert.min.js')}}"></script>
+    <script src="{{ asset('admin/plugin/waves/waves.min.js')}}"></script>
+
+    <!-- Data Tables -->
+    <script src="{{ asset('admin/plugin/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('admin/plugin/datatables/media/js/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{ asset('admin/plugin/datatables/extensions/Responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{ asset('admin/plugin/datatables/extensions/Responsive/js/responsive.bootstrap.min.js')}}"></script>
+    <script src="{{ asset('admin/scripts/datatables.demo.min.js')}}"></script>
+
+    <script src="{{ asset('admin/scripts/main.min.js')}}"></script>
+    <script src="{{ asset('admin/alert/sweetalert2.min.js')}}"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+
+    <script>
+        anychart.onDocumentReady(function() {
+
+            // set the data
+            var data = [
+                {x: "faible", value: {% for faible in faible %} {{ faible.adm1 }} {% endfor %}},
+                {x: "Pas Mal", value: {% for pasmal in pasmal %} {{ pasmal.adm2 }} {% endfor %}},
+                {x: "Moyen", value: {% for moyen in moyen %} {{ moyen.adm3 }} {% endfor %}},
+                {x: "Excellent", value: {% for excellent in excellent %} {{ excellent.adm4 }} {% endfor %}},
+            ];
+
+            // create the chart
+            var chart = anychart.pie();
+
+            // set the chart title
+            chart.title("Les avis de nos clients");
+
+            // add the data
+            chart.data(data);
+
+            // display the chart in the container
+            chart.container('container');
+            chart.draw();
+
+        });
+    </script>
+{% endblock %}

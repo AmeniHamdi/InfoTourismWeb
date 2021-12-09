@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Lavella – Tour & Travel Agency Template</title>
+
+    <title>Info Tourism – Tour & Travel Agency </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('client/css/styles.css')}}">
@@ -29,7 +30,9 @@
                         <a href="tel:0000000000">+1 1235 6789 10</a>
                     </div>
                     <div class="email">
-                        <a href="mailto:info@hellodigi.ru">info@hellodigi.ru</a>
+
+                        <a href="mailto:info@hellodigi.ru">infoTourism@gmail.com</a>
+
                     </div>
                     <div class="socials">
                         <a href="#" class="a facebook"></a>
@@ -40,6 +43,7 @@
                 </div>
                 <div class="header__bottom">
                     <a href="/" class="logo">Info Tourisme</a>
+
                     <div class="menu" id="js-menu">
                         <div class="close"></div>
                         <div class="scroll">
@@ -72,19 +76,10 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="dropdown_li">
-                                        <a href="tour-list.html">
-                                            <span>Tour List</span>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a href="tour-list.html">Tour List</a></li>
-                                                <li><a href="tour-list-2.html">Tour List 2</a></li>
-                                                <li><a href="tour-list-3.html">Tour List 3</a></li>
-                                                <li><a href="tour-list-4.html">Tour List 4</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
+
+
+                                    <li><a href="{{ path('locationvoiture') }}">Voitures</a></li>
+
                                     <li><a href="destinations.html">Destinations</a></li>
                                     <li class="dropdown_li">
                                         <a href="single.html">
@@ -146,25 +141,30 @@
             <ul class="slider-pagi"></ul>
             <div class="slider">
                 <div class="slide slide-0 active">
-                    <div class="slide__bg" style="background-image: url({{ asset('client/img/Tunisie.jpg')}});"></div>
+
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/kairouan.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
-                            <h2 class="slide__text-heading">Tunisia</h2>
-
+                            <h2 class="slide__text-heading">Kairouan</h2>
+                            <p class="slide__text-desc">
+                                Welcome to the Town of  Aghlabides
+                            </p>
                             <div class="slide__controls">
-                                <a href="single.html" class="btn">Want a personal tour</a>
-                                <a href="tour-list.html" class="btn btn__choose_tour">Choose tour</a>
+                                <a href="single.html" class="btn">Want a personal Activity </a>
+                                <a href="tour-list.html" class="btn btn__choose_tour">Choose Activity </a>
+
                                 <a class="arrow next"></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="slide slide-1 ">
-                    <div class="slide__bg" style="background-image: url({{ asset('client/img/anantara.jpg')}});"></div>
+
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/sidibou.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
-                            <h2 class="slide__text-heading">Touzeur</h2>
-
+                            <h2 class="slide__text-heading">Sidi Bou Said </h2>
+                            <p class="slide__text-desc">Discover More ...</p>
                             <div class="slide__controls">
                                 <a href="single.html" class="btn">Want a personal tour</a>
                                 <a href="tour-list.html" class="btn btn__choose_tour">Choose tour</a>
@@ -174,9 +174,13 @@
                     </div>
                 </div>
                 <div class="slide slide-2">
-                    <div class="slide__bg" style="background-image: url({{ asset('client/img/slide3.jpg')}});"></div>
+
+
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/ElJem.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
+                            <h2 class="slide__text-heading"> El Jem </h2>
+                            <p class="slide__text-desc">The Roman city of Thysdrus </p>
 
                             <div class="slide__controls">
                                 <a href="single.html" class="btn">Want a personal tour</a>
@@ -187,10 +191,12 @@
                     </div>
                 </div>
                 <div class="slide slide-3">
-                    <div class="slide__bg" style="background-image: url({{ asset('client/img/slide4.jpg')}});"></div>
+
+                    <div class="slide__bg" style="background-image: url({{ asset('client/img/Douz.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
-
+                            <h2 class="slide__text-heading">The Douz Festival </h2>
+                            <p class="slide__text-desc"> Discover the International Sahara Festival in Douz</p>
                             <div class="slide__controls">
                                 <a href="single.html" class="btn">Want a personal tour</a>
                                 <a href="tour-list.html" class="btn btn__choose_tour">Choose tour</a>
@@ -303,8 +309,159 @@
     </div>
     <div class="most_popular__section mainpage-slider">
         <div class="wrap">
+
             {% block content %}
             {% endblock %}
+
+            <div class="wrap_float">
+                <div class="top_part">
+                    <div class="top_part_left">
+                        <p class="section_subtitle">POPULARLY</p>
+                        <h2 class="section_title">
+                            Most popular <br> holiday destinations
+                        </h2>
+                    </div>
+                    <div class="top_part_right">
+                        <a href="tour-list.html" class="btn">
+                            <span>View all tours</span>
+                        </a>
+                        <div class="controls" id="most_popular__arrows">
+                            <div class="arrow prev"></div>
+                            <div class="arrow next"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="most_popular__section__slider" id="most_popular__slider">
+                    <a href="single.html" class="slider_item" style="background-image: url({{ asset('client/img/prevput1.jpg')}})">
+                        <div class="slider_item__content">
+                            <div class="rating">
+                                <div class="stars">
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star"></div>
+                                </div>
+                                <div class="reviews_count">
+                                    (2 Reviews)
+                                </div>
+                            </div>
+                            <h3 class="title">
+                                Autumn in Japan | $3,500 $3,880
+                            </h3>
+                            <p class="description">
+                                6 excursions to the main cities of the country, admire the beautiful autumn gardens
+                            </p>
+                            <div class="days">
+                                <span>7 days</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="single.html" class="slider_item" style="background-image: url({{ asset('client/img/prevput2.jpg')}})">
+                        <div class="slider_item__tags">
+                            <div class="tag discount">20% off</div>
+                        </div>
+                        <div class="slider_item__content">
+                            <h3 class="title">
+                                A tour of the Islands | $3,500 $3,880
+                            </h3>
+                            <p class="description">
+                                6 excursions to the main cities of the country, admire the beautiful autumn gardens
+                            </p>
+                            <div class="days">
+                                <span>23 days</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="single.html" class="slider_item" style="background-image: url({{ asset('client/img/prevput3.jpg')}})">
+                        <div class="slider_item__tags">
+                            <div class="tag discount">20% off</div>
+                        </div>
+                        <div class="slider_item__content">
+                            <div class="rating">
+                                <div class="stars">
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star"></div>
+                                </div>
+                                <div class="reviews_count">
+                                    (2 Reviews)
+                                </div>
+                            </div>
+                            <h3 class="title">
+                                Seychelles | from $300
+                            </h3>
+                            <p class="description">
+                                6 excursions to the main cities of the country, admire the beautiful autumn gardens
+                            </p>
+                            <div class="days">
+                                <span>7 days</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="single.html" class="slider_item" style="background-image: url({{ asset('client/img/prevput4.jpg')}})">
+                        <div class="slider_item__tags">
+                            <div class="tag discount">20% off</div>
+                        </div>
+                        <div class="slider_item__content">
+                            <div class="rating">
+                                <div class="stars">
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star"></div>
+                                </div>
+                                <div class="reviews_count">
+                                    (2 Reviews)
+                                </div>
+                            </div>
+                            <h3 class="title">
+                                Autumn in Japan | $3,500 $3,880
+                            </h3>
+                            <p class="description">
+                                6 excursions to the main cities of the country, admire the beautiful autumn gardens
+                            </p>
+                            <div class="days">
+                                <span>7 days</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="single.html" class="slider_item" style="background-image: url({{ asset('client/img/prevput5.jpg')}})">
+                        <div class="slider_item__tags">
+                            <div class="tag discount">20% off</div>
+                            <div class="tag new">New</div>
+                        </div>
+                        <div class="slider_item__content">
+                            <div class="rating">
+                                <div class="stars">
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star active"></div>
+                                    <div class="star"></div>
+                                </div>
+                                <div class="reviews_count">
+                                    (2 Reviews)
+                                </div>
+                            </div>
+                            <h3 class="title">
+                                A tour of the Islands | $3,500 $3,880
+                            </h3>
+                            <p class="description">
+                                6 excursions to the main cities of the country, admire the beautiful autumn gardens
+                            </p>
+                            <div class="days">
+                                <span>7 days</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="benefits">
@@ -346,9 +503,91 @@
             </div>
         </div>
     </div>
+
     {% block search %}
 
     {% endblock %}
+
+    <div class="search_tour">
+        <div class="wrap">
+            <div class="wrap_float">
+                <div class="search_tour_form">
+                    <h2 class="section_subtitle">
+                        SEARCH TOUR
+                    </h2>
+                    <p class="section_title">
+                        Ready to rest? We are ready to help with the search
+                    </p>
+                    <div class="fields__block">
+                        <div class="fields">
+                            <div class="field">
+                                <div class="label">Keywords</div>
+                                <div class="field_wrap keywords">
+                                    <input type="text" class="input">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="label">Activity</div>
+                                <div class="field_wrap select_field">
+                                    <select name="tour-activity">
+                                        <option value="">Any</option>
+                                        <option value="city-tours">City Tours</option>
+                                        <option value="cultural-thematic-tours">Cultural &amp; Thematic Tours</option>
+                                        <option value="family-friendly-tours">Family Friendly Tours</option>
+                                        <option value="holiday-seasonal-tours">Holiday &amp; Seasonal Tours</option>
+                                        <option value="indulgence-luxury-tours">Indulgence &amp; Luxury Tours</option>
+                                        <option value="outdoor-activites">Outdoor Activites</option>
+                                        <option value="relaxation-tours">Relaxation Tours</option>
+                                        <option value="wild-adventure-tours">Wild &amp; Adventure Tours</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="label">Destination</div>
+                                <div class="field_wrap select_field">
+                                    <select name="tour-activity">
+                                        <option value="">Any</option>
+                                        <option value="city-tours">City Tours</option>
+                                        <option value="cultural-thematic-tours">Cultural &amp; Thematic Tours</option>
+                                        <option value="family-friendly-tours">Family Friendly Tours</option>
+                                        <option value="holiday-seasonal-tours">Holiday &amp; Seasonal Tours</option>
+                                        <option value="indulgence-luxury-tours">Indulgence &amp; Luxury Tours</option>
+                                        <option value="outdoor-activites">Outdoor Activites</option>
+                                        <option value="relaxation-tours">Relaxation Tours</option>
+                                        <option value="wild-adventure-tours">Wild &amp; Adventure Tours</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="label">Duration</div>
+                                <div class="field_wrap select_field">
+                                    <select name="tour-activity">
+                                        <option value="">Any</option>
+                                        <option value="city-tours">City Tours</option>
+                                        <option value="cultural-thematic-tours">Cultural &amp; Thematic Tours</option>
+                                        <option value="family-friendly-tours">Family Friendly Tours</option>
+                                        <option value="holiday-seasonal-tours">Holiday &amp; Seasonal Tours</option>
+                                        <option value="indulgence-luxury-tours">Indulgence &amp; Luxury Tours</option>
+                                        <option value="outdoor-activites">Outdoor Activites</option>
+                                        <option value="relaxation-tours">Relaxation Tours</option>
+                                        <option value="wild-adventure-tours">Wild &amp; Adventure Tours</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="label">Date</div>
+                                <div class="field_wrap calendar_field">
+                                    <input type="text" class="calendar js_calendar">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="submit"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="popular_destination__section mainpage-slider">
         <div class="wrap">
             <div class="wrap_float">
@@ -372,8 +611,195 @@
                     </div>
                 </div>
                 <div class="section_content">
+
                     {% block content2 %}
                     {% endblock %}
+
+
+                    <div class="popular_destination__slider" id="popular_destination__slider">
+                        <div class="slide_item">
+                            <a href="single.html" class="slide_item_img">
+                                <div class="sq_parent">
+                                    <div class="sq_wrap">
+                                        <div class="sq_content" style="background-image: url({{ asset('client/img/prevnap3.jpg')}})"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="single.html" class="slide_item_content">
+                                <div class="flag">
+                                    <img src="{{ asset('client/img/turkey.svg')}}" alt="">
+                                </div>
+                                <h3 class="slide_title">
+                                    Turkey
+                                </h3>
+                                <p class="slide_text">
+                                    Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                </p>
+                            </a>
+                            <div class="slide_footer">
+                                <div class="hours">15 tours</div>
+                                <div class="tours_link">
+                                    <a href="tour-list.html">View all tours</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide_item">
+                            <a href="single.html" class="slide_item_img">
+                                <div class="sq_parent">
+                                    <div class="sq_wrap">
+                                        <div class="sq_content" style="background-image: url({{ asset('client/img/prevnap2.jpg')}})"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="single.html" class="slide_item_content">
+                                <div class="flag">
+                                    <img src="{{ asset('client/img/egypt-3.svg')}}" alt="">
+                                </div>
+                                <h3 class="slide_title">
+                                    Egypt
+                                </h3>
+                                <p class="slide_text">
+                                    Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                </p>
+                            </a>
+                            <div class="slide_footer">
+                                <div class="hours">15 tours</div>
+                                <div class="tours_link">
+                                    <a href="tour-list.html">View all tours</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide_item">
+                            <a href="single.html" class="slide_item_img">
+                                <div class="sq_parent">
+                                    <div class="sq_wrap">
+                                        <div class="sq_content" style="background-image: url({{ asset('client/img/prevnap4.jpg')}})"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="single.html" class="slide_item_content">
+                                <div class="flag">
+                                    <img src="{{ asset('client/img/brazil-3.svg')}}" alt="">
+                                </div>
+                                <h3 class="slide_title">
+                                    Brazil
+                                </h3>
+                                <p class="slide_text">
+                                    Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                </p>
+                            </a>
+                            <div class="slide_footer">
+                                <div class="hours">15 tours</div>
+                                <div class="tours_link">
+                                    <a href="tour-list.html">View all tours</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide_item">
+                            <a href="single.html" class="slide_item_img">
+                                <div class="sq_parent">
+                                    <div class="sq_wrap">
+                                        <div class="sq_content" style="background-image: url({{ asset('client/img/prevnap5.jpg')}})"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="single.html" class="slide_item_content">
+                                <div class="flag">
+                                    <img src="{{ asset('client/img/cyprus-3.svg')}}" alt="">
+                                </div>
+                                <h3 class="slide_title">
+                                    Cyprus
+                                </h3>
+                                <p class="slide_text">
+                                    Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                </p>
+                            </a>
+                            <div class="slide_footer">
+                                <div class="hours">15 tours</div>
+                                <div class="tours_link">
+                                    <a href="tour-list.html">View all tours</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide_item">
+                            <a href="single.html" class="slide_item_img">
+                                <div class="sq_parent">
+                                    <div class="sq_wrap">
+                                        <div class="sq_content" style="background-image: url({{ asset('client/img/prevnap1.jpg')}})"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="single.html" class="slide_item_content">
+                                <div class="flag">
+                                    <img src="{{ asset('client/img/usa.svg')}}" alt="">
+                                </div>
+                                <h3 class="slide_title">
+                                    America
+                                </h3>
+                                <p class="slide_text">
+                                    Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                </p>
+                            </a>
+                            <div class="slide_footer">
+                                <div class="hours">15 tours</div>
+                                <div class="tours_link">
+                                    <a href="tour-list.html">View all tours</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide_item">
+                            <a href="single.html" class="slide_item_img">
+                                <div class="sq_parent">
+                                    <div class="sq_wrap">
+                                        <div class="sq_content" style="background-image: url({{ asset('client/img/prevnap9.jpg')}})"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="single.html" class="slide_item_content">
+                                <div class="flag">
+                                    <img src="{{ asset('client/img/russia.svg')}}" alt="">
+                                </div>
+                                <h3 class="slide_title">
+                                    Russia
+                                </h3>
+                                <p class="slide_text">
+                                    Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                </p>
+                            </a>
+                            <div class="slide_footer">
+                                <div class="hours">15 tours</div>
+                                <div class="tours_link">
+                                    <a href="tour-list.html">View all tours</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide_item">
+                            <a href="single.html" class="slide_item_img">
+                                <div class="sq_parent">
+                                    <div class="sq_wrap">
+                                        <div class="sq_content" style="background-image: url({{ asset('client/img/prevnap6.jpg')}})"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="single.html" class="slide_item_content">
+                                <div class="flag">
+                                    <img src="{{ asset('client/img/eng.svg')}}" alt="">
+                                </div>
+                                <h3 class="slide_title">
+                                    England
+                                </h3>
+                                <p class="slide_text">
+                                    Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                </p>
+                            </a>
+                            <div class="slide_footer">
+                                <div class="hours">15 tours</div>
+                                <div class="tours_link">
+                                    <a href="tour-list.html">View all tours</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -508,7 +934,9 @@
             </div>
         </div>
     </div>
-    <div class="blog blog-section last-section" style="background-image: url({{ asset('client/img/home4.jpg')}});">
+
+        <div class="blog blog-section last-section" style="background-image: url({{ asset('client/img/home4.jpg')}});">
+
         <div class="wrap">
             <div class="wrap_float">
                 <div class="top_part">
@@ -574,7 +1002,11 @@
                         <ul>
                             <li><a href="/" class="active">Home</a></li>
                             <li><a href="about.html">About</a></li>
+
                             <li><a href="tour-list.html">Tour List</a></li>
+
+                            <li><a href="tour-list.html">Transport</a></li>
+
                             <li><a href="destinations.html">Destinations</a></li>
                             <li><a href="single.html">Date & Pricing</a></li>
                             <li><a href="blog-list.html">Blog</a></li>
