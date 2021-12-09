@@ -4,7 +4,10 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-
+    images_directory: '%kernel.project_dir%/public/uploads/images'
+    images_voiture_directory: '%kernel.project_dir%/public/uploads/voiture'
+    twilio_sid: 'ACd0813fa9f2c5d1f885f3121718aa6740'
+    twilio_token: '12556bf8a3f6ca66cab431034d8cb431'
 services:
     # default configuration for services in *this* file
     _defaults:

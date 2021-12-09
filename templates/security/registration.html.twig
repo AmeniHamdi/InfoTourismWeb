@@ -1,0 +1,37 @@
+{% extends 'baseSecurity.html.twig' %}
+{% block body %}
+
+    {{ form_start(form) }}
+
+    <div class="wrap-input100 validate-input">
+        {{ form_widget(form.name, {'attr': {'class': 'input100', 'type': 'text', 'name': 'name'}}) }}
+        <span class="focus-input100"></span>
+        <span class="label-input100">{{ form_label(form.name) }}</span>
+    </div>
+
+    <div class="wrap-input100 validate-input">
+        {{ form_widget(form.email, {'attr': {'class': 'input100', 'type': 'text', 'name': 'email'}}) }}
+        <span class="focus-input100"></span>
+        <span class="label-input100">{{ form_label(form.email) }}</span>
+    </div>
+
+    <div class="wrap-input100 validate-input">
+        {{ form_widget(form.password.first, {'attr': {'class': 'input100', 'type': 'password', 'name': 'password.first'}}) }}
+        <span class="focus-input100"></span>
+        <span class="label-input100">{{ form_label(form.password.first) }}</span>
+    </div>
+
+    <div class="wrap-input100 validate-input">
+        {{ form_widget(form.password.second, {'attr': {'class': 'input100', 'type': 'password', 'name': 'password.second'}}) }}
+        <span class="focus-input100"></span>
+        <span class="label-input100">{{ form_label(form.password.second) }}</span>
+    </div>
+
+    <div class="container-login100-form-btn">
+        <button class="login100-form-btn" type="submit">
+             Register
+        </button>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}
