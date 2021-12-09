@@ -8,6 +8,7 @@
    
 
         <title>{% block title %}{% endblock %}</title>
+
         {% block stylesheets %}
 
 
@@ -22,6 +23,7 @@
         <a href="{{ path('client') }}" class="logo"><i class="ico mdi mdi-airplane"></i>Info Tourisme</a>
         <button type="button" class="button-close fa fa-times js__menu_close"></button>
         <div class="user">
+
             <a href="#" class="avatar"><img src="{{ asset('uploads/images/' ~ app.user.image) }}" alt=""><span class="status online"></span></a>
             <h5 class="name"><a href="{{ path("profile",{'id':app.user.id}) }}">{{ app.user.name }}</a></h5>
 
@@ -79,13 +81,30 @@
                 <li class="current">
 
                     <a class="waves-effect" href="/AfficheTypeclient"><i class="menu-icon mdi mdi-view-dashboard"></i><span>Front des Types</span></a>
-                    </li>
+                 </li>
+                 <li class="current">
+                     <a class="waves-effect" href="/AfficheHotel"><i class="menu-icon mdi mdi-view-dashboard"></i><span>Hotel</span></a>
+                </li>
+                <li class="current">
+                    <a class="waves-effect" href="/AfficheChambre"><i class="menu-icon mdi mdi-view-dashboard"></i><span>Chambre</span></a>
+                </li>
+
             </ul>
             <!-- /.menu js__accordion -->
             <h5 class="title">Extra</h5>
             <!-- /.title -->
 
             <ul class="menu js__accordion">
+                <li>
+                    <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-chart-areaspline"></i><span>Espace Client</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                    <ul class="sub-menu js__content">
+                        <li><a href="/AfficheHotelClient">Hotel client</a></li>
+                        <li><a href="/AfficheChambreclient">Chambre client</a></li>
+
+                    </ul>
+                    <!-- /.sub-menu js__content -->
+                </li>
+
                 <li>
                     <a class="waves-effect" href="inbox.html"><i class="menu-icon mdi mdi-email"></i><span>Mail</span><span class="notice notice-danger">New</span></a>
                 </li>

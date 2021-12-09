@@ -1,0 +1,26 @@
+{% extends 'baseClient.html.twig'%}
+
+
+{% block content2 %}
+
+    <div class="popular_destination__slider" id="popular_destination__slider">
+        {% for image in hotel.images %}
+           
+               
+
+            <div class="slide_item">
+                
+                    <div class="flag">
+                       <img src="{{ asset('/uploads/'~image.name) }}" alt="" width="150">
+                    </div>
+              
+            </div>
+
+
+        {% endfor %}
+
+    </div>
+
+
+
+ {% endblock %}

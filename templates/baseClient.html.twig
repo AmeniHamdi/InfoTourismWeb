@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <title>Info Tourism – Tour & Travel Agency </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
@@ -29,7 +30,9 @@
                         <a href="tel:0000000000">+1 1235 6789 10</a>
                     </div>
                     <div class="email">
+
                         <a href="mailto:info@hellodigi.ru">infoTourism@gmail.com</a>
+
                     </div>
                     <div class="socials">
                         <a href="#" class="a facebook"></a>
@@ -39,7 +42,8 @@
                     </div>
                 </div>
                 <div class="header__bottom">
-                    <a href="/" class="logo">Info Tourism</a>
+                    <a href="/" class="logo">Info Tourisme</a>
+
                     <div class="menu" id="js-menu">
                         <div class="close"></div>
                         <div class="scroll">
@@ -72,6 +76,7 @@
                                             </ul>
                                         </div>
                                     </li>
+
 
                                     <li><a href="{{ path('locationvoiture') }}">Voitures</a></li>
 
@@ -136,6 +141,7 @@
             <ul class="slider-pagi"></ul>
             <div class="slider">
                 <div class="slide slide-0 active">
+
                     <div class="slide__bg" style="background-image: url({{ asset('client/img/kairouan.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
@@ -146,12 +152,14 @@
                             <div class="slide__controls">
                                 <a href="single.html" class="btn">Want a personal Activity </a>
                                 <a href="tour-list.html" class="btn btn__choose_tour">Choose Activity </a>
+
                                 <a class="arrow next"></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="slide slide-1 ">
+
                     <div class="slide__bg" style="background-image: url({{ asset('client/img/sidibou.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
@@ -166,11 +174,14 @@
                     </div>
                 </div>
                 <div class="slide slide-2">
+
+
                     <div class="slide__bg" style="background-image: url({{ asset('client/img/ElJem.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
                             <h2 class="slide__text-heading"> El Jem </h2>
                             <p class="slide__text-desc">The Roman city of Thysdrus </p>
+
                             <div class="slide__controls">
                                 <a href="single.html" class="btn">Want a personal tour</a>
                                 <a href="tour-list.html" class="btn btn__choose_tour">Choose tour</a>
@@ -180,6 +191,7 @@
                     </div>
                 </div>
                 <div class="slide slide-3">
+
                     <div class="slide__bg" style="background-image: url({{ asset('client/img/Douz.jpg')}});"></div>
                     <div class="slide__content">
                         <div class="slide__text">
@@ -197,7 +209,7 @@
         </div>
         <div class="most_popular">
                 <span>
-                    The most popular destination this year - Thailand
+                    The most popular destination this year - Tunisia
                 </span>
         </div>
         <div class="categories" id="header_categories">
@@ -297,6 +309,10 @@
     </div>
     <div class="most_popular__section mainpage-slider">
         <div class="wrap">
+
+            {% block content %}
+            {% endblock %}
+
             <div class="wrap_float">
                 <div class="top_part">
                     <div class="top_part_left">
@@ -487,6 +503,11 @@
             </div>
         </div>
     </div>
+
+    {% block search %}
+
+    {% endblock %}
+
     <div class="search_tour">
         <div class="wrap">
             <div class="wrap_float">
@@ -566,6 +587,7 @@
             </div>
         </div>
     </div>
+
     <div class="popular_destination__section mainpage-slider">
         <div class="wrap">
             <div class="wrap_float">
@@ -589,6 +611,11 @@
                     </div>
                 </div>
                 <div class="section_content">
+
+                    {% block content2 %}
+                    {% endblock %}
+
+
                     <div class="popular_destination__slider" id="popular_destination__slider">
                         <div class="slide_item">
                             <a href="single.html" class="slide_item_img">
@@ -773,6 +800,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -906,7 +934,9 @@
             </div>
         </div>
     </div>
+
         <div class="blog blog-section last-section" style="background-image: url({{ asset('client/img/home4.jpg')}});">
+
         <div class="wrap">
             <div class="wrap_float">
                 <div class="top_part">
@@ -972,7 +1002,11 @@
                         <ul>
                             <li><a href="/" class="active">Home</a></li>
                             <li><a href="about.html">About</a></li>
+
+                            <li><a href="tour-list.html">Tour List</a></li>
+
                             <li><a href="tour-list.html">Transport</a></li>
+
                             <li><a href="destinations.html">Destinations</a></li>
                             <li><a href="single.html">Date & Pricing</a></li>
                             <li><a href="blog-list.html">Blog</a></li>
