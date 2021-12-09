@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AmeniInterface;
 use App\Entity\Assurance;
 use App\Form\AssuranceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,15 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AssuranceController extends AbstractController
 {
-    /**
-     * @Route("/assurance", name="assurance")
-     */
-    public function index(): Response
-    {
-        return $this->render('assurance/index.html.twig', [
-            'controller_name' => 'AssuranceController',
-        ]);
-    }
     /**
      * @Route("/admin/assurance", name="assurance")
      */
@@ -37,7 +29,8 @@ class AssuranceController extends AbstractController
         $assurance = new Assurance();
         $form = $this->createForm(AssuranceType::class, $assurance);
         $form->handleRequest($request);
-        dump($form);
+        $user = $this->getUser();
+        $assurance->setCreatedBy($user->getName());
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($assurance);
@@ -69,12 +62,11 @@ class AssuranceController extends AbstractController
         $assurance = $this->getDoctrine()->getRepository(Assurance::class)->find($id);
         $form = $this->createForm(AssuranceType::class, $assurance);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute("assurance");
         }
         return $this->render("admin/updateAssurance.html.twig", ["form" => $form->createView()]);
     }
-
 }
