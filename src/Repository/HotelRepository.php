@@ -6,7 +6,7 @@ use App\Data\SearchData;
 use App\Entity\Hotel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
+use Doctrine\ORM\Query\ResultSetMappingBuilder;
 /**
  * @method Hotel|null find($id, $lockMode = null, $lockVersion = null)
  * @method Hotel|null findOneBy(array $criteria, array $orderBy = null)
@@ -73,5 +73,18 @@ class HotelRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+
+
+
+    public function findAllSorted()
+{
+    $rawSql = "SELECT * FROM hotel AS h ORDER BY h.categorie desc";
+
+    $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+    $stmt->execute([]);
+
+    return $stmt->getResult();
+}
 
 }
