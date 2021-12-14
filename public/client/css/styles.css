@@ -5163,6 +5163,7 @@ body {
 }
 .single-page.tour-single.dark {
   background: #000;
+  padding-top: 200px;
 }
 .single-page .single-row {
   display: flex;
@@ -7102,6 +7103,9 @@ body {
     font-size: 16px;
   }
   .single-page .content-body .text {
+    font-size: 16px;
+  }
+  .single-page .content-body .table_wrap .table tbody tr td {
     font-size: 16px;
   }
   .single-page .reviews_comments_top ._title {
