@@ -31,7 +31,7 @@ class PostClientController extends AbstractController
      */
     public function AfficherPost(PostRepository $repository){
         //$repo=$this->getDoctrine()->getRepository(Classroom::class);
-        $post=$repository->findAll();
+        $post=$repository->findAllPosts();
         return $this->render('post_client/AfficherPostCl.html.twig',
             ['post'=>$post]);
     }
@@ -45,6 +45,11 @@ class PostClientController extends AbstractController
         $em=$this->getDoctrine()->getManager();
         $post=$repository->find($id);
         $form=$this->createForm(PostType::class,$post);
+        $nbr= $post->getViews();
+        //var_dump($nbr).die();
+        $post->setViews($nbr+1);
+        $em->persist($post);
+        $em->flush();
         $form->add('Detail',SubmitType::class,[
             'attr'=>[
                 'class'=>'btn btn-primary waves-effect waves-light']]);
@@ -55,6 +60,7 @@ class PostClientController extends AbstractController
                 'photo'=>$post->getPhoto(),
                 'description'=>$post->getDescription(),
                 'id'=>$post->getId(),
+                'nbrVue'=>$post->getViews()
 
 
             ]);

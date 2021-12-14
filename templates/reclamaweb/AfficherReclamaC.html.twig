@@ -175,19 +175,16 @@
                     <table id="customers" style="width: 100%">
                         <thead>
                         <tr>
-
-                            <th>Type</th>
                             <th>FirstName</th>
-                            <th>LastName</th>
+                            <th>Type</th>
                             <th>Description</th>
 
                         </tr>
                         </thead>
                         <tbody>
                         <tr {% for r in reclama %}>
-                            <td>{{ r.type }}</td>
                             <td>{{ r.firstname }}</td>
-                            <td>{{ r.lastname }}</td>
+                            <td>{{ r.type }}</td>
                             <td>{{ r.description }}</td>
 
                         </tr  {% endfor %}>

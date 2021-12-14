@@ -75,9 +75,8 @@ class PostController extends AbstractController
             $filename= md5(uniqid()) . '.' . $file->guessExtension();
             $file->move($this->getParameter('photos_directory'),$filename);
             $post->setPhoto($filename);
-            $views=$post;
 
-            $post->setViews($views->getViews()+ 1);
+
             $em->persist($post);
             $em->flush();
 
@@ -127,6 +126,9 @@ class PostController extends AbstractController
         $em=$this->getDoctrine()->getManager();
         $post=$repository->find($id);
         $form=$this->createForm(PostType::class,$post);
+        $nbr= $post->getViews();
+        //var_dump($nbr).die();
+        $post->setViews($nbr+1);
         $form->add('Detail',SubmitType::class,[
             'attr'=>[
                 'class'=>'btn btn-primary waves-effect waves-light']]);
@@ -137,7 +139,8 @@ class PostController extends AbstractController
             'date'=>$post->getPostdate(),
             'photo'=>$post->getPhoto(),
             'description'=>$post->getDescription(),
-            'id'=>$post->getId()
+            'id'=>$post->getId(),
+            'nbrVue'=>$post->getViews()
 
         ]);
     }
