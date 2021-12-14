@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TransportRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=TransportRepository::class)
@@ -18,28 +19,32 @@ class Transport
     private $id;
 
     /**
+     * @Assert\NotBlank(message="type est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
-    private $type;
+    private $type = null;
 
     /**
+     * @Assert\NotBlank(message="lieu est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
-    private $lieu;
+    private $lieu = null;
 
     /**
+     * @Assert\NotBlank(message="heure de disponibilité est Obligatoire")
      * @var string
      * @ORM\Column(type="string", length=255)
      */
-    private $heureDisponibilite;
+    private $heureDisponibilite = null;
 
     /**
+     * @Assert\NotBlank(message="capacité est Obligatoire")
      * @var int
      * @ORM\Column(type="integer")
      */
-    private $capacite;
+    private $capacite = null;
 
     /**
      * @return mixed
@@ -50,33 +55,33 @@ class Transport
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLieu(): string
+    public function getLieu(): ?string
     {
         return $this->lieu;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getHeureDisponibilite(): string
+    public function getHeureDisponibilite(): ?string
     {
         return $this->heureDisponibilite;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCapacite(): int
+    public function getCapacite(): ?int
     {
         return $this->capacite;
     }

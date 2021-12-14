@@ -1,0 +1,163 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    {% block title %}Ajouter  une Activite{% endblock %}
+
+    {% block stylesheets %}
+
+        <!-- Main Styles -->
+        <link rel="stylesheet" href="{{ asset('admin/styles/style.min.css') }}">
+
+        <!-- Material Design Icon -->
+        <link rel="stylesheet" href="{{ asset('admin/fonts/material-design/css/materialdesignicons.css') }}">
+
+        <!-- mCustomScrollbar -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css') }}">
+
+        <!-- Waves Effect -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/waves/waves.min.css') }}">
+
+        <!-- Sweet Alert -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/sweet-alert/sweetalert.css') }}">
+
+        <!-- FlexDatalist -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/flexdatalist/jquery.flexdatalist.min.css') }}">
+
+        <!-- Popover -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/popover/jquery.popSelect.min.css') }}">
+
+        <!-- Select2 -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/select2/css/select2.min.css') }}">
+
+        <!-- Timepicker -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/timepicker/bootstrap-timepicker.min.css') }}">
+
+        <!-- Touch Spin -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/touchspin/jquery.bootstrap-touchspin.min.css') }}">
+
+        <!-- Colorpicker -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/colorpicker/css/bootstrap-colorpicker.min.css') }}">
+
+        <!-- Datepicker -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/datepicker/css/bootstrap-datepicker.min.css') }}">
+
+        <!-- DateRangepicker -->
+        <link rel="stylesheet" href="{{ asset('admin/plugin/daterangepicker/daterangepicker.css') }}">
+
+        <!-- Dark Themes -->
+        <link rel="stylesheet" href="{{ asset('admin/styles/style-dark.min.css') }}">
+
+
+    {% endblock %}
+{% endblock %}
+
+        {% block content %}
+<div class="row small-spacing">
+    <div class="col-xs-10">
+        <div class="box-content card black">
+            <h4 class="box-title">New Activite</h4>
+            <!-- /.box-title -->
+            <div class="card-content">
+
+            {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+            <h1> Ajouter une Activite</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.activite) }}</label>
+                {{ form_widget(form.activite, {'attr': {'class': 'form-control', 'placeholder': 'Enter activite', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                {{ form_errors(form.activite,{'attr':{'novalidate':'novalidate'}}) }}
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.destination) }}</label>
+                {{ form_widget(form.destination, {'attr': {'class': 'form-control', 'placeholder': 'Enter destination', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                {{ form_errors(form.destination,{'attr':{'novalidate':'novalidate'}}) }}
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.DateDepart) }}</label>
+                {{ form_widget(form.DateDepart, {'attr': {'class': 'form-control', 'placeholder': 'Enter DateDepart', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.DateDarrivee) }}</label>
+                {{ form_widget(form.DateDarrivee, {'attr': {'class': 'form-control', 'placeholder': 'Enter DateDarrivee', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+            </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">{{ form_label(form.type) }}</label>
+                    {{ form_widget(form.type, {'attr': {'class': 'form-control', 'placeholder': 'Enter type', 'id': 'exampleInputEmail1', 'type': 'text'}}) }}
+                </div>
+            <br>
+            </div>
+
+            {{ form_row(form.submit, {'attr': {'class': 'btn btn-success btn-sm waves-effect waves-light'}, 'label': 'Ajouter' }) }}
+
+            {{ form_end(form) }}
+        </div>
+        <!-- /.card-content -->
+    </div>
+    <!-- /.box-content -->
+</div>
+
+            </div>
+
+
+
+
+
+        {% endblock %}
+
+{% block javascripts %}
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ asset('admin/scripts/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/scripts/modernizr.min.js') }}"></script>
+    <script src="{{ asset('admin/plugin/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('admin/plugin/nprogress/nprogress.js') }}"></script>
+    <script src="{{ asset('admin/plugin/sweet-alert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('admin/plugin/waves/waves.min.js') }}"></script>
+
+    <!-- Flex Datalist -->
+    <script src="{{ asset('admin/plugin/flexdatalist/jquery.flexdatalist.min.js') }}"></script>
+
+    <!-- Popover -->
+    <script src="{{ asset('admin/plugin/popover/jquery.popSelect.min.js') }}"></script>
+
+    <!-- Select2 -->
+    <script src="{{ asset('admin/plugin/select2/js/select2.min.js') }}"></script>
+
+    <!-- Multi Select -->
+    <script src="{{ asset('admin/plugin/multiselect/multiselect.min.js') }}"></script>
+
+    <!-- Touch Spin -->
+    <script src="{{ asset('admin/plugin/touchspin/jquery.bootstrap-touchspin.min.js') }}"></script>
+
+    <!-- Timepicker -->
+    <script src="{{ asset('admin/plugin/timepicker/bootstrap-timepicker.min.js') }}"></script>
+
+    <!-- Colorpicker -->
+    <script src="{{ asset('admin/plugin/colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
+
+    <!-- Datepicker -->
+    <script src="{{ asset('admin/plugin/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+
+    <!-- Moment -->
+    <script src="{{ asset('admin/plugin/moment/moment.js') }}"></script>
+
+    <!-- DateRangepicker -->
+    <script src="{{ asset('admin/plugin/daterangepicker/daterangepicker.js') }}"></script>
+
+    <!-- Maxlength -->
+    <script src="{{ asset('admin/plugin/maxlength/bootstrap-maxlength.min.js') }}"></script>
+
+    <!-- Demo Scripts -->
+    <script src="{{ asset('admin/scripts/form.demo.min.js') }}"></script>
+
+    <script src="{{ asset('admin/scripts/main.min.js') }}"></script>
+{% endblock %}
+
+
+

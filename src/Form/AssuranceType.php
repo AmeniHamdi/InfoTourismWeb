@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Assurance;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,8 +16,8 @@ class AssuranceType extends AbstractType
         $builder
             ->add('dateDebut', TextType::class, ['label' => 'Date Début Contrat'])
             ->add('dateFin', TextType::class, ['label' => 'Date Fin Contrat'])
-            ->add('createdBy')
             ->add('assignedTo')
+            ->add('idvoiture')
             ->add("submit",SubmitType::class)
         ;
     }
@@ -27,6 +26,9 @@ class AssuranceType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Assurance::class,
+            'attr' => [
+                'novalidate' => 'novalidate', // comment me to reactivate the html5 validation!  🚥
+            ]
         ]);
     }
 }

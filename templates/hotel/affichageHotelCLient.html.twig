@@ -1,0 +1,136 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    {% block stylesheets %}
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+
+        <!-- Template Main CSS File -->
+
+        <!-- Vendor CSS Files -->
+        <link href="{{ asset('client/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+        <link href="{{ asset('client/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('client/css/rating.css') }}" rel="stylesheet">
+
+    {% endblock %}
+{% endblock %}
+            {% block search %}
+                        {% include 'hotel/_filtre.html.twig' with {form : form} only %}
+            {% endblock %}
+{% block content2 %}
+
+    <div class="popular_destination__slider" id="popular_destination__slider">
+       {% for h in hotel %}
+            <div class="slide_item">
+                <div  class="slide_item_img">
+                    <div class="sq_parent">
+                        <div class="sq_wrap">
+                            <div class="sq_content" style="background-image: url({{ asset('client/img/' ~ h.nom ~ '.jpg')}})"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide_item_content" >
+                    <div class="flag">
+                        <img src="{{ asset('client/img/tunis.png')}}" alt="">
+                    </div>
+                    <h3 class="slide_title">
+                     <a href="{{path('hotel_detail',{'id':h.id})}}">   {{ h.nom }} </a>
+                    </h3>
+                    <p class="slide_text">
+                        Nombre de Chambre {{ h.nombrechambre }}
+
+
+                    </p>
+
+
+
+
+
+
+
+                </div>
+                <div class="slide_footer" style="
+    background-color: lightgrey;
+">
+                    <div class="hours">Categorie :
+                        <div class="slider_item__content">
+                            <div class="rating">
+                                <div class="stars">
+                                    {% if  h.categorie == "5 étoiles"  %}
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+                                        <div class="star active"></div>
+
+           {% elseif h.categorie == "4 étoiles" %}
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star "></div>
+           {% elseif h.categorie == "3 étoiles" %}
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star "></div>
+               <div class="star "></div>
+           {% elseif h.categorie == "2 étoiles" %}
+               <div class="star active"></div>
+               <div class="star active"></div>
+               <div class="star "></div>
+               <div class="star "></div>
+               <div class="star "></div>
+           {% else %}
+               <div class="star active"></div>
+               <div class="star "></div>
+               <div class="star "></div>
+               <div class="star "></div>
+               <div class="star "></div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        </div>
+                    <div class="tours_link">
+                        <a href="tour-list.html">Lieu : {{ h.lieu }}</a>
+                    </div>
+                </div>
+            </div>
+
+
+ {% endfor %}
+
+    </div>
+
+
+
+ {% endblock %}
+
+{% block javascripts %}
+
+
+
+
+{% endblock %}
