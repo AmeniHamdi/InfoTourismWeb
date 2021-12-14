@@ -32,4 +32,5 @@ class TypeType extends AbstractType
             'data_class' => Type::class,
         ]);
     }
+
 }
