@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PostClientController extends AbstractController
 {
     /**
-     * @Route("/post/client", name="post_client")
+     * @Route("/client/post/client", name="post_client")
      */
     public function index(): Response
     {
@@ -27,7 +27,7 @@ class PostClientController extends AbstractController
     /**
      * @param PostRepository $repository
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route ("/AffichePostCl",name="AffichePostCl")
+     * @Route ("/client/AffichePostCl",name="AffichePostCl")
      */
     public function AfficherPost(PostRepository $repository){
         //$repo=$this->getDoctrine()->getRepository(Classroom::class);
@@ -39,7 +39,7 @@ class PostClientController extends AbstractController
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/DetailPostCl/{id}",name="DetailPostCl")
+     * @Route("/client/DetailPostCl/{id}",name="DetailPostCl")
      */
     function showdetailedAction($id,PostRepository $repository,Request $request){
         $em=$this->getDoctrine()->getManager();
@@ -68,7 +68,7 @@ class PostClientController extends AbstractController
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/addComment",name="addComment")
+     * @Route("/client/addComment",name="addComment")
      */
     public function addCommentAction(Request $request){
         $ref = $request->headers->get('referer');

@@ -40,12 +40,21 @@
                         <div class="scroll">
                             <div class="scroll_wrap">
                                 <ul>
-                                    <li><a href="/">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="tour-list.html">Transport</a></li>
-                                    <li><a href="destinations.html">Destinations</a></li>
-                                    <li><a href="single.html">Date & Pricing</a></li>
-                                    <li><a href="blog-list.html">Blog</a></li>
+                                    <li><a href="/" class="active">Home</a></li>
+
+                                    <li><a href="{{ path('AfficheHotelClient') }}"> Hotels </a></li>
+
+
+                                    <li><a href="{{ path('locationvoiture') }}">Car Rental </a></li>
+
+                                    <li><a href="{{ path('AfficheActivite') }}">Activities</a></li>
+                                    <li><a href="{{ path('AjouteReclamaClient') }}">Reclamtion</a></li>
+
+
+                                    <li >
+                                        <a href="{{ path('AffichePostCl') }}" > Blog </a>
+
+                                    </li>
                                 </ul>
                             </div>
                             <div class="bottom">

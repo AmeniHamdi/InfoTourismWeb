@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PostcommentController extends AbstractController
 {
     /**
-     * @Route("/postcomment", name="postcomment")
+     * @Route("/admin/postcomment", name="postcomment")
      */
     public function index(): Response
     {
@@ -25,7 +25,7 @@ class PostcommentController extends AbstractController
     /**
      * @param PostcommentRepository $repository
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route ("/AffichePostC",name="AffichePostC")
+     * @Route ("/admin/AffichePostC",name="AffichePostC")
      */
     public function AfficherPostcomment(PostcommentRepository $repository){
         //$repo=$this->getDoctrine()->getRepository(Classroom::class);
@@ -35,7 +35,7 @@ class PostcommentController extends AbstractController
     }
 
     /**
-     * @Route("/Supppostc/{id}",name="kc")
+     * @Route("/admin/Supppostc/{id}",name="kc")
      */
 
     function DeletePostcomment($id,PostcommentRepository $repository){
@@ -49,7 +49,7 @@ class PostcommentController extends AbstractController
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/AjoutePostC",name="AjoutePostC")
+     * @Route("/admin/AjoutePostC",name="AjoutePostC")
      */
     function AddPostcomment(Request $request){
         $postcomment=new Postcomment();
